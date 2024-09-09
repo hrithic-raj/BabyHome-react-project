@@ -24,6 +24,9 @@ function Store() {
   if (!products) {
     return <div>Loading...</div>;
   }
+  const handleLike=(id)=>{
+
+  }
   
   const handleProduct=(id)=>{
     navigate(`/store/product/${id}`)
@@ -41,7 +44,7 @@ function Store() {
       </div>
       <div className='flex justify-center flex-wrap mx-20 mt-10 gap-10'>
           {products.map(product=>(
-            <div key={product.id} className='w-[300px] h-[350px] flex flex-col items-center shadow-md border space-y-3' onClick={()=>handleProduct(product.id)}>
+            <div key={product.id} className='w-[300px] h-[350px] flex flex-col items-center shadow-md border space-y-3 hover:cursor-pointer' onClick={()=>handleProduct(product.id)}>
             <img className='w-[270px] h-[250px] mt-3' src={product.image} alt="Product Image" />
             <div className='flex flex-col'>
             <span className='max-w-[270px]'>{product.name}</span>

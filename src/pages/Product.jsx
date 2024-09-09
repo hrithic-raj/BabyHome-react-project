@@ -1,12 +1,13 @@
 import React,{useState,useEffect} from 'react'
 import MyNavbar from '../components/MyNavbar'
 import { getProductById } from '../Api/Product-api';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 function Product() {
   const [product, setProduct] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedImages, setSelectedImages] = useState([]);
   const [quntity, setQuntity] = useState(1);
+  const navigate=useNavigate();
   const {id}=useParams()
   useEffect(() => {
     getProductById(id)
@@ -50,20 +51,35 @@ function Product() {
             <hr/>
             <span className='text-1xl max-w-[500px] xl:max-w-[300px]'>{product.description}</span>
             <div className='flex space-x-3 mt-10'>
-              <span className=' text-red-400'>Rs. {product.price}.00</span>
-              <span className='line-through'>Rs. {product.oldprice}.00</span>
-              {product.stock===0?(
-              <span className='bg-gray-400 text-white p-0.5 rounded'>SOLD OUT</span>
-              ):(
-                <span className='bg-lime-300 text-white p-0.5 rounded'>{product.stock} STOCK AVAILABLE</span>
-              )}
+              <span className='text-gray-500'>MRP : </span>
+              <span className='text-gray-500 line-through'> ₹{product.oldprice}.00</span>
+              <span className=' text-red-500'>Save ₹{product.oldprice-product.price}.00</span>
             </div>  
+              <span className='text-3xl text-black mt-2 mb-2'>₹ {product.price}.00</span>
+              <div>
+                {product.stock===0?(
+                  <span className='bg-gray-400 text-white p-0.5 rounded'>SOLD OUT</span>
+                ):(
+                  (product.stock<10)?(
+                    <span className='bg-red-500 text-white p-0.5 rounded'>Only {product.stock} left</span>
+                  ):(
+                    <span className='bg-lime-300 text-white p-0.5 rounded'>{product.stock} STOCK AVAILABLE</span>
+                  )
+                )}
+              </div>
+              <div className='mt-5'>
+                {product.price>499?(
+                  <span className='text-green-500 rounded'>Eligible For Free Delivery</span>
+                ):(
+                  <span className='text-red-300 rounded'>Only product over than 499 eligible for free delivery</span>
+                )}
+              </div>
             <div className='mt-10 border border-gray-500 flex justify-center space-x-4 items-center h-10 rounded'>
               <button onClick={()=>setQuntity(prev=>prev===1?1:prev-1)} className='text-2xl rounded w-10 h-10'>-</button>
               <span className='text-2xl'>{quntity}</span>
               <button onClick={()=>setQuntity(prev=>prev+1)} className='text-2xl rounded w-10 h-10'>+</button>
             </div>
-            <button className='text-xl mt-20 w-[300px] bg-pink-300 h-10 rounded'>ADD TO CART</button>
+            <button className='text-xl mt-20 w-[300px] bg-pink-300 h-10 rounded' onClick={()=>navigate('/cart')}>ADD TO CART</button>
             <button className='text-xl mt-3 w-[300px] bg-red-200 h-10 rounded'>BUY NOW</button>
           </div>
         </div>

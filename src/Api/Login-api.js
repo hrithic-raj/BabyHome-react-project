@@ -16,5 +16,9 @@ export const addUser=async (user)=>{
 
 export const checkUser= async (username,password)=>{
     const res = await axios.get(`${URL}?username=${username}&password=${password}`)
-    return res.data.length > 0;
+    return res.data;
+}
+
+export const getUserById=(id)=>{
+    return axios.get(`${URL}/${id}`);
 }
