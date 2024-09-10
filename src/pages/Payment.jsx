@@ -1,0 +1,294 @@
+import React, { useContext, useEffect, useState } from 'react'
+import MyNavbar from '../components/MyNavbar'
+import { AuthContext } from '../contexts/AuthContext'
+import { getCartById, deleteCartById, increaseCount, decreaseCount} from '../Api/Product-api'
+import { BuyContext } from '../contexts/BuyContext'
+import axios from 'axios'
+import gpay from '../Assets/Main/gpay.png'
+import paytm from '../Assets/Main/paytm.png'
+
+
+function Payment() {
+    const userId=localStorage.getItem('userId')
+    const [cart,setCart]=useState([])
+    const [total,setTotal]=useState(0);
+    const [oldTotal,setOldTotal]=useState(0);
+    useEffect(()=>{
+        setTotal(cart.reduce((acc,value)=>acc+value.totalprice,0))
+        setOldTotal(cart.reduce((acc,value)=>acc+value.oldtotalprice,0))
+    })
+    useEffect(()=>{
+        getCartById(userId)
+        .then(res=>setCart(res))
+        .catch(err=>console.error(err))
+    },[userId])
+    
+    const removeFromCart=(productId)=>{
+        deleteCartById(userId,productId)
+        .then(res=>setCart(res))
+        .catch(err=>console.error(err))
+    }
+    
+    const handleAddCount=(product)=>{
+        increaseCount(userId,product)
+        .then(res=>setCart(res))
+        .catch(err=>console.error(err))
+    }
+    const handleSubCount=(product)=>{
+       decreaseCount(userId,product)
+        .then(res=>setCart(res))
+        .catch(err=>console.error(err))
+    }
+
+    const [selectedOption, setSelectedOption] = useState("");
+
+  const handleOptionChange = (e) => {
+    setSelectedOption(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (selectedOption) {
+      try {
+        await axios.post("http://localhost:3001/payment", {
+          paymentMethod: selectedOption,
+        });
+        alert("Payment method submitted successfully!");
+      } catch (error) {
+        console.error("Error submitting payment method:", error);
+      }
+    } else {
+      alert("Please select a payment method.");
+    }
+  };
+  const handleBuy=()=>{
+    
+  }
+
+  return (
+    <>
+        <div>
+            <MyNavbar/>
+            <div className='mt-[150px] flex flex-wrap xl:justify-start justify-center ms-10 xl:ms-[150px] space-x-0 xl:space-x-0 space-y-5 mb-10'>
+            <div className='border w-[60%] shadow-lg'>
+                <div className='flex justify-center items-center me-5 h-[100px]'>
+                    <span className='text-2xl text-center font-semibold mt-3 mb-3'>DELIVERY ADDRESS</span>
+                </div>
+                <hr className=''/>
+                <div className=' ps-2'>
+                    <div className='space-x-3 flex justify-between p-5'>
+                        <div className='max-w-300px '>
+                        <span className='text-2xl font-semibold'>NAME</span>
+                        <span className='text-2xl max-w-[300px]'>home name,</span>
+                        <span className='text-2xl max-w-[300px]'>home city,</span>
+                        <span className='text-2xl max-w-[300px]'>district,</span>
+                        <span className='text-2xl max-w-[300px]'>state,</span>
+                        <span className='text-2xl max-w-[300px]'>-673641</span>
+                        </div>
+                        <button className='bg-orange-400 rounded w-[100px] p-2 h-[50px] text-white '>Change</button>
+                    </div>
+                </div>
+            </div>
+                <div className='border w-[60%] mb-5 shadow-lg'>
+                   <div className='flex justify-center items-center me-5 h-[100px]'>
+                        <span className='text-2xl text-center font-semibold mt-3 mb-3'>ORDER SUMMARY</span>
+                    </div>
+                    <hr className=''/>
+                    <div className=' h-[430px] overflow-auto custom-scrollbar ps-2'>
+                    {cart.map(item=>(
+                        <div className='flex flex-wrap mt-3 mb-1'>
+                        <div className='w-[150px] flex flex-col justify-center items-center mt-3 mb-3'>
+                            <img className='w-[100px] h-[100px]' src={item.image} alt="product image" />
+                            <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-8 w rounded'>
+                                <button  onClick={()=>handleSubCount(item)}  className='text-2xl rounded w-10 h-10'>-</button>
+                                <span className='text-2xl'>{item.count}</span>
+                                <button onClick={()=>handleAddCount(item)} className='text-2xl rounded w-10 h-10'>+</button>
+                            </div>
+                        </div>
+                        <div className='grid w-[70%]'>
+                            <div className='flex flex-col grid-cols-2 h-[50px] overflow-hidden'>
+                                <span className='text-2xl xl:text-3xl'>{item.name}</span>
+                            </div>
+                            <div className='flex space-x-3 mb-3 grid-cols-1'>
+                                <span className='text-gray-500'>MRP : </span>
+                                <span className='text-gray-500 line-through'> ₹ {item.oldprice}.00</span>
+                                <span className=' text-red-500'>Save ₹ {item.oldprice-item.price}.00</span>
+                            </div>  
+                            <div className='flex justify-between flex-wrap grid-cols-1'>
+                            <span className='text-3xl text-black mb-2 font-bold'>₹ {item.totalprice}.00</span>
+                            <button className='bg-red-400 rounded p-2 h-[50px] text-white' onClick={()=>removeFromCart(item.id)}>Remove from Cart</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    ))}
+                    </div>
+                    
+                </div>
+                <div className='border w-[60%] mb-5 shadow-lg'>
+                <div className='flex justify-center items-center me-5 h-[100px]'>
+                    <span className='text-2xl text-center font-semibold mt-3 mb-3'>PAYMENT OPTIONS</span>
+                </div>
+                <hr className=''/>
+                <div className='ps-2'>
+                    <div className='space-x-3 flex justify-between p-5'>
+                        <div className='max-w-300px '>
+                            <form onSubmit={handleSubmit}>
+                                <div className="mb-4">
+                                    <label className="flex items-center mb-2">
+                                        <input
+                                            type="radio"
+                                            value="Gpay"
+                                            checked={selectedOption === "Gpay"}
+                                            onChange={handleOptionChange}
+                                            className="mr-2"
+                                        />
+                                        <img src={gpay} alt="GPay" className="w-10 h-10 mr-2" />
+                                        UPI - Google Pay
+                                    </label>
+
+                                    <label className="flex items-center mb-2">
+                                        <input
+                                        type="radio"
+                                        value="Paytm"
+                                        checked={selectedOption === "Paytm"}
+                                        onChange={handleOptionChange}
+                                        className="mr-2"
+                                        />
+                                        <img src={paytm} alt="Paytm" className="w-6 h-6 mr-2" />
+                                        Paytm
+                                    </label>
+
+                                    <label className="flex items-center mb-2">
+                                        <input
+                                        type="radio"
+                                        value="Card"
+                                        checked={selectedOption === "Card"}
+                                        onChange={handleOptionChange}
+                                        className="mr-2"
+                                        />
+                                        Credit / Debit / ATM Card
+                                    </label>
+
+                                    <label className="flex items-center mb-2">
+                                        <input
+                                        type="radio"
+                                        value="NetBanking"
+                                        checked={selectedOption === "NetBanking"}
+                                        onChange={handleOptionChange}
+                                        className="mr-2"
+                                        />
+                                        Net Banking
+                                    </label>
+
+                                    <label className="flex items-center mb-2">
+                                        <input
+                                        type="radio"
+                                        value="EMI"
+                                        checked={selectedOption === "EMI"}
+                                        onChange={handleOptionChange}
+                                        className="mr-2"
+                                        />
+                                        EMI (Easy Installments)
+                                    </label>
+
+                                    <label className="flex items-center mb-2">
+                                        <input
+                                        type="radio"
+                                        value="CashOnDelivery"
+                                        checked={selectedOption === "CashOnDelivery"}
+                                        onChange={handleOptionChange}
+                                        className="mr-2"
+                                        />
+                                        Cash on Delivery
+                                    </label>
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                                    >
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <hr className='hidden xl:flex'/>
+                    <div className='hidden xl:flex justify-end items-center me-5 h-[100px]'>
+                        <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handleBuy}>PLACE ORDER</button>
+                    </div>
+                </div>
+            </div>
+                <div className='border w-[60%] xl:w-[400px] xl:fixed xl:right-10 xl:top-1/3 xl:h-[350px] h-[450px] shadow-lg'>
+                    <div className='flex flex-col flex-wrap'>
+                    <span className='text-2xl text-center font-semibold mt-3 mb-3'>PRICE DETAILS</span><hr />
+                    <div className='ms-4 me-4 mt-5 space-y-5'>
+                        <div className='flex justify-between'>
+                            <span>Price ({cart.length})</span>
+                            <span>₹ {oldTotal}</span>
+                        </div>
+                        <div className='flex justify-between'>
+                            <span>Discount</span>
+                            <span className='text-green-400'>- ₹ {oldTotal-total}</span>
+                        </div>
+                        {total ?(
+                            <div className='flex justify-between'>
+                                <span>Platform Fee</span>
+                                <span>₹ 20</span>
+                            </div>
+                        ):(
+                            <div className='flex justify-between'>
+                                <span>Platform Fee</span>
+                                <span>₹ 0</span>
+                            </div>
+                        )}
+                        {total>499?(
+                            <div className='flex justify-between'>
+                                <span>Delivary Charge</span>
+                                <div>
+                                    <span className='line-through'>₹40</span>
+                                    <span className='text-green-400'>Free</span>
+                                </div>
+                            </div>
+                        ):(
+                            <div className='flex justify-between'>
+                                <span>Delivary Charge</span>
+                                <div>
+                                    <span className=''>₹ 40</span>
+                                </div>
+                            </div>
+                        )}
+                            {total?(
+                                total>499?(
+                                    <div className='flex justify-between'>
+                                        <span className='text-2xl font-bold'>Total Amount</span>
+                                        <span className='text-2xl font-bold'>₹{total+20}</span>
+                                    </div>
+                                ):(
+                                    <div className='flex justify-between'>
+                                        <span className='text-2xl font-bold'>Total Amount</span>
+                                        <span className='text-2xl font-bold'>₹{total+60}</span>
+                                    </div>
+                                )
+                            ):(
+                                <div className='flex justify-between'>
+                                    <span className='text-2xl font-bold'>Total Amount</span>
+                                    <span className='text-2xl font-bold'>₹ 00.00</span>
+                                </div>
+                            )}
+                            <hr className='xl:hidden flex'/>
+                            <div className='xl:hidden flex justify-end items-center me-5 h-[100px]'>
+                                
+                                <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white '>PLACE ORDER</button>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </>
+  )
+}
+
+export default Payment

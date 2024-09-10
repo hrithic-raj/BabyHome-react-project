@@ -11,6 +11,7 @@ import Profile from './pages/Profile';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import Cart from './pages/Cart';
+import Payment from './pages/Payment';
 
 function App() {
   return (
@@ -22,12 +23,13 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/about' element={<About/>}/>
         <Route path='/contactus' element={<ContactUs/>}/>
-        <Route path='/store' >
+        <Route path='/store'>
           <Route path='/store' element={<Store/>}/>
           <Route path='/store/product/:productId' element={<Product/>}/>
         </Route>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/payment' element={<Payment/>}/>
           <Route path='/store/:category' element={<Store/>}/>
       </Routes>
     </div>

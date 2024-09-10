@@ -1,21 +1,33 @@
 import React, { useContext, useEffect, useState } from 'react'
 import MyNavbar from '../components/MyNavbar'
 import { AuthContext } from '../contexts/AuthContext'
-import { getCartById, deleteCartById, increaseCount} from '../Api/Product-api'
+import { getCartById, deleteCartById, increaseCount, decreaseCount} from '../Api/Product-api'
+import { BuyContext } from '../contexts/BuyContext'
+import { useNavigate } from 'react-router-dom'
+import { getAddressById, getUserById } from '../Api/Login-api'
 
 function Cart() {
     const userId=localStorage.getItem('userId')
-    const {user}=useContext(AuthContext)
-    const [quntity, setQuntity] = useState();
-    const [cart,setCart]=useState([])
+    // const {user}=useContext(AuthContext)
+    const [user,setUser]=useState([])
+    const navigate =useNavigate();
+    const [cart,setCart]=useState([]);
     const [total,setTotal]=useState(0);
-    
+    const [oldTotal,setOldTotal]=useState(0);
+    const [address,setAddress]=useState([]);
     useEffect(()=>{
         setTotal(cart.reduce((acc,value)=>acc+value.totalprice,0))
+        setOldTotal(cart.reduce((acc,value)=>acc+value.oldtotalprice,0))
     })
     useEffect(()=>{
         getCartById(userId)
         .then(res=>setCart(res))
+        .catch(err=>console.error(err))
+        getUserById(userId)
+        .then(res=>setUser(res.data))
+        .catch(err=>console.error(err))
+        getAddressById(userId)
+        .then(res=>setAddress(res))
         .catch(err=>console.error(err))
     },[userId])
     
@@ -30,19 +42,41 @@ function Cart() {
         .then(res=>setCart(res))
         .catch(err=>console.error(err))
     }
-    const handleSubCount=()=>{
-       
+    const handleSubCount=(product)=>{
+       decreaseCount(userId,product)
+        .then(res=>setCart(res))
+        .catch(err=>console.error(err))
     }
 
+    const handlePayment=()=>{
+        navigate('/payment')
+    }
   return (
     <>
         <div>
             <MyNavbar/>
-            <div className='mt-[150px] flex justify-center space-x-5'>
-                <div className='border w-[60%]'>
+            <div className='mt-[150px] flex flex-wrap justify-center space-x-0 xl:space-x-5 space-y-5 xl:space-y-0 mb-10'>
+                <div className='border w-[60%] p-2 shadow-lg'>
+                    <div className='border shadow-lg '>
+                        <div className=' ps-2'>
+                            <div className='space-x-3 flex justify-between p-5'>
+                                <div className='max-w-300px '>
+                                    <span className='text-2xl font-semibold'>Deliver to : {user.name} </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.housename}, </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.city}, </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.landmark}, </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.district}, </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.state}, </span>
+                                    <span className='text-2xl max-w-[300px]'>-{address.pincode}</span>
+                                </div>
+                                <button className='bg-orange-400 rounded w-[100px] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Change</button>
+                            </div>
+                        </div>
+                    </div>
                     <div className=' h-[430px] overflow-auto custom-scrollbar'>
                     {cart.map(item=>(
-                        <div className='flex flex-wrap mt-3 mb-1'>
+                        <>
+                        <div className='flex flex-wrap mt-3 ms-2 mb-1'>
                         <div className='w-[200px] flex flex-col justify-center items-center mt-3 mb-3'>
                             <img className='w-[150px] h-[150px]' src={item.image} alt="product image" />
                             <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-10 rounded'>
@@ -78,38 +112,80 @@ function Cart() {
                             </div>
                             
                         </div>
+                        
                     </div>
+                    </>
                     ))}
                     </div>
-                    <div className='flex justify-end items-center me-5 h-[100px]'>
+                    <hr />
+                    <div className='hidden xl:flex justify-end items-center me-5 h-[100px]'>
                         <hr />
-                        <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white '>PLACE ORDER</button>
+                        <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handlePayment}>PLACE ORDER</button>
                     </div>
                 </div>
-                <div className='border w-[30%]'>
-                    <div className='flex flex-col'>
+                <div className='border w-[60%] xl:w-[400px] shadow-lg'>
+                    <div className='flex flex-col p-3'>
                     <span className='text-2xl text-center font-semibold '>PRICE DETAILS</span><hr />
-                    <div className='ms-4 me-4 space-y-5'>
+                    <div className='ms-4 me-4 mt-5 mb-10 space-y-5'>
                         <div className='flex justify-between'>
-                            <span>Price (3 items)</span>
-                            <span>₹12,690</span>
+                            <span>Price ({cart.length})</span>
+                            <span>₹ {oldTotal}</span>
                         </div>
                         <div className='flex justify-between'>
                             <span>Discount</span>
-                            <span className='text-green-400'>- ₹12,690</span>
+                            <span className='text-green-400'>- ₹ {oldTotal-total}</span>
                         </div>
-                        <div className='flex justify-between'>
-                            <span>Platform Fee</span>
-                            <span>₹12</span>
-                        </div>
-                        <div className='flex justify-between'>
-                            <span>Delivary Charge</span>
-                            <div><span className='line-through'>₹40</span><span className='text-green-400'>Free</span></div>
-                        </div>
-                        <div className='flex justify-between'>
-                            <span className='text-2xl font-bold'>Total Amount</span>
-                            <span className='text-2xl font-bold'>₹{total}</span>
-                        </div>
+                        {total ?(
+                            <div className='flex justify-between'>
+                                <span>Platform Fee</span>
+                                <span>₹ 20</span>
+                            </div>
+                        ):(
+                            <div className='flex justify-between'>
+                                <span>Platform Fee</span>
+                                <span>₹ 0</span>
+                            </div>
+                        )}
+                        {total>499?(
+                            <div className='flex justify-between'>
+                                <span>Delivary Charge</span>
+                                <div>
+                                    <span className='line-through'>₹40</span>
+                                    <span className='text-green-400'>Free</span>
+                                </div>
+                            </div>
+                        ):(
+                            <div className='flex justify-between'>
+                                <span>Delivary Charge</span>
+                                <div>
+                                    <span className=''>₹ 40</span>
+                                </div>
+                            </div>
+                        )}
+                            {total?(
+                                total>499?(
+                                    <div className='flex justify-between'>
+                                        <span className='text-2xl font-bold'>Total Amount</span>
+                                        <span className='text-2xl font-bold'>₹{total+20}</span>
+                                    </div>
+                                ):(
+                                    <div className='flex justify-between'>
+                                        <span className='text-2xl font-bold'>Total Amount</span>
+                                        <span className='text-2xl font-bold'>₹{total+60}</span>
+                                    </div>
+                                )
+                            ):(
+                                <div className='flex justify-between'>
+                                    <span className='text-2xl font-bold'>Total Amount</span>
+                                    <span className='text-2xl font-bold'>₹ 00.00</span>
+                                </div>
+                            )}
+                            
+                        
+                    </div>
+                    <hr className='xl:hidden'/>
+                    <div className='xl:hidden flex justify-end items-center me-5 h-[100px]'>
+                        <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handlePayment}>PLACE ORDER</button>
                     </div>
                     </div>
                 </div>

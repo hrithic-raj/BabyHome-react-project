@@ -21,7 +21,10 @@ function Signup() {
                     username: '',
                     email: '',
                     password: '',
+                    address:[],
                     cart:[],
+                    order:[],
+                    wishlist:[],
       },
       validationSchema,
       onSubmit: async (values)=>{

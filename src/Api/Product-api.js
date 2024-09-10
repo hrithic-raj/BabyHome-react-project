@@ -33,22 +33,24 @@ export const addToCart= async(userId,product,count)=>{
     //check product already exist in the cart
     const price=product.price
     const totalprice=product.price*count
+    const oldtotalprice=product.oldprice*count
 
     const productExist=currentCart.findIndex((item)=>item.id===product.id)
     let updatedCart;
     if(productExist>=0){
         //update count
         updatedCart=currentCart.map((item,index)=>
-            index===productExist ? {...item, count: item.count+count , totalprice: price*(item.count+count)}:item
+            index===productExist ? {...item, count: item.count+count , totalprice: price*(item.count+count), oldtotalprice : item.oldprice*(item.count+count)}:item
         )
     }
     else{
         //update cart
-        updatedCart=[...currentCart,{...product, count , totalprice}];
+        updatedCart=[...currentCart,{...product, count , totalprice, oldtotalprice}];
     }
 
 
     //update the updatedCart to user
+    // console.log(updatedCart);
     await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
     console.log("Product added/updated in cart successfully!");
     return await getCartById(userId);
@@ -66,9 +68,9 @@ export const increaseCount=async(userId,product)=>{
     const currentCart=await getCartById(userId);
     
     const updatedCart=currentCart.map((item)=>
-        item.id===product.id ? {...item, count: item.count+1, totalprice: item.price*(item.count+1)}:item
+        item.id===product.id ? {...item, count: item.count+1, totalprice: item.price*(item.count+1), oldtotalprice : item.oldprice*(item.count+1)}:item
     )
-    
+    // console.log(updatedCart);
     await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
     return updatedCart;
 }
@@ -77,9 +79,9 @@ export const decreaseCount=async(userId,product)=>{
     const currentCart=await getCartById(userId);
     
     const updatedCart=currentCart.map((item)=>
-        item.id===product.id ? {...item, count: (item.count===1)?1:item.count-1, totalprice: item.price*((item.count===1)?1:item.count-1)}:item
+        item.id===product.id ? {...item, count: (item.count===1)?1:item.count-1, totalprice: item.price*((item.count===1)?1:item.count-1), oldtotalprice : item.oldprice*((item.count===1)?1:item.count-1)}:item
     )
-    console.log(updatedCart) 
+    // console.log(updatedCart)
     await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
     return updatedCart;
 }

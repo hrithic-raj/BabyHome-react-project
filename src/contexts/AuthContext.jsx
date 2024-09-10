@@ -5,7 +5,7 @@ import axios from "axios";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({children})=>{
-    const [user,setUser]=useState(null);
+    const [user,setUser]=useState([]);
     const URL="http://localhost:5000/users";
 
     const login= async(username,password)=>{

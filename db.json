@@ -6,28 +6,36 @@
       "username": "vishnu",
       "email": "vishnu@gmail.com",
       "password": "vishnu",
+      "address": {
+        "pincode": "673638",
+        "housename": "karaad house",
+        "city": "karaad",
+        "landmark": "safi college",
+        "district": "malappuram",
+        "state": "kerala"
+      },
       "cart": [
         {
-          "id": "1005",
-          "name": "Baby Rattle Toy Set",
-          "description": "Colorful and engaging rattle toys to stimulate your baby's sensory development. Made with non-toxic materials.",
-          "category": "toys",
-          "image": "https://f.media-amazon.com/images/I/612UKI2oQlL._SY450_.jpg",
+          "id": "1002",
+          "name": "Organic Baby Shampoo",
+          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
           "images": [
-            "https://f.media-amazon.com/images/I/612UKI2oQlL._SY450_.jpg",
-            "https://f.media-amazon.com/images/I/71y22+pLrtL._SY450_.jpg",
-            "https://f.media-amazon.com/images/I/61AEHHYYiZL._SY450_.jpg",
-            "https://f.media-amazon.com/images/I/618qwPMMx0L._SY450_.jpg",
-            "https://f.media-amazon.com/images/I/71pHqMgNHtL._SY450_.jpg"
+            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
           ],
-          "price": 200,
-          "oldprice": 250,
+          "price": 250,
+          "oldprice": 300,
           "bestseller": true,
           "newlyadded": false,
-          "stock": 25,
-          "rating": 4.5,
+          "stock": 0,
+          "rating": 4.6,
           "count": 1,
-          "totalprice": 200
+          "totalprice": 250,
+          "oldtotalprice": 300
         },
         {
           "id": "1006",
@@ -50,9 +58,36 @@
           "stock": 20,
           "rating": 4.9,
           "count": 1,
-          "totalprice": 350
+          "totalprice": 350,
+          "oldtotalprice": 400
+        },
+        {
+          "id": "1011",
+          "name": "Baby Crib",
+          "description": "A sturdy and comfortable baby crib designed for peaceful sleeping.",
+          "category": "toys",
+          "image": "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/519FFCFpsML.jpg",
+            "https://f.media-amazon.com/images/I/51sCGOCEhmL.jpg",
+            "https://f.media-amazon.com/images/I/61eC+K4bNdL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/41VeD7J5nUL.jpg",
+            "https://f.media-amazon.com/images/I/51MSYaPjaUL.jpg"
+          ],
+          "price": 3200,
+          "oldprice": 3500,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 5,
+          "rating": 4.9,
+          "count": 1,
+          "totalprice": 3200,
+          "oldtotalprice": 3500
         }
-      ]
+      ],
+      "order": [],
+      "wishlist": []
     },
     {
       "id": "d562",
@@ -60,7 +95,10 @@
       "username": "ashiq10",
       "email": "ashiq@gmail.com",
       "password": "ashiq10",
-      "cart": []
+      "address": [],
+      "cart": [],
+      "order": [],
+      "wishlist": []
     },
     {
       "id": "5f52",
@@ -68,6 +106,14 @@
       "username": "hrjhrj",
       "email": "willpanda112@gmail.com",
       "password": "hrjhrj",
+      "address": {
+        "pincode": "673641",
+        "housename": "mundakamala",
+        "city": "kondotty",
+        "landmark": "palace auditorium",
+        "district": "malappuram",
+        "state": "kerala"
+      },
       "cart": [
         {
           "id": "1002",
@@ -87,8 +133,8 @@
           "newlyadded": false,
           "stock": 0,
           "rating": 4.6,
-          "count": 8,
-          "totalprice": 2000
+          "count": 4,
+          "totalprice": 1000
         },
         {
           "id": "1014",
@@ -112,7 +158,9 @@
           "count": 1,
           "totalprice": 550
         }
-      ]
+      ],
+      "order": [],
+      "wishlist": []
     }
   ],
   "products": [
