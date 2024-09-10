@@ -24,12 +24,10 @@ function Store() {
   if (!products) {
     return <div>Loading...</div>;
   }
-  const handleLike=(id)=>{
 
-  }
   
-  const handleProduct=(id)=>{
-    navigate(`/store/product/${id}`)
+  const handleProduct=(productId)=>{
+    navigate(`/store/product/${productId}`)
   }
   return (
     <div>

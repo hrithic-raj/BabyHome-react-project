@@ -8,11 +8,6 @@ export const AuthProvider = ({children})=>{
     const [user,setUser]=useState(null);
     const URL="http://localhost:5000/users";
 
-    useEffect(()=>{
-
-    },[])
-
-
     const login= async(username,password)=>{
         try{
             const res = await axios.get(`${URL}?username=${username}&password=${password}`)

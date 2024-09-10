@@ -45,27 +45,9 @@ function Home() {
     .catch(err=>console.error(err))
   },[])
 
-
-
-    // Array of products (you can replace this with your dynamic data)
-      const products = [
-        { id: 1, name: "Product 1", image: "https://via.placeholder.com/150", price: "$100" },
-        { id: 2, name: "Product 2", image: "https://via.placeholder.com/150", price: "$200" },
-        { id: 3, name: "Product 3", image: "https://via.placeholder.com/150", price: "$300" },
-        { id: 4, name: "Product 4", image: "https://via.placeholder.com/150", price: "$400" },
-        { id: 5, name: "Product 5", image: "https://via.placeholder.com/150", price: "$500" },
-        { id: 6, name: "Product 6", image: "https://via.placeholder.com/150", price: "$600" },
-        { id: 7, name: "Product 7", image: "https://via.placeholder.com/150", price: "$700" },
-        { id: 8, name: "Product 8", image: "https://via.placeholder.com/150", price: "$800" },
-        { id: 9, name: "Product 9", image: "https://via.placeholder.com/150", price: "$900" },
-        { id: 10, name: "Product 10", image: "https://via.placeholder.com/150", price: "$1000" },
-        { id: 11, name: "Product 5", image: "https://via.placeholder.com/150", price: "$500" },
-        { id: 12, name: "Product 6", image: "https://via.placeholder.com/150", price: "$600" },
-        { id: 13, name: "Product 7", image: "https://via.placeholder.com/150", price: "$700" },
-        { id: 14, name: "Product 8", image: "https://via.placeholder.com/150", price: "$800" },
-        { id: 15, name: "Product 9", image: "https://via.placeholder.com/150", price: "$900" },
-        { id: 16, name: "Product 10", image: "https://via.placeholder.com/150", price: "$1000" },
-      ];
+  const handleProduct=(productId)=>{
+    navigate(`/store/product/${productId}`)
+  }
   return (
     <>
       <MyNavbar/>
@@ -178,7 +160,7 @@ function Home() {
               <div
                 key={product.id}
                 className="min-w-[23.7%] h-3/6 p-4  flex-shrink-0 text-center bg-white shadow-md rounded-lg hover:cursor-pointer"
-                onClick={()=>navigate(`/store/product/${product.id}`)}
+                onClick={()=>handleProduct(product.id)}
               >
                 <img
                   src={product.image}

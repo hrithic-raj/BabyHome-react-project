@@ -6,7 +6,53 @@
       "username": "vishnu",
       "email": "vishnu@gmail.com",
       "password": "vishnu",
-      "cart": []
+      "cart": [
+        {
+          "id": "1005",
+          "name": "Baby Rattle Toy Set",
+          "description": "Colorful and engaging rattle toys to stimulate your baby's sensory development. Made with non-toxic materials.",
+          "category": "toys",
+          "image": "https://f.media-amazon.com/images/I/612UKI2oQlL._SY450_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/612UKI2oQlL._SY450_.jpg",
+            "https://f.media-amazon.com/images/I/71y22+pLrtL._SY450_.jpg",
+            "https://f.media-amazon.com/images/I/61AEHHYYiZL._SY450_.jpg",
+            "https://f.media-amazon.com/images/I/618qwPMMx0L._SY450_.jpg",
+            "https://f.media-amazon.com/images/I/71pHqMgNHtL._SY450_.jpg"
+          ],
+          "price": 200,
+          "oldprice": 250,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 25,
+          "rating": 4.5,
+          "count": 1,
+          "totalprice": 200
+        },
+        {
+          "id": "1006",
+          "name": "Hooded Baby Towel",
+          "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
+          ],
+          "price": 350,
+          "oldprice": 400,
+          "bestseller": false,
+          "newlyadded": true,
+          "stock": 20,
+          "rating": 4.9,
+          "count": 1,
+          "totalprice": 350
+        }
+      ]
     },
     {
       "id": "d562",
@@ -22,7 +68,51 @@
       "username": "hrjhrj",
       "email": "willpanda112@gmail.com",
       "password": "hrjhrj",
-      "cart": []
+      "cart": [
+        {
+          "id": "1002",
+          "name": "Organic Baby Shampoo",
+          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
+          ],
+          "price": 250,
+          "oldprice": 300,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 0,
+          "rating": 4.6,
+          "count": 8,
+          "totalprice": 2000
+        },
+        {
+          "id": "1014",
+          "name": "Baby Soft Cotton Onesies (Pack of 3)",
+          "description": "Comfortable and soft onesies perfect for everyday wear. Made from 100% cotton.",
+          "category": "cloths",
+          "image": "https://f.media-amazon.com/images/I/51YSsjy1oDL._SX679_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/51YSsjy1oDL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71WIzaNsBML._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/518KNuxmvwL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/51lVaw6EnGL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/51Lb87iAAeL._SX679_.jpg"
+          ],
+          "price": 550,
+          "oldprice": 600,
+          "bestseller": false,
+          "newlyadded": true,
+          "stock": 20,
+          "rating": 4.7,
+          "count": 1,
+          "totalprice": 550
+        }
+      ]
     }
   ],
   "products": [

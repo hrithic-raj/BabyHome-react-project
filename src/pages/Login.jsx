@@ -13,7 +13,7 @@ const validationSchema = Yup.object({
 function Login() {
     const navigate=useNavigate();
     const [errorMsg,setErrorMsg]=useState('')
-    const {user,login}=useContext(AuthContext);
+    const {login}=useContext(AuthContext);
     const formik=useFormik({
         initialValues: {
             username: '',
@@ -24,7 +24,6 @@ function Login() {
             const loggedInUser =await login(values.username,values.password);
             if(loggedInUser){
                 navigate('/home')
-                console.log(user)
             }
             else(
                 setErrorMsg("Invalid username or password")

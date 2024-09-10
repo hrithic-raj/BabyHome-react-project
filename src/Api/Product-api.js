@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const URL="http://localhost:5000/products";
-
+const userURL="http://localhost:5000/users"
 // export const getProducts= async ()=>{
 //     return await axios.get(URL);
 // }
@@ -23,7 +23,63 @@ export const getBestSeller=()=>{
     return axios.get(`${URL}?bestseller=true`);
 }
 
-export const checkUsername= async (username)=>{
-    const res = await axios.get(`${URL}?username=${username}`)
-    return res.data.length>0;
+export const getCartById=async(id)=>{
+    const res= await axios.get(`${userURL}/${id}`)
+    return res.data.cart;
+}
+
+export const addToCart= async(userId,product,count)=>{
+    const currentCart= await getCartById(userId)
+    //check product already exist in the cart
+    const price=product.price
+    const totalprice=product.price*count
+
+    const productExist=currentCart.findIndex((item)=>item.id===product.id)
+    let updatedCart;
+    if(productExist>=0){
+        //update count
+        updatedCart=currentCart.map((item,index)=>
+            index===productExist ? {...item, count: item.count+count , totalprice: price*(item.count+count)}:item
+        )
+    }
+    else{
+        //update cart
+        updatedCart=[...currentCart,{...product, count , totalprice}];
+    }
+
+
+    //update the updatedCart to user
+    await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
+    console.log("Product added/updated in cart successfully!");
+    return await getCartById(userId);
+}
+
+export const deleteCartById=async(userId,productId)=>{
+    const currentCart=await getCartById(userId);
+    const updatedCart=currentCart.filter((item)=>item.id!==productId);
+    await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
+    console.log("Product deleted from cart successfully!");
+    return await getCartById(userId);
+}
+
+export const increaseCount=async(userId,product)=>{
+    const currentCart=await getCartById(userId);
+    
+    const updatedCart=currentCart.map((item)=>
+        item.id===product.id ? {...item, count: item.count+1, totalprice: item.price*(item.count+1)}:item
+    )
+    
+    await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
+    return updatedCart;
+}
+
+export const decreaseCount=async(userId,product)=>{
+    const currentCart=await getCartById(userId);
+    
+    const updatedCart=currentCart.map((item)=>
+        item.id===product.id ? {...item, count: (item.count===1)?1:item.count-1, totalprice: item.price*((item.count===1)?1:item.count-1)}:item
+    )
+    console.log(updatedCart) 
+    await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
+    return updatedCart;
 }

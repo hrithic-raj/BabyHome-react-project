@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaShoppingCart, FaUser, FaDonate, FaBars, FaTimes ,FaSearch} from 'react-icons/fa';
 import logo from '../Assets/logo.png'
 import {NavLink,useNavigate} from 'react-router-dom'
+import { AuthContext } from '../contexts/AuthContext';
+
 function MyNavbar() {
     const [isOpen, setIsOpen] = useState(false);
     const navigate=useNavigate()
     const toggleMenu = () => {
       setIsOpen(!isOpen);
     };
-  
+    const userId=localStorage.getItem('userId')
+
+    
   return (
    <>
   <div className='fixed top-0 w-full z-50 p-4 border-b border-gray-300' style={{backgroundColor :'#FFFFFF' ,height : "130px", width :"100%" ,marginBottom :"300px"}}>
@@ -55,7 +59,7 @@ function MyNavbar() {
           <button className="text-gray-600 hover:text-gray-400" onClick={()=>navigate('/home')}>
             <FaDonate size={24} />
           </button>
-          <button className="text-gray-600 hover:text-gray-400">
+          <button className="text-gray-600 hover:text-gray-400"  onClick={()=>(userId)?navigate('/cart'):navigate('/login')}>
           <FaShoppingCart size={24} />
           </button>
           <button className="text-gray-600 hover:text-gray-400 "  onClick={()=>navigate('/Profile')}>

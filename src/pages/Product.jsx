@@ -1,28 +1,41 @@
 import React,{useState,useEffect} from 'react'
 import MyNavbar from '../components/MyNavbar'
-import { getProductById } from '../Api/Product-api';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { addToCart, getCartById, getProductById } from '../Api/Product-api';
+import { useNavigate, useParams } from 'react-router-dom';
 function Product() {
   const [product, setProduct] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
   const [selectedImages, setSelectedImages] = useState([]);
   const [quntity, setQuntity] = useState(1);
   const navigate=useNavigate();
-  const {id}=useParams()
+  const userId=localStorage.getItem('userId')
+  const {productId}=useParams()
   useEffect(() => {
-    getProductById(id)
-      .then(response => {
-        setProduct(response.data);
-        setSelectedImage(response.data.image);
-        setSelectedImages(response.data.images)
+    getProductById(productId)
+      .then(res => {
+        setProduct(res.data);
+        setSelectedImage(res.data.image);
+        setSelectedImages(res.data.images)
       })
-      .catch(error => console.error('Error fetching product data', error));
+      .catch(err=> console.error('Error fetching product data', err));
   }, []);
-  
-  console.log(selectedImages)
 
   if (!product) return <div>Loading...</div>;
 
+
+  const handleCart=()=>{
+    if(userId){
+      addToCart(userId,product,quntity)
+      .then(res=>{
+        alert('Cart Updated')
+      })
+      .catch(err=>console.error(err))
+    }
+    else{
+      navigate('/login')
+    }
+    
+  }
   return (
     <div>
       <MyNavbar/>
@@ -53,7 +66,7 @@ function Product() {
             <div className='flex space-x-3 mt-10'>
               <span className='text-gray-500'>MRP : </span>
               <span className='text-gray-500 line-through'> ₹{product.oldprice}.00</span>
-              <span className=' text-red-500'>Save ₹{product.oldprice-product.price}.00</span>
+              <span className=' text-green-500'>Save ₹{product.oldprice-product.price}.00</span>
             </div>  
               <span className='text-3xl text-black mt-2 mb-2'>₹ {product.price}.00</span>
               <div>
@@ -79,7 +92,7 @@ function Product() {
               <span className='text-2xl'>{quntity}</span>
               <button onClick={()=>setQuntity(prev=>prev+1)} className='text-2xl rounded w-10 h-10'>+</button>
             </div>
-            <button className='text-xl mt-20 w-[300px] bg-pink-300 h-10 rounded' onClick={()=>navigate('/cart')}>ADD TO CART</button>
+            <button className='text-xl mt-20 w-[300px] bg-pink-300 h-10 rounded' onClick={handleCart}>ADD TO CART</button>
             <button className='text-xl mt-3 w-[300px] bg-red-200 h-10 rounded'>BUY NOW</button>
           </div>
         </div>
