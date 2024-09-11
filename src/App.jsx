@@ -7,11 +7,13 @@ import MyNavbar from './components/MyNavbar';
 import MyFooter from './components/MyFooter';
 import Product from './pages/Product';
 import Store from './pages/Stores/Store';
-import Profile from './pages/Profile';
+import Profile from './pages/profile/Profile';
 import About from './pages/About';
 import ContactUs from './pages/ContactUs';
 import Cart from './pages/Cart';
 import Payment from './pages/Payment';
+import Orders from './pages/profile/Orders';
+import Wishlist from './pages/profile/Wishlist';
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
         </Route>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/cart' element={<Cart/>}/>
+          <Route path='/orders' element={<Orders/>}/>
+          <Route path='/wishlist' element={<Wishlist/>}/>
           <Route path='/payment' element={<Payment/>}/>
           <Route path='/store/:category' element={<Store/>}/>
       </Routes>

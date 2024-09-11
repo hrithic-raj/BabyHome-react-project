@@ -1,17 +1,22 @@
 import React, { useContext, useEffect, useState } from 'react'
 import MyNavbar from '../components/MyNavbar'
 import { AuthContext } from '../contexts/AuthContext'
-import { getCartById, deleteCartById, increaseCount, decreaseCount} from '../Api/Product-api'
+import { getCartById, deleteCartById, increaseCount, decreaseCount, ClearCart, addToOrder} from '../Api/Product-api'
 import { BuyContext } from '../contexts/BuyContext'
 import axios from 'axios'
 import gpay from '../Assets/Main/gpay.png'
 import paytm from '../Assets/Main/paytm.png'
+import { getAddressById, getUserById } from '../Api/Login-api'
+import { useNavigate } from 'react-router-dom'
 
 
 function Payment() {
     const userId=localStorage.getItem('userId')
+    const navigate =useNavigate()
     const [cart,setCart]=useState([])
     const [total,setTotal]=useState(0);
+    const [user,setUser]=useState([]);
+    const [address,setAddress]=useState([]);
     const [oldTotal,setOldTotal]=useState(0);
     useEffect(()=>{
         setTotal(cart.reduce((acc,value)=>acc+value.totalprice,0))
@@ -20,6 +25,12 @@ function Payment() {
     useEffect(()=>{
         getCartById(userId)
         .then(res=>setCart(res))
+        .catch(err=>console.error(err))
+        getUserById(userId)
+        .then(res=>setUser(res.data))
+        .catch(err=>console.error(err))
+        getAddressById(userId)
+        .then(res=>setAddress(res))
         .catch(err=>console.error(err))
     },[userId])
     
@@ -46,25 +57,22 @@ function Payment() {
     setSelectedOption(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleOrder = async () => {
+    // e.preventDefault();
+    const d=new Date()
+    const orderList={ id:Date.now(),item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()}}
+    console.log(orderList)
 
-    if (selectedOption) {
-      try {
-        await axios.post("http://localhost:3001/payment", {
-          paymentMethod: selectedOption,
-        });
-        alert("Payment method submitted successfully!");
-      } catch (error) {
-        console.error("Error submitting payment method:", error);
-      }
-    } else {
-      alert("Please select a payment method.");
-    }
+    await addToOrder(userId,orderList)
+    .then(res=>{
+        alert("Order Placed")
+        navigate('/profile')
+    })
+
+    await ClearCart(userId)
+    .then(res=>setCart(res))
+    .catch(err=>console.error(err))
   };
-  const handleBuy=()=>{
-    
-  }
 
   return (
     <>
@@ -77,18 +85,19 @@ function Payment() {
                 </div>
                 <hr className=''/>
                 <div className=' ps-2'>
-                    <div className='space-x-3 flex justify-between p-5'>
-                        <div className='max-w-300px '>
-                        <span className='text-2xl font-semibold'>NAME</span>
-                        <span className='text-2xl max-w-[300px]'>home name,</span>
-                        <span className='text-2xl max-w-[300px]'>home city,</span>
-                        <span className='text-2xl max-w-[300px]'>district,</span>
-                        <span className='text-2xl max-w-[300px]'>state,</span>
-                        <span className='text-2xl max-w-[300px]'>-673641</span>
+                            <div className='space-x-3 flex justify-between p-5'>
+                                <div className='max-w-300px '>
+                                    <span className='text-2xl font-semibold'>Deliver to : {user.name} </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.housename}, </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.city}, </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.landmark}, </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.district}, </span>
+                                    <span className='text-2xl max-w-[300px]'>{address.state}, </span>
+                                    <span className='text-2xl max-w-[300px]'>-{address.pincode}</span>
+                                </div>
+                                <button className='bg-orange-400 rounded w-[100px] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Change</button>
+                            </div>
                         </div>
-                        <button className='bg-orange-400 rounded w-[100px] p-2 h-[50px] text-white '>Change</button>
-                    </div>
-                </div>
             </div>
                 <div className='border w-[60%] mb-5 shadow-lg'>
                    <div className='flex justify-center items-center me-5 h-[100px]'>
@@ -134,7 +143,7 @@ function Payment() {
                 <div className='ps-2'>
                     <div className='space-x-3 flex justify-between p-5'>
                         <div className='max-w-300px '>
-                            <form onSubmit={handleSubmit}>
+                            <form>
                                 <div className="mb-4">
                                     <label className="flex items-center mb-2">
                                         <input
@@ -204,23 +213,16 @@ function Payment() {
                                         Cash on Delivery
                                     </label>
                                 </div>
-
-                                <button
-                                    type="submit"
-                                    className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-                                    >
-                                    Submit
-                                </button>
                             </form>
                         </div>
                     </div>
                     <hr className='hidden xl:flex'/>
                     <div className='hidden xl:flex justify-end items-center me-5 h-[100px]'>
-                        <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handleBuy}>PLACE ORDER</button>
+                        <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handleOrder}>PLACE ORDER</button>
                     </div>
                 </div>
             </div>
-                <div className='border w-[60%] xl:w-[400px] xl:fixed xl:right-10 xl:top-1/3 xl:h-[350px] h-[450px] shadow-lg'>
+                <div className='border w-[60%] xl:w-[400px] xl:fixed xl:right-10 xl:top-1/4 xl:h-[350px] h-[450px] shadow-lg'>
                     <div className='flex flex-col flex-wrap'>
                     <span className='text-2xl text-center font-semibold mt-3 mb-3'>PRICE DETAILS</span><hr />
                     <div className='ms-4 me-4 mt-5 space-y-5'>
@@ -280,7 +282,7 @@ function Payment() {
                             <hr className='xl:hidden flex'/>
                             <div className='xl:hidden flex justify-end items-center me-5 h-[100px]'>
                                 
-                                <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white '>PLACE ORDER</button>
+                                <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white ' onClick={handleOrder}>PLACE ORDER</button>
                             </div>
                     </div>
                     </div>

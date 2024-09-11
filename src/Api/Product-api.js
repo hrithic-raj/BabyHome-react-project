@@ -53,7 +53,7 @@ export const addToCart= async(userId,product,count)=>{
     // console.log(updatedCart);
     await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
     console.log("Product added/updated in cart successfully!");
-    return await getCartById(userId);
+    return updatedCart;
 }
 
 export const deleteCartById=async(userId,productId)=>{
@@ -85,3 +85,29 @@ export const decreaseCount=async(userId,product)=>{
     await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
     return updatedCart;
 }
+
+export const getOrderById=async(userId)=>{
+    const res=await axios.get(`${userURL}/${userId}`)
+    return res.data.orders;
+}
+
+export const ClearCart= async (userId)=>{
+    const res = await axios.patch(`${userURL}/${userId}`,{cart:[]})
+    return res.data.cart;
+}
+
+export const addToOrder = async(userId,ordersList)=>{
+    const currentOrder=await getOrderById(userId)
+    let updatedOrder;
+    console.log(currentOrder)
+    if(!currentOrder){
+        updatedOrder=[ordersList]
+    }
+    else{
+        
+        
+        updatedOrder=[...currentOrder,ordersList]
+    }
+    const res = await axios.patch(`${userURL}/${userId}`,{orders : updatedOrder})
+    return res.data.orders;
+} 

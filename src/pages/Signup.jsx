@@ -23,7 +23,7 @@ function Signup() {
                     password: '',
                     address:[],
                     cart:[],
-                    order:[],
+                    orders:[],
                     wishlist:[],
       },
       validationSchema,

@@ -9,6 +9,7 @@ import priceimg from '../Assets/Main/price.png'
 import serviceimg from '../Assets/Main/service.png'
 import MyFooter from '../components/MyFooter'
 import { getBestSeller, getNewlyAdded } from '../Api/Product-api'
+import GptNavbar from '../components/GptNavbar'
 function Home() {
     const navigate=useNavigate()
   const [imgIndex,setImgIndex]=useState(0);
@@ -50,7 +51,7 @@ function Home() {
   }
   return (
     <>
-      <MyNavbar/>
+      <GptNavbar/>
       <div style={{marginTop:"130px"}} className=''>
         <div className='slider flex justify-center mt-36'>
         <div className='relative w-full max-w-4xl max-auto'>

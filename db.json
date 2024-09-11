@@ -95,9 +95,39 @@
       "username": "ashiq10",
       "email": "ashiq@gmail.com",
       "password": "ashiq10",
-      "address": [],
-      "cart": [],
-      "order": [],
+      "address": {
+        "pincode": "673638",
+        "housename": "fafararfar",
+        "city": "efaaefa",
+        "landmark": "awefaf",
+        "district": "aefaawfar",
+        "state": "arefarar"
+      },
+      "cart": [
+        {
+          "id": "1002",
+          "name": "Organic Baby Shampoo",
+          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
+          ],
+          "price": 250,
+          "oldprice": 300,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 0,
+          "rating": 4.6,
+          "count": 1,
+          "totalprice": 250,
+          "oldtotalprice": 300
+        }
+      ],
+      "orders": [],
       "wishlist": []
     },
     {
@@ -159,7 +189,104 @@
           "totalprice": 550
         }
       ],
-      "order": [],
+      "orders": [],
+      "wishlist": []
+    },
+    {
+      "id": "5c4c",
+      "name": "abhay",
+      "username": "abhay",
+      "email": "hrjpunda@gmail.com",
+      "password": "123456",
+      "address": {
+        "pincode": "673638",
+        "housename": "ramattukara veed",
+        "city": "ramanattukara",
+        "landmark": "bus stand",
+        "district": "kozhikod",
+        "state": "kerala"
+      },
+      "cart": [
+        {
+          "id": "1004",
+          "name": "Disposable Baby Diapers (Pack of 40)",
+          "description": "High-absorbency disposable diapers with a soft inner lining to keep your baby dry and comfortable all day long.",
+          "category": "diapers",
+          "image": "https://f.media-amazon.com/images/I/615iChEayrL._SX679_PIbundle-40,TopRight,0,0_SX679SY457SH20_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/615iChEayrL._SX679_PIbundle-40,TopRight,0,0_SX679SY457SH20_.jpg",
+            "https://f.media-amazon.com/images/I/41dwinxigyL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/51HOKSYf0WL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/61GS2bNUuUL._SX679_.jpg"
+          ],
+          "price": 500,
+          "oldprice": 550,
+          "bestseller": false,
+          "newlyadded": true,
+          "stock": 50,
+          "rating": 4.7,
+          "count": 1,
+          "totalprice": 500,
+          "oldtotalprice": 550
+        }
+      ],
+      "orders": [
+        {
+          "id": 1726050106583,
+          "item": [
+            {
+              "id": "1002",
+              "name": "Organic Baby Shampoo",
+              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+              "category": "bathing",
+              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
+              ],
+              "price": 250,
+              "oldprice": 300,
+              "bestseller": true,
+              "newlyadded": false,
+              "stock": 0,
+              "rating": 4.6,
+              "count": 1,
+              "totalprice": 250,
+              "oldtotalprice": 300
+            },
+            {
+              "id": "1014",
+              "name": "Baby Soft Cotton Onesies (Pack of 3)",
+              "description": "Comfortable and soft onesies perfect for everyday wear. Made from 100% cotton.",
+              "category": "cloths",
+              "image": "https://f.media-amazon.com/images/I/51YSsjy1oDL._SX679_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/51YSsjy1oDL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71WIzaNsBML._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/518KNuxmvwL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/51lVaw6EnGL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/51Lb87iAAeL._SX679_.jpg"
+              ],
+              "price": 550,
+              "oldprice": 600,
+              "bestseller": false,
+              "newlyadded": true,
+              "stock": 20,
+              "rating": 4.7,
+              "count": 1,
+              "totalprice": 550,
+              "oldtotalprice": 600
+            }
+          ],
+          "paymentMethod": "EMI",
+          "date": {
+            "time": "3:51:46 PM",
+            "day": "Wed Sep 11 2024"
+          }
+        }
+      ],
       "wishlist": []
     }
   ],

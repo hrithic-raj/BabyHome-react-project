@@ -24,7 +24,7 @@ const ContactUs = () => {
   return (
     <div>
         <MyNavbar/>
-    <div className="contact-container py-10 px-5">
+    <div className="contact-container mt-[130px] py-10 px-5">
       <h1 className="text-3xl font-bold text-center mb-5">Contact Us</h1>
       <p className="text-lg text-center mb-10">
         We'd love to hear from you! If you have any questions, feedback, or inquiries, feel free to get in touch with us using the form below.
