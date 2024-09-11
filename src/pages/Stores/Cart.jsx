@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
-import MyNavbar from '../components/MyNavbar'
-import { AuthContext } from '../contexts/AuthContext'
-import { getCartById, deleteCartById, increaseCount, decreaseCount} from '../Api/Product-api'
-import { BuyContext } from '../contexts/BuyContext'
+import MyNavbar from '../../components/MyNavbar'
+import { AuthContext } from '../../contexts/AuthContext'
+import { getCartById, deleteCartById, increaseCount, decreaseCount} from '../../Api/Product-api'
+import { BuyContext } from '../../contexts/BuyContext'
 import { useNavigate } from 'react-router-dom'
-import { getAddressById, getUserById } from '../Api/Login-api'
+import { getAddressById, getUserById } from '../../Api/Login-api'
+import MyFooter from '../../components/MyFooter'
 
 function Cart() {
     const userId=localStorage.getItem('userId')
@@ -49,7 +50,12 @@ function Cart() {
     }
 
     const handlePayment=()=>{
-        navigate('/payment')
+        if(cart.length>0){
+            navigate('/payment')
+        }else{
+            alert("Your Cart is empty")
+        }
+        
     }
   return (
     <>
@@ -59,7 +65,7 @@ function Cart() {
                 <div className='border w-[60%] p-2 shadow-lg'>
                     <div className='border shadow-lg '>
                         <div className=' ps-2'>
-                            <div className='space-x-3 flex justify-between p-5'>
+                            <div className='space-x-3 sm:flex-row flex flex-col justify-between p-5'>
                                 <div className='max-w-300px '>
                                     <span className='text-2xl font-semibold'>Deliver to : {user.name} </span>
                                     <span className='text-2xl max-w-[300px]'>{address.housename}, </span>
@@ -74,48 +80,54 @@ function Cart() {
                         </div>
                     </div>
                     <div className=' h-[430px] overflow-auto custom-scrollbar'>
-                    {cart.map(item=>(
-                        <>
-                        <div className='flex flex-wrap mt-3 ms-2 mb-1'>
-                        <div className='w-[200px] flex flex-col justify-center items-center mt-3 mb-3'>
-                            <img className='w-[150px] h-[150px]' src={item.image} alt="product image" />
-                            <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-10 rounded'>
-                                <button  onClick={()=>handleSubCount(item)}  className='text-2xl rounded w-10 h-10'>-</button>
-                                <span className='text-2xl'>{item.count}</span>
-                                <button onClick={()=>handleAddCount(item)} className='text-2xl rounded w-10 h-10'>+</button>
+                    {cart.length>0?(
+                        cart.map(item=>(
+                            <>
+                            <div key={item.id} className='flex flex-wrap mt-3 ms-2 mb-1'>
+                            <div className='w-[200px] flex flex-col justify-center items-center mt-3 mb-3'>
+                                <img className='w-[150px] h-[150px]' src={item.image} alt="product image" />
+                                <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-10 rounded'>
+                                    <button  onClick={()=>handleSubCount(item)}  className='text-2xl rounded w-10 h-10'>-</button>
+                                    <span className='text-2xl'>{item.count}</span>
+                                    <button onClick={()=>handleAddCount(item)} className='text-2xl rounded w-10 h-10'>+</button>
+                                </div>
                             </div>
-                        </div>
-                        <div className='grid w-[70%]'>
-                            <div className='flex flex-col grid-cols-2 h-[100px] overflow-hidden'>
-                                <span className='text-3xl'>{item.name}</span>
-                                <span className='text-2xl'>{item.description}</span>
-                            </div>
-                            <div>
-                            {item.stock===0?(
-                                <span className='bg-gray-400 text-white p-0.5 rounded'>SOLD OUT</span>
-                            ):(
-                                (item.stock<10)?(
-                                    <span className='bg-red-500 text-white p-0.5 rounded'>Only {item.stock} left</span>
+                            <div className='grid w-[70%]'>
+                                <div className='flex flex-col grid-cols-2 h-[100px] overflow-hidden'>
+                                    <span className='text-3xl'>{item.name}</span>
+                                    <span className='text-2xl'>{item.description}</span>
+                                </div>
+                                <div>
+                                {item.stock===0?(
+                                    <span className='bg-gray-400 text-white p-0.5 rounded'>SOLD OUT</span>
                                 ):(
-                                    <span className='bg-lime-300 text-white p-0.5 rounded'>{item.stock} STOCK AVAILABLE</span>
-                                )
-                            )}
-                            </div>
-                            <div className='flex space-x-3 mb-3 grid-cols-1'>
-                                <span className='text-gray-500'>MRP : </span>
-                                <span className='text-gray-500 line-through'> ₹{item.oldprice}.00</span>
-                                <span className=' text-red-500'>Save ₹ {item.oldprice-item.price}.00</span>
-                            </div>  
-                            <div className='flex justify-between flex-wrap grid-cols-1'>
-                            <span className='text-3xl text-black mb-2 font-bold'>₹ {item.totalprice}.00</span>
-                            <button className='bg-red-400 rounded p-2 h-[50px] text-white' onClick={()=>removeFromCart(item.id)}>Remove from Cart</button>
+                                    (item.stock<10)?(
+                                        <span className='bg-red-500 text-white p-0.5 rounded'>Only {item.stock} left</span>
+                                    ):(
+                                        <span className='bg-lime-300 text-white p-0.5 rounded'>{item.stock} STOCK AVAILABLE</span>
+                                    )
+                                )}
+                                </div>
+                                <div className='flex space-x-3 mb-3 grid-cols-1'>
+                                    <span className='text-gray-500'>MRP : </span>
+                                    <span className='text-gray-500 line-through'> ₹{item.oldprice}.00</span>
+                                    <span className=' text-red-500'>Save ₹ {item.oldprice-item.price}.00</span>
+                                </div>  
+                                <div className='flex justify-between flex-wrap grid-cols-1'>
+                                <span className='text-3xl text-black mb-2 font-bold'>₹ {item.totalprice}.00</span>
+                                <button className='bg-red-400 rounded p-2 h-[50px] text-white' onClick={()=>removeFromCart(item.id)}>Remove from Cart</button>
+                                </div>
+                                
                             </div>
                             
                         </div>
-                        
-                    </div>
-                    </>
-                    ))}
+                        </>
+                        ))
+                    ):(
+                        <div className='flex justify-center'>
+                            <img src="https://www.adasglobal.com/img/empty-cart.png" className='h-[430px]' alt="" />
+                        </div>
+                    )}
                     </div>
                     <hr />
                     <div className='hidden xl:flex justify-end items-center me-5 h-[100px]'>
@@ -190,6 +202,7 @@ function Cart() {
                     </div>
                 </div>
             </div>
+            <MyFooter/>
         </div>
     </>
   )

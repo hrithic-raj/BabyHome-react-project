@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import MyNavbar from '../components/MyNavbar'
-import nextimg from '../Assets/Main/next.png'
-import previmg from '../Assets/Main/prev.png'
-import giftimg from '../Assets/Main/gift.png'
-import loveimg from '../Assets/Main/love.png'
-import priceimg from '../Assets/Main/price.png'
-import serviceimg from '../Assets/Main/service.png'
-import MyFooter from '../components/MyFooter'
-import { getBestSeller, getNewlyAdded } from '../Api/Product-api'
-import GptNavbar from '../components/GptNavbar'
+import MyNavbar from '../../components/MyNavbar'
+import nextimg from '../../Assets/Main/next.png'
+import previmg from '../../Assets/Main/prev.png'
+import giftimg from '../../Assets/Main/gift.png'
+import loveimg from '../../Assets/Main/love.png'
+import priceimg from '../../Assets/Main/price.png'
+import serviceimg from '../../Assets/Main/service.png'
+import MyFooter from '../../components/MyFooter'
+import { getBestSeller, getNewlyAdded } from '../../Api/Product-api'
 function Home() {
-    const navigate=useNavigate()
+  const navigate=useNavigate()
   const [imgIndex,setImgIndex]=useState(0);
   const [newlyAdded,setNewlyAdded]=useState([]);
   const [bestSeller,setBestSeller]=useState([]);
@@ -51,7 +50,7 @@ function Home() {
   }
   return (
     <>
-      <GptNavbar/>
+      <MyNavbar/>
       <div style={{marginTop:"130px"}} className=''>
         <div className='slider flex justify-center mt-36'>
         <div className='relative w-full max-w-4xl max-auto'>
@@ -179,9 +178,7 @@ function Home() {
         </div>
       </div>
     </section> 
-
     <MyFooter/>
-
     </div>
     </>
   )

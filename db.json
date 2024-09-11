@@ -208,85 +208,52 @@
       },
       "cart": [
         {
-          "id": "1004",
-          "name": "Disposable Baby Diapers (Pack of 40)",
-          "description": "High-absorbency disposable diapers with a soft inner lining to keep your baby dry and comfortable all day long.",
-          "category": "diapers",
-          "image": "https://f.media-amazon.com/images/I/615iChEayrL._SX679_PIbundle-40,TopRight,0,0_SX679SY457SH20_.jpg",
+          "id": "1006",
+          "name": "Hooded Baby Towel",
+          "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
           "images": [
-            "https://f.media-amazon.com/images/I/615iChEayrL._SX679_PIbundle-40,TopRight,0,0_SX679SY457SH20_.jpg",
-            "https://f.media-amazon.com/images/I/41dwinxigyL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/51HOKSYf0WL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/61GS2bNUuUL._SX679_.jpg"
+            "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
           ],
-          "price": 500,
-          "oldprice": 550,
+          "price": 350,
+          "oldprice": 400,
           "bestseller": false,
           "newlyadded": true,
-          "stock": 50,
-          "rating": 4.7,
+          "stock": 20,
+          "rating": 4.9,
           "count": 1,
-          "totalprice": 500,
-          "oldtotalprice": 550
-        }
-      ],
-      "orders": [
+          "totalprice": 350,
+          "oldtotalprice": 400
+        },
         {
-          "id": 1726050106583,
-          "item": [
-            {
-              "id": "1002",
-              "name": "Organic Baby Shampoo",
-              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
-              ],
-              "price": 250,
-              "oldprice": 300,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 0,
-              "rating": 4.6,
-              "count": 1,
-              "totalprice": 250,
-              "oldtotalprice": 300
-            },
-            {
-              "id": "1014",
-              "name": "Baby Soft Cotton Onesies (Pack of 3)",
-              "description": "Comfortable and soft onesies perfect for everyday wear. Made from 100% cotton.",
-              "category": "cloths",
-              "image": "https://f.media-amazon.com/images/I/51YSsjy1oDL._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/51YSsjy1oDL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71WIzaNsBML._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/518KNuxmvwL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/51lVaw6EnGL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/51Lb87iAAeL._SX679_.jpg"
-              ],
-              "price": 550,
-              "oldprice": 600,
-              "bestseller": false,
-              "newlyadded": true,
-              "stock": 20,
-              "rating": 4.7,
-              "count": 1,
-              "totalprice": 550,
-              "oldtotalprice": 600
-            }
+          "id": "1001",
+          "name": "Floral Yellow Turban Cap",
+          "description": "From the legends, to the pop sensations of the world, caps are not only the best sun covers, but also a distinct fashion statement! This added accessory will make your STAR shine the brightest while protecting their head and keeping it warm. Perfect to wear on occasions.",
+          "category": "cloths",
+          "image": "https://babymoo.in/cdn/shop/products/20056-YELLOWimg1.jpg?v=1628595386&width=800",
+          "images": [
+            "https://babymoo.in/cdn/shop/products/20056-YELLOWimg1.jpg?v=1628595386&width=800",
+            "https://babymoo.in/cdn/shop/products/20056-YELLOWimg2.jpg?v=1628595386&width=800",
+            "https://babymoo.in/cdn/shop/products/20056-YELLOWimg4.jpg?v=1628595386&width=800"
           ],
-          "paymentMethod": "EMI",
-          "date": {
-            "time": "3:51:46 PM",
-            "day": "Wed Sep 11 2024"
-          }
+          "price": 300,
+          "oldprice": 350,
+          "bestseller": false,
+          "newlyadded": true,
+          "stock": 15,
+          "rating": 4.8,
+          "count": 2,
+          "totalprice": 600,
+          "oldtotalprice": 700
         }
       ],
+      "orders": [],
       "wishlist": []
     }
   ],
@@ -615,6 +582,18 @@
       "newlyadded": false,
       "stock": 12,
       "rating": 4.9
+    }
+  ],
+  "newsletter": [
+    {
+      "id": "4527",
+      "userId": "5c4c",
+      "email": "a@gmail.com"
+    },
+    {
+      "id": "bad7",
+      "userId": "5c4c",
+      "email": "b@gmail.com"
     }
   ]
 }

@@ -36,14 +36,13 @@ export const AuthProvider = ({children})=>{
     // getUserById(userId)
     //   .then(res=>setUser(res.data))
     //   .catch(err=>console.error(err))
-
-    useEffect(()=>{
-        getCartById(userId)
-            .then(res=>{
-                setCart(res)
-            })
-            .catch(err=>console.error(err))
-    },[])
+        useEffect(()=>{
+            getCartById(userId)
+                .then(res=>{
+                    setCart(res)
+                })
+                .catch(err=>console.error(err))
+        })
 return(
     <AuthContext.Provider value={{user,login,logout,cart}}>
         {children}

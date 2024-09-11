@@ -1,8 +1,22 @@
+import { useState } from 'react';
 import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { addEmail } from '../Api/Product-api';
 
 const MyFooter = () => {
+  const navigate=useNavigate();
+  const userId=localStorage.getItem('userId')
+  const [email,setEmail]=useState('');
+  const [subscribed,setSubscribed]=useState(false);
+
+  const handleSub= async (e)=>{
+    e.preventDefault();
+    await addEmail(userId,email)
+    .then(()=>setSubscribed(true))
+    .catch((err)=>console.error(err))
+  }
   return (
-    <footer className="bg-gray-900 text-white py-12 mt-16">
+    <footer className="bg-red-100 text-black py-12 mt-16">
       <div className="container mx-auto px-4">
         {/* Upper Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
@@ -19,11 +33,11 @@ const MyFooter = () => {
           <div>
             <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
             <ul>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">Home</li>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">Shop</li>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">About Us</li>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">Contact Us</li>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">Cart</li>
+              <NavLink to={'/home'}><li className="my-1 hover:text-pink-500 cursor-pointer">Home</li></NavLink>
+              <NavLink to={'/store'}><li className="my-1 hover:text-pink-500 cursor-pointer">Store</li></NavLink>
+              <NavLink to={'/about'}><li className="my-1 hover:text-pink-500 cursor-pointer">About Us</li></NavLink>
+              <NavLink to={'/contactus'}><li className="my-1 hover:text-pink-500 cursor-pointer">Contact Us</li></NavLink>
+              <NavLink to={'/cart'}><li className="my-1 hover:text-pink-500 cursor-pointer">Cart</li></NavLink>
             </ul>
           </div>
 
@@ -31,29 +45,38 @@ const MyFooter = () => {
           <div>
             <h3 className="text-lg font-semibold mb-3">Customer Support</h3>
             <ul>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">Track Your Order</li>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">Shipping & Returns</li>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">Terms & Conditions</li>
-              <li className="my-1 hover:text-pink-500 cursor-pointer">Privacy Policy</li>
+            <NavLink to={'/orders'}><li className="my-1 hover:text-pink-500 cursor-pointer">Your Order</li></NavLink>
+            <NavLink to={'/sr'}><li className="my-1 hover:text-pink-500 cursor-pointer">Shipping & Returns</li></NavLink>
+            <NavLink to={'/tc'}><li className="my-1 hover:text-pink-500 cursor-pointer">Terms & Conditions</li></NavLink>
+            <NavLink to={'/pp'}><li className="my-1 hover:text-pink-500 cursor-pointer">Privacy Policy</li></NavLink>
             </ul>
           </div>
 
-          <div>
-            <h3 className="text-lg font-semibold mb-3">Newsletter</h3>
+          {!subscribed?(
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Newsletter</h3>
+              <p className="mb-3">
+                Subscribe to our newsletter and get the latest updates on new arrivals and special offers!
+              </p>
+              <form onSubmit={handleSub} className="flex items-center">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full p-2 rounded-l-lg text-black"
+                  value={email}
+                  onChange={(e)=>setEmail(e.target.value)}
+                />
+                <button type='submit' className="bg-pink-500 text-white px-4 py-2 rounded-r-lg hover:bg-pink-600">
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          ):(
             <p className="mb-3">
-              Subscribe to our newsletter and get the latest updates on new arrivals and special offers!
-            </p>
-            <form className="flex items-center">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="w-full p-2 rounded-l-lg text-black"
-              />
-              <button className="bg-pink-500 text-white px-4 py-2 rounded-r-lg hover:bg-pink-600">
-                Subscribe
-              </button>
-            </form>
-          </div>
+                Thank you for Subscribing to our newsletter!
+              </p>
+          )}
+
         </div>
 
         <div className="border-t border-gray-700 mt-8"></div>

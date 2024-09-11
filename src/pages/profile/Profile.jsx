@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useContext, useCallback} from 'react'
+import React, { useEffect, useState, useContext} from 'react'
 import dp from '../../Assets/Main/profile.png'
 import MyNavbar from '../../components/MyNavbar'
 import { addAddress, getAddressById, getUserById } from '../../Api/Login-api'
 import { AuthContext } from '../../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import MyFooter from '../../components/MyFooter'
 
 function Profile() {
     const navigate=useNavigate();
@@ -76,9 +77,9 @@ function Profile() {
                 
             </div>
             <div className='w-[800px] flex flex-col shadow-lg p-4 border'>
-                <label htmlFor="" className='text-2xl'>Name <span className='text-blue-600 text-lg hover:cursor-pointer'>EDIT</span></label>
+                <label htmlFor="" className='text-2xl'>Name</label>
                 <input className='text-xl p-3' type="text" value={user.name} placeholder='Name' disabled/>
-                <label htmlFor="" className='text-2xl'>Username <span className='text-blue-600 text-lg hover:cursor-pointer'>EDIT</span></label>   
+                <label htmlFor="" className='text-2xl'>Username</label>   
                 <input className='text-xl p-3' type="text" value={user.username} placeholder='Username' disabled/>
                 
                 {userId?(
@@ -133,6 +134,7 @@ function Profile() {
             </div>
             
         </div>
+        <MyFooter/>
     </div>
   )
 }

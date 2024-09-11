@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react'
-import MyNavbar from '../components/MyNavbar'
-import { addToCart, getCartById, getProductById } from '../Api/Product-api';
+import MyNavbar from '../../components/MyNavbar'
+import { addToCart, getCartById, getProductById } from '../../Api/Product-api';
 import { useNavigate, useParams } from 'react-router-dom';
+import MyFooter from '../../components/MyFooter';
 function Product() {
   const [product, setProduct] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
@@ -47,7 +48,7 @@ function Product() {
               <img className='w-[500px] h-[500px]' src={selectedImage} alt="" />
               <div className='absolute top-0 left-6'>
               <input id="heart" type="checkbox" />
-              <label for="heart">❤</label>
+              <label htmlFor="heart">❤</label>
               </div>
             </div>
             </div>
@@ -97,6 +98,7 @@ function Product() {
           </div>
         </div>
       </div>
+      <MyFooter/>
     </div>
   )
 }

@@ -2,9 +2,8 @@ import axios from "axios"
 
 const URL="http://localhost:5000/products";
 const userURL="http://localhost:5000/users"
-// export const getProducts= async ()=>{
-//     return await axios.get(URL);
-// }
+
+
 export const getProducts=()=>{
     return axios.get(URL);
 }
@@ -111,3 +110,11 @@ export const addToOrder = async(userId,ordersList)=>{
     const res = await axios.patch(`${userURL}/${userId}`,{orders : updatedOrder})
     return res.data.orders;
 } 
+
+
+//newsletter
+
+const EMAIL_URL ='http://localhost:5000/newsletter';
+export const addEmail=(userId,email)=>{
+    return axios.post(EMAIL_URL,{userId,email});
+}

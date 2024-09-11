@@ -32,10 +32,4 @@ export const addAddress=async(id,newAddress)=>{
     const currentAdress= await getAddressById(id)
     const res = await axios.patch(`${URL}/${id}`,{address : newAddress})
     return res.data.address
-    // if(currentAdress.length>0){
-    // const updatedAddress=currentAdress.push((item)=>...item,newAddress)
-    // }else{
-
-    // }
-    // }
 }

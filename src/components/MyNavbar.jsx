@@ -4,16 +4,54 @@ import logo from '../Assets/logo.png'
 import {NavLink,useNavigate} from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext';
 import { getUserById } from '../Api/Login-api';
+import axios from 'axios';
+import { getProductById, getProducts } from '../Api/Product-api';
 
 function MyNavbar() {
     const [isOpen, setIsOpen] = useState(false);
-    // const [user,setUser]=useState([])
+    const [searchTerm, setSearchTerm] = useState("");
+    const [products, setProducts] = useState([]);
+    const [showModal, setShowModal] = useState(false);
     const navigate=useNavigate()
     const {cart}=useContext(AuthContext);
-    const toggleMenu = () => {
-      setIsOpen(!isOpen);
-    };
     const userId=localStorage.getItem('userId')
+    
+    const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    };
+
+    useEffect(()=>{
+      const fetchProducts = async () => {
+        if(searchTerm.trim()===''){
+          setProducts([])
+          setShowModal(false)
+          return;
+        }
+        try{
+          const res= await getProducts();
+          const searchProducts=res.data.filter(product=>
+            product.name.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+          setProducts(searchProducts);
+          setShowModal(true);
+        }
+        catch(error){
+          console.error("Error searching result :", error);
+        }
+      }
+
+      const delaySearch = setTimeout(() => {
+        fetchProducts();
+      }, 300);
+      
+      return () => clearTimeout(delaySearch);
+    },[searchTerm])
+
+    const handleProductClick=(id)=>{
+      setShowModal(false);
+      navigate(`/store/product/${id}`)
+    }
+
   return (
    <>
   <div className='fixed top-0 w-full z-50 p-4 border-b border-gray-300' style={{backgroundColor :'#FFFFFF' ,height : "130px", width :"100%" ,marginBottom :"300px"}}>
@@ -51,13 +89,33 @@ function MyNavbar() {
               type="text" 
               placeholder="Search..." 
               className="pl-10 pr-4 py-2 border-2 w-full rounded-md focus:outline-none focus:ring-1 focus:ring-pink-100"
-
+              onChange={(e)=>setSearchTerm(e.target.value)}
             />
+
+            {/* Search Box Modal */}
+        {showModal && products.length > 0 && (
+        <div className="absolute left-0 mt-2 w-full bg-white border rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+              <ul className="divide-y divide-gray-300">
+                {products.map((product) => (
+                  <li
+                    key={product.id}
+                    onClick={() => handleProductClick(product.id)}
+                    className="cursor-pointer p-2 hover:bg-gray-100"
+                  >
+                    {product.name} 
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           </div>
         </div>
+
+        
+
         {/* Right */}
         <div className="flex items-center space-x-6 me-3">
-          <button className="text-gray-600 hover:text-gray-400" onClick={()=>navigate('/home')}>
+          <button className="text-gray-600 hover:text-gray-400" onClick={()=>navigate('/donation')}>
             <FaDonate size={24} />
           </button>
           <button className="text-gray-600 hover:text-gray-400 relative h-10"  onClick={()=>(userId)?navigate('/cart'):navigate('/login')}>
@@ -69,7 +127,8 @@ function MyNavbar() {
           )}
           </button>
           <button className="text-gray-600 hover:text-gray-400 flex"  onClick={()=>navigate('/Profile')}>
-            <FaUser size={24} /><span>hhhh</span>
+            <FaUser size={24} />
+            <span></span>
           </button>
           {/* {userId?(
             <span className='text-lg text-black'>{user.username}</span>
@@ -86,12 +145,30 @@ function MyNavbar() {
           <NavLink to={'/store'} className="block hover:text-gray-400">Store</NavLink>
           <NavLink to={'/about'} className="block hover:text-gray-400">About Us</NavLink>
           <NavLink to={'/contactus'} className="block hover:text-gray-400">Contact Us</NavLink>
-
+          <div className='relative'>
           <input 
             type="text" 
             placeholder="Search..." 
-            className="block w-full px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
-          />
+            className="block w-full px-4 py-2 text-black rounded-md focus:outline-none focus:ring-1 focus:ring-blue-400"
+            onChange={(e)=>setSearchTerm(e.target.value)}
+            />
+            {/* Search Box Modal */}
+            {showModal && products.length > 0 && (
+              <div className="absolute left-0 mt-2 w-full bg-white border rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+                <ul className="divide-y divide-gray-300">
+                  {products.map((product) => (
+                    <li
+                      key={product.id}
+                      onClick={() => handleProductClick(product.id)}
+                      className="text-black  cursor-pointer p-2 hover:bg-gray-100"
+                    >
+                      {product.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </nav>

@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
-import { checkUser } from '../Api/Login-api';
-import AuthNav from '../components/AuthNav';
+import { checkUser } from '../../Api/Login-api';
+import AuthNav from '../../components/AuthNav';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { AuthContext } from '../contexts/AuthContext';
+import { AuthContext } from '../../contexts/AuthContext';
 const validationSchema = Yup.object({
     username: Yup.string().required('Username is required'),
     password: Yup.string().min(6, 'Password must be at least 6 characters').required('Password is required'),

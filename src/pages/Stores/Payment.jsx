@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
-import MyNavbar from '../components/MyNavbar'
-import { AuthContext } from '../contexts/AuthContext'
-import { getCartById, deleteCartById, increaseCount, decreaseCount, ClearCart, addToOrder} from '../Api/Product-api'
-import { BuyContext } from '../contexts/BuyContext'
+import MyNavbar from '../../components/MyNavbar'
+import { AuthContext } from '../../contexts/AuthContext'
+import { getCartById, deleteCartById, increaseCount, decreaseCount, ClearCart, addToOrder} from '../../Api/Product-api'
+import { BuyContext } from '../../contexts/BuyContext'
 import axios from 'axios'
-import gpay from '../Assets/Main/gpay.png'
-import paytm from '../Assets/Main/paytm.png'
-import { getAddressById, getUserById } from '../Api/Login-api'
+import gpay from '../../Assets/Main/gpay.png'
+import paytm from '../../Assets/Main/paytm.png'
+import { getAddressById, getUserById } from '../../Api/Login-api'
 import { useNavigate } from 'react-router-dom'
+import MyFooter from '../../components/MyFooter'
 
 
 function Payment() {
@@ -59,19 +60,29 @@ function Payment() {
 
   const handleOrder = async () => {
     // e.preventDefault();
-    const d=new Date()
-    const orderList={ id:Date.now(),item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()}}
-    console.log(orderList)
+    if(cart.length>0 && selectedOption){
+        const d=new Date()
+        const orderList={ id:Date.now(),item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()}}
+        // console.log(address)
+        await addToOrder(userId,orderList)
+        .then(res=>{
+            alert("Order Placed")
+            setTimeout(() => {
+                navigate('/orders')
+            }, 1000);
+        })
+        .catch(err=>console.error(err))
+    
+        await ClearCart(userId)
+        .then(res=>setCart(res))
+        .catch(err=>console.error(err))
+    }else if(cart.length<0){
+        alert("Your Cart is empty");
+    }
+    else if(!selectedOption) {
+        alert("Add a Payment option");
+    }
 
-    await addToOrder(userId,orderList)
-    .then(res=>{
-        alert("Order Placed")
-        navigate('/profile')
-    })
-
-    await ClearCart(userId)
-    .then(res=>setCart(res))
-    .catch(err=>console.error(err))
   };
 
   return (
@@ -105,33 +116,39 @@ function Payment() {
                     </div>
                     <hr className=''/>
                     <div className=' h-[430px] overflow-auto custom-scrollbar ps-2'>
-                    {cart.map(item=>(
-                        <div className='flex flex-wrap mt-3 mb-1'>
-                        <div className='w-[150px] flex flex-col justify-center items-center mt-3 mb-3'>
-                            <img className='w-[100px] h-[100px]' src={item.image} alt="product image" />
-                            <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-8 w rounded'>
-                                <button  onClick={()=>handleSubCount(item)}  className='text-2xl rounded w-10 h-10'>-</button>
-                                <span className='text-2xl'>{item.count}</span>
-                                <button onClick={()=>handleAddCount(item)} className='text-2xl rounded w-10 h-10'>+</button>
+                    {cart.length>0?(
+                        cart.map(item=>(
+                            <div key={item.id} className='flex flex-wrap mt-3 mb-1'>
+                            <div className='w-[150px] flex flex-col justify-center items-center mt-3 mb-3'>
+                                <img className='w-[100px] h-[100px]' src={item.image} alt="product image" />
+                                <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-8 w rounded'>
+                                    <button  onClick={()=>handleSubCount(item)}  className='text-2xl rounded w-10 h-10'>-</button>
+                                    <span className='text-2xl'>{item.count}</span>
+                                    <button onClick={()=>handleAddCount(item)} className='text-2xl rounded w-10 h-10'>+</button>
+                                </div>
+                            </div>
+                            <div className='grid w-[70%]'>
+                                <div className='flex flex-col grid-cols-2 h-[50px] overflow-hidden'>
+                                    <span className='text-2xl xl:text-3xl'>{item.name}</span>
+                                </div>
+                                <div className='flex space-x-3 mb-3 grid-cols-1'>
+                                    <span className='text-gray-500'>MRP : </span>
+                                    <span className='text-gray-500 line-through'> ₹ {item.oldprice}.00</span>
+                                    <span className=' text-red-500'>Save ₹ {item.oldprice-item.price}.00</span>
+                                </div>  
+                                <div className='flex justify-between flex-wrap grid-cols-1'>
+                                <span className='text-3xl text-black mb-2 font-bold'>₹ {item.totalprice}.00</span>
+                                <button className='bg-red-400 rounded p-2 h-[50px] text-white' onClick={()=>removeFromCart(item.id)}>Remove from Cart</button>
+                                </div>
+                                
                             </div>
                         </div>
-                        <div className='grid w-[70%]'>
-                            <div className='flex flex-col grid-cols-2 h-[50px] overflow-hidden'>
-                                <span className='text-2xl xl:text-3xl'>{item.name}</span>
-                            </div>
-                            <div className='flex space-x-3 mb-3 grid-cols-1'>
-                                <span className='text-gray-500'>MRP : </span>
-                                <span className='text-gray-500 line-through'> ₹ {item.oldprice}.00</span>
-                                <span className=' text-red-500'>Save ₹ {item.oldprice-item.price}.00</span>
-                            </div>  
-                            <div className='flex justify-between flex-wrap grid-cols-1'>
-                            <span className='text-3xl text-black mb-2 font-bold'>₹ {item.totalprice}.00</span>
-                            <button className='bg-red-400 rounded p-2 h-[50px] text-white' onClick={()=>removeFromCart(item.id)}>Remove from Cart</button>
-                            </div>
-                            
+                        ))
+                    ):(
+                        <div className='flex justify-center'>
+                            <img src="https://www.adasglobal.com/img/empty-cart.png" className='h-[430px]' alt="" />
                         </div>
-                    </div>
-                    ))}
+                    )}
                     </div>
                     
                 </div>
@@ -288,6 +305,7 @@ function Payment() {
                     </div>
                 </div>
             </div>
+            <MyFooter/>
         </div>
     </>
   )

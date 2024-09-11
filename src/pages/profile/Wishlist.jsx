@@ -4,6 +4,7 @@ import MyNavbar from '../../components/MyNavbar'
 import { addAddress, getAddressById, getUserById } from '../../Api/Login-api'
 import { AuthContext } from '../../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import MyFooter from '../../components/MyFooter'
 
 function Wishlist() {
     const navigate=useNavigate();
@@ -45,6 +46,7 @@ function Wishlist() {
             </div>
             
         </div>
+        <MyFooter/>
     </div>
   )
 }

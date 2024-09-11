@@ -5,6 +5,7 @@ import { addAddress, getAddressById, getUserById } from '../../Api/Login-api'
 import { AuthContext } from '../../contexts/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { getOrderById } from '../../Api/Product-api'
+import MyFooter from '../../components/MyFooter'
 
 function Orders() {
     const navigate=useNavigate();
@@ -48,11 +49,11 @@ function Orders() {
                 }
                 
             </div>
-            <div className='w-[800px] flex flex-col shadow-md p-4 border space-y-4'>
+            <div className='w-[800px] h-[600px] overflow-auto custom-scrollbar flex flex-col shadow-md p-4 border space-y-4'>
                 {orders.map(orderlist=>(
-                        <div className=' border shadow-lg flex flex-col space-y-3 p-2'> 
+                        <div key={orderlist.id} className=' border shadow-lg flex flex-col space-y-3 p-2'> 
                         {orderlist.item.map(order=>(
-                            <div className='border flex'>
+                            <div key={order.id} className='border flex rounded-lg'>
                             <div className='flex flex-col items-center justify-center h-[150px] w-[150px]'>
                                 <img className='ms-2 w-28 mt-2 rounded' src={order.image} alt="" />
                                 <span>Quantity : {order.count}</span>
@@ -87,6 +88,7 @@ function Orders() {
                 
             </div>
         </div>
+        <MyFooter/>
     </div>
   )
 }
