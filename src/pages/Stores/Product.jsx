@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import MyNavbar from '../../components/MyNavbar'
-import { addToCart, getCartById, getProductById } from '../../Api/Product-api';
+import { addToCart, getProductById } from '../../Api/Product-api';
 import { useNavigate, useParams } from 'react-router-dom';
 import MyFooter from '../../components/MyFooter';
 function Product() {
@@ -42,6 +42,9 @@ function Product() {
     }
     
   }
+  const handleWishlist=(e)=>{
+    console.log(e.target.checked)
+  }
   return (
     <div>
       <MyNavbar cartAddAlert={cartAddAlert}/>
@@ -52,7 +55,7 @@ function Product() {
             <div className='relative'>
               <img className='w-[500px] h-[500px]' src={selectedImage} alt="" />
               <div className='absolute top-0 left-6'>
-              <input id="heart" type="checkbox" />
+              <input id="heart" type="checkbox" onChange={handleWishlist}/>
               <label htmlFor="heart">❤</label>
               </div>
             </div>

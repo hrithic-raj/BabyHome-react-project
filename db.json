@@ -105,28 +105,50 @@
       "password": "123456",
       "cart": [
         {
-          "id": "1006",
-          "name": "Hooded Baby Towel",
-          "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
+          "id": "1002",
+          "name": "Organic Baby Shampoo",
+          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
           "category": "bathing",
-          "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
           "images": [
-            "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
+            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
           ],
-          "price": 350,
-          "oldprice": 400,
-          "bestseller": false,
-          "newlyadded": true,
-          "stock": 20,
+          "price": 250,
+          "oldprice": 300,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 0,
+          "rating": 4.6,
+          "count": 1,
+          "totalprice": 250,
+          "oldtotalprice": 300
+        },
+        {
+          "id": "1011",
+          "name": "Baby Crib",
+          "description": "A sturdy and comfortable baby crib designed for peaceful sleeping.",
+          "category": "toys",
+          "image": "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/519FFCFpsML.jpg",
+            "https://f.media-amazon.com/images/I/51sCGOCEhmL.jpg",
+            "https://f.media-amazon.com/images/I/61eC+K4bNdL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/41VeD7J5nUL.jpg",
+            "https://f.media-amazon.com/images/I/51MSYaPjaUL.jpg"
+          ],
+          "price": 3200,
+          "oldprice": 3500,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 5,
           "rating": 4.9,
           "count": 1,
-          "totalprice": 350,
-          "oldtotalprice": 400
+          "totalprice": 3200,
+          "oldtotalprice": 3500
         }
       ],
       "orders": [
@@ -182,6 +204,40 @@
           "paymentMethod": "Card",
           "date": {
             "time": "11:22:04 AM",
+            "day": "Fri Sep 13 2024"
+          }
+        },
+        {
+          "id": 1726212796191,
+          "item": [
+            {
+              "id": "1006",
+              "name": "Hooded Baby Towel",
+              "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
+              "category": "bathing",
+              "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
+              ],
+              "price": 350,
+              "oldprice": 400,
+              "bestseller": false,
+              "newlyadded": true,
+              "stock": 20,
+              "rating": 4.9,
+              "count": 1,
+              "totalprice": 350,
+              "oldtotalprice": 400
+            }
+          ],
+          "paymentMethod": "Card",
+          "date": {
+            "time": "1:03:16 PM",
             "day": "Fri Sep 13 2024"
           }
         }

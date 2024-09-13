@@ -52,7 +52,6 @@ function Profile() {
                 state :'',
             })
             setAddressFlag(false)
-            
         })
         .catch(err=>console.error(err))
         
