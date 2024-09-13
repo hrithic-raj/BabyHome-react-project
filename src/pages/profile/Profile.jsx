@@ -81,6 +81,8 @@ function Profile() {
                 <input className='text-xl p-3' type="text" value={user.name} placeholder='Name' disabled/>
                 <label htmlFor="" className='text-2xl'>Username</label>   
                 <input className='text-xl p-3' type="text" value={user.username} placeholder='Username' disabled/>
+                <label htmlFor="" className='text-2xl'>Email</label>   
+                <input className='text-xl p-3' type="text" value={user.email} placeholder='Username' disabled/>
                 
                 {userId?(
                     (!address)?(
@@ -131,7 +133,7 @@ function Profile() {
                         </>
                     )
                 ):(
-                    <></>
+                    null
                 )}
                 
             </div>

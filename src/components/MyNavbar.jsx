@@ -53,10 +53,12 @@ function MyNavbar(props) {
     },[searchTerm])
 
     useEffect(()=>{
-      getCartById(userId)
-      .then((res)=>{
-        setCart(res)
-      })
+      if(userId){
+        getCartById(userId)
+        .then((res)=>{
+          setCart(res)
+        })
+      }
     },[userId,cartAddAlert,cartRemoveAlert])
     const handleProductClick=(id)=>{
       setShowModal(false);
@@ -131,10 +133,10 @@ function MyNavbar(props) {
           </button>
           <button className="text-gray-600 hover:text-gray-400 relative h-10"  onClick={()=>(userId)?navigate('/cart'):navigate('/login')}>
           <FaShoppingCart size={24} />
-          {cart?(
+          {cart.length>0?(
             <span className='absolute top-1 left-4 bg-yellow-300 rounded-lg h-5 w-5 text-sm text-center'>{cart.length}</span>
           ):(
-            null
+            <span></span>
           )}
           </button>
           <button className="text-gray-600 hover:text-gray-400 flex"  onClick={()=>navigate('/Profile')}>

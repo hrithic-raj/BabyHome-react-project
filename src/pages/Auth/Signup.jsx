@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 import { addUser,checkUsername } from '../../Api/Login-api';
 import AuthNav from '../../components/AuthNav';
@@ -14,6 +14,7 @@ const validationSchema=yup.object({
 
 function Signup() {
     const navigate=useNavigate()
+    const userId=localStorage.getItem('userId')
 
     const formik=useFormik({
       initialValues: {
@@ -33,11 +34,16 @@ function Signup() {
           navigate('/login')
         }
         else{
-          formik.setFieldError('username', 'Username already exists');
+          formik.setFieldError('Username already exists');
         }
       }
 
     })
+    useEffect(()=>{
+      if(userId){
+        navigate('/home')
+      }
+    },[userId])
 
   return (
     <div className='signup-main'>

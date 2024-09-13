@@ -87,9 +87,9 @@ function Cart() {
                             <button className='bg-orange-400 rounded w-[100px] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Change</button>
                         </div>
                         ):(
-                            <div className='h-[100px] flex justify-center items-center space-x-2'>
+                            <div className='h-[100px] xl:flex-row flex flex-col justify-center items-center space-x-2'>
                                 <span className='text-xl'>Deliver to : no address added</span>
-                                <button className='bg-orange-400 rounded w-[20%] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Add Address</button>
+                                <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Add Address</button>
                             </div>
                         )}
                             
@@ -145,16 +145,22 @@ function Cart() {
                         </>
                         ))
                     ):(
-                        <div className='flex justify-center'>
+                        <div className='flex relative justify-center'>
                             <img src="https://www.adasglobal.com/img/empty-cart.png" className='h-[430px]' alt="" />
+                            <button onClick={()=>navigate('/home')} className='bg-blue-400 rounded p-2 h-[50px] text-white absolute top-3/4'>GO TO STORE</button>
                         </div>
                     )}
                     </div>
-                    <hr />
-                    <div className='hidden xl:flex justify-end items-center me-5 h-[100px]'>
-                        <hr />
-                        <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handlePayment}>PLACE ORDER</button>
-                    </div>
+                    {cart.length>0?(
+                        <>
+                            <hr />
+                            <div className='hidden xl:flex justify-end items-center me-5 h-[100px]'>
+                                <hr />
+                                <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handlePayment}>PLACE ORDER</button>
+                            </div>
+                        </>    
+                    ):null}
+                   
                 </div>
                 <div className='border w-[60%] xl:w-[400px] shadow-lg'>
                     <div className='flex flex-col p-3'>
@@ -216,10 +222,14 @@ function Cart() {
                             
                         
                     </div>
-                    <hr className='xl:hidden'/>
-                    <div className='xl:hidden flex justify-end items-center me-5 h-[100px]'>
-                        <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handlePayment}>PLACE ORDER</button>
-                    </div>
+                    {cart.length>0?(
+                        <>
+                            <hr className='xl:hidden'/>
+                            <div className='xl:hidden flex justify-end items-center me-5 h-[100px]'>
+                                <button className='bg-orange-400 rounded w-[200px] p-2 h-[50px] text-white' onClick={handlePayment}>PLACE ORDER</button>
+                            </div>
+                        </>
+                    ):null}
                     </div>
                 </div>
             </div>

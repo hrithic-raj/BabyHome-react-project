@@ -22,6 +22,8 @@ export const getBestSeller=()=>{
     return axios.get(`${URL}?bestseller=true`);
 }
 
+//Cart:-
+
 export const getCartById=async(id)=>{
     const res= await axios.get(`${userURL}/${id}`)
     return res.data.cart;
@@ -29,11 +31,11 @@ export const getCartById=async(id)=>{
 
 export const addToCart= async(userId,product,count)=>{
     const currentCart= await getCartById(userId)
-    //check product already exist in the cart
     const price=product.price
     const totalprice=product.price*count
     const oldtotalprice=product.oldprice*count
-
+    
+    //check product already exist in the cart
     const productExist=currentCart.findIndex((item)=>item.id===product.id)
     let updatedCart;
     if(productExist>=0){
@@ -47,9 +49,7 @@ export const addToCart= async(userId,product,count)=>{
         updatedCart=[...currentCart,{...product, count , totalprice, oldtotalprice}];
     }
 
-
     //update the updatedCart to user
-    // console.log(updatedCart);
     await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
     console.log("Product added/updated in cart successfully!");
     return updatedCart;
@@ -85,6 +85,8 @@ export const decreaseCount=async(userId,product)=>{
     return updatedCart;
 }
 
+//order:-
+
 export const getOrderById=async(userId)=>{
     const res=await axios.get(`${userURL}/${userId}`)
     return res.data.orders;
@@ -98,7 +100,7 @@ export const ClearCart= async (userId)=>{
 export const addToOrder = async(userId,ordersList)=>{
     const currentOrder=await getOrderById(userId)
     let updatedOrder;
-    console.log(currentOrder)
+    // console.log(currentOrder)
     if(!currentOrder){
         updatedOrder=[ordersList]
     }

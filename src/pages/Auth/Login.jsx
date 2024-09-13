@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState ,useEffect} from 'react'
 import { useNavigate, NavLink } from 'react-router-dom'
 import { checkUser } from '../../Api/Login-api';
 import AuthNav from '../../components/AuthNav';
@@ -14,6 +14,7 @@ function Login() {
     const navigate=useNavigate();
     const [errorMsg,setErrorMsg]=useState('')
     const {login}=useContext(AuthContext);
+    const userId=localStorage.getItem('userId')
     const formik=useFormik({
         initialValues: {
             username: '',
@@ -30,6 +31,11 @@ function Login() {
             )
         }
     })
+    useEffect(()=>{
+        if(userId){
+          navigate('/home')
+        }
+      },[userId])
   return (
     <div className='login-main'>
         <AuthNav/>

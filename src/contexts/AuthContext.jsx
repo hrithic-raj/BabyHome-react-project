@@ -15,7 +15,7 @@ export const AuthProvider = ({children})=>{
     const login= async(username,password)=>{
         try{
             const res = await axios.get(`${URL}?username=${username}&password=${password}`)
-            console.log([username,password])
+            // console.log([username,password])
             if(res.data.length>0){
                 const loggedInUser = res.data[0];
                 localStorage.setItem('userId',loggedInUser.id);

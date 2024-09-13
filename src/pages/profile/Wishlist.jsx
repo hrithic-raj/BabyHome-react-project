@@ -13,11 +13,11 @@ function Wishlist() {
     const [user,setUser]=useState([]);
     const [component,setComponent]=useState([]);
     const {logout}=useContext(AuthContext)
-    useEffect(()=>{
-        getUserById(userId)
-        .then(res=>setUser(res.data))
-        .catch(err=>console.error(err))
-    },[])
+    // useEffect(()=>{
+    //     getUserById(userId)
+    //     .then(res=>setUser(res.data))
+    //     .catch(err=>console.error(err))
+    // },[])
     const handleLogout=()=>{
         logout()
         navigate('/home')
