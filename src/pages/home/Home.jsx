@@ -98,19 +98,19 @@ function Home() {
     <section className='catagories p-4 mt-8'>
     <h2 className="text-3xl mt-10 font-bold mb-4 text-center">Categories</h2>
       <div className='flex flex-wrap justify-center my-10 space-x-10'>
-        <div className='hover:cursor-pointer' onClick={()=>navigate('/store/cloths')}>
+        <div className='hover:cursor-pointer hover:transform hover:scale-105  transition-all duration-500 ease-in-out' onClick={()=>navigate('/store/cloths')}>
           <img src="https://babymoo.in/cdn/shop/files/AP.png?v=1681776025&width=200" alt="" />
         </div>
-        <div className='hover:cursor-pointer' onClick={()=>navigate('/store/foods')}>
+        <div className='hover:cursor-pointer hover:transform hover:scale-105  transition-all duration-500 ease-in-out' onClick={()=>navigate('/store/foods')}>
           <img src="https://babymoo.in/cdn/shop/files/FEEDING_bbf62231-d608-492b-b2da-d6b23eff8e8c.png?v=1681776169&width=200" alt="" />
         </div>
-        <div className='hover:cursor-pointer' onClick={()=>navigate('/store/bathing')}>
+        <div className='hover:cursor-pointer hover:transform hover:scale-105  transition-all duration-500 ease-in-out' onClick={()=>navigate('/store/bathing')}>
           <img src="https://babymoo.in/cdn/shop/files/BATH.png?v=1681776238&width=200" alt="" />
         </div>
-        <div className='hover:cursor-pointer' onClick={()=>navigate('/store/diapers')}>
+        <div className='hover:cursor-pointer hover:transform hover:scale-105  transition-all duration-500 ease-in-out' onClick={()=>navigate('/store/diapers')}>
           <img src="https://babymoo.in/cdn/shop/files/DIA_fa918afa-bd60-49f3-a91f-a6a44620f45d.png?v=1681776323&width=200" alt="" />
         </div>
-        <div className='hover:cursor-pointer' onClick={()=>navigate('/store/toys')}>
+        <div className='hover:cursor-pointer hover:transform hover:scale-105  transition-all duration-500 ease-in-out' onClick={()=>navigate('/store/toys')}>
           <img src="https://babymoo.in/cdn/shop/files/TOYS_f1c75327-a66e-49dc-9cf5-864104aec691.png?v=1681776401&width=200" alt="" />
         </div>
       </div>
@@ -133,7 +133,7 @@ function Home() {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-[250px] object-cover mb-2 rounded-md"
+                  className="w-full h-[250px] object-cover mb-2 rounded-md  hover:transform hover:scale-105  transition-all duration-500 ease-in-out"
                 />
                 <h3 className="text-lg font-semibold">{product.name}</h3>
                 <div className='flex space-x-3 justify-center'>
@@ -165,7 +165,7 @@ function Home() {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-[250px] object-cover mb-2 rounded-md"
+                  className="w-full h-[250px] object-cover mb-2 rounded-md hover:transform hover:scale-105  transition-all duration-500 ease-in-out"
                 />
                 <h3 className="text-lg font-semibold">{product.name}</h3>
                 <div className='flex space-x-3 justify-center'>

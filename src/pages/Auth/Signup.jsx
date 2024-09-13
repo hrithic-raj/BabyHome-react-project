@@ -21,7 +21,6 @@ function Signup() {
                     username: '',
                     email: '',
                     password: '',
-                    address:[],
                     cart:[],
                     orders:[],
                     wishlist:[],

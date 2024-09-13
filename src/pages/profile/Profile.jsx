@@ -83,7 +83,7 @@ function Profile() {
                 <input className='text-xl p-3' type="text" value={user.username} placeholder='Username' disabled/>
                 
                 {userId?(
-                    (address.length===0)?(
+                    (!address)?(
                         (!addressFlag)?(
                             <button className='bg-blue-400 rounded p-2' onClick={()=>setAddressFlag(true)}>Add Address</button>
                         ):(
@@ -112,7 +112,7 @@ function Profile() {
                         
                     ):(
                         <>
-                                <span className='text-2xl text-center'>ADDRESS<span className='text-blue-600 text-lg hover:cursor-pointer' onClick={()=>{setAddressFlag(true);setAddress([])}}>EDIT</span></span>
+                                <span className='text-2xl text-center'>ADDRESS</span>
                                 <div className='sm:space-x-3 space-x-0 flex flex-wrap justify-center'>
                                     <input className='text-xl border p-2' name='pincode' value={address.pincode} type="text"  placeholder='Pincode' disabled/>
                                     <input className='text-xl border p-2' name='housename' value={address.housename} type="text"  placeholder='House Name' disabled/>
@@ -124,6 +124,9 @@ function Profile() {
                                 <div className='sm:space-x-3 space-x-0 flex flex-wrap justify-center'>
                                     <input className='text-xl border p-2' name='district' value={address.district} type="text"  placeholder='district'disabled/>
                                     <input className='text-xl border p-2' name='state' value={address.state} type="text"  placeholder='state'disabled/>
+                                </div>
+                                <div className='sm:space-x-3 space-x-0 flex flex-wrap justify-center mb-10 mt-2'>
+                                    <button className='bg-blue-500 rounded-lg p-2 text-white' onClick={()=>{setAddressFlag(true);setAddress(null)}}>CHANGE</button>
                                 </div>
                         </>
                     )

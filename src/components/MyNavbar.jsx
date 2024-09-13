@@ -1,25 +1,30 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { FaShoppingCart, FaUser, FaDonate, FaBars, FaTimes ,FaSearch} from 'react-icons/fa';
 import logo from '../Assets/logo.png'
 import {NavLink,useNavigate} from 'react-router-dom'
 import { AuthContext } from '../contexts/AuthContext';
 import { getUserById } from '../Api/Login-api';
-import axios from 'axios';
-import { getProductById, getProducts } from '../Api/Product-api';
+// import axios from 'axios';
+import { getCartById, getProducts } from '../Api/Product-api';
 
-function MyNavbar() {
+function MyNavbar(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [products, setProducts] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [cart, setCart] = useState(false);
     const navigate=useNavigate()
-    const {cart}=useContext(AuthContext);
+    // const {cart}=useContext(AuthContext);
     const userId=localStorage.getItem('userId')
-    
+    const cartAddAlert=props.cartAddAlert
+    const cartRemoveAlert=props.cartRemoveAlert
+    const cartCount=props.cartCount
+    const paymentOptionAlert=props.paymentOptionAlert
+    const cartEmptyAlert=props.cartEmptyAlert
+    const orderPlacedAlert=props.orderPlacedAlert
     const toggleMenu = () => {
     setIsOpen(!isOpen);
     };
-
     useEffect(()=>{
       const fetchProducts = async () => {
         if(searchTerm.trim()===''){
@@ -47,6 +52,12 @@ function MyNavbar() {
       return () => clearTimeout(delaySearch);
     },[searchTerm])
 
+    useEffect(()=>{
+      getCartById(userId)
+      .then((res)=>{
+        setCart(res)
+      })
+    },[userId,cartAddAlert,cartRemoveAlert])
     const handleProductClick=(id)=>{
       setShowModal(false);
       navigate(`/store/product/${id}`)
@@ -114,7 +125,7 @@ function MyNavbar() {
         
 
         {/* Right */}
-        <div className="flex items-center space-x-6 me-3">
+        <div className="flex items-center space-x-6 me-3 relative transition-all ease-in-out">
           <button className="text-gray-600 hover:text-gray-400" onClick={()=>navigate('/donation')}>
             <FaDonate size={24} />
           </button>
@@ -123,7 +134,7 @@ function MyNavbar() {
           {cart?(
             <span className='absolute top-1 left-4 bg-yellow-300 rounded-lg h-5 w-5 text-sm text-center'>{cart.length}</span>
           ):(
-            <span>0</span>
+            null
           )}
           </button>
           <button className="text-gray-600 hover:text-gray-400 flex"  onClick={()=>navigate('/Profile')}>
@@ -135,6 +146,34 @@ function MyNavbar() {
           ):(
             <></>
           )} */}
+
+        {/* modal for alert */}
+
+        {cartAddAlert?(
+          <div className="absolute text-center right-2 top-20 w-[200px] h-[45px] p-2 mt-2 bg-white border rounded-lg shadow-lg z-40 transition-all duration-500 ease-in-out">
+                <span className='text-lg'>Item added to Cart ✅</span>
+            </div>
+        ):null}
+        {cartRemoveAlert?(
+          <div className="absolute text-center right-2 top-20 w-[260px] h-[45px] p-2 mt-2 bg-white border rounded-lg shadow-lg z-40  transition-all duration-500 ease-in-out">
+                <span className='text-lg'>Item removed from Cart ❎</span>
+            </div>
+        ):null}
+        {paymentOptionAlert?(
+          <div className="absolute text-center right-2 top-20 w-[260px] h-[45px] p-2 mt-2 bg-white border rounded-lg shadow-lg z-40 transition-all duration-500 ease-in-out ">
+                <span className='text-lg'>Add a Payment option ❌</span>
+            </div>
+        ):null}
+        {cartEmptyAlert?(
+          <div className="absolute text-center right-2 top-20 w-[260px] h-[45px] p-2 mt-2 bg-white border rounded-lg shadow-lg z-40 transition-all duration-500 ease-in-out ">
+                <span className='text-lg'>Your Cart is Empty ❌</span>
+            </div>
+        ):null}
+        {orderPlacedAlert?(
+          <div className="absolute text-center right-2 top-20 w-[260px] h-[45px] p-2 mt-2 bg-white border rounded-lg shadow-lg z-40 transition-all duration-500 ease-in-out ">
+                <span className='text-lg'>Your Order is placed ✅</span>
+            </div>
+        ):null}
         </div>
       </div>
 

@@ -12,7 +12,7 @@ function AuthNav() {
         {/* Left */}
         <div className="flex items-center space-x-4">
           {/* Logo */}
-          <div className=''>
+          <div className='hover:cursor-pointer' onClick={()=>navigate('/home')}>
               <img style={{width :"270px", height : "100px"}} src={logo} alt="Logo" />
           </div>
         </div>

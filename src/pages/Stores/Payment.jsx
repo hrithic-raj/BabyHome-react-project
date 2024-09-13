@@ -19,6 +19,12 @@ function Payment() {
     const [user,setUser]=useState([]);
     const [address,setAddress]=useState([]);
     const [oldTotal,setOldTotal]=useState(0);
+    const [orderPlacedAlert,setOrderPlacedAlert]=useState(false)
+    const [cartEmptyAlert,setCartEmptyAlert]=useState(false)
+    const [paymentOptionAlert,setPaymentOptionAlert]=useState(false)
+
+
+
     useEffect(()=>{
         setTotal(cart.reduce((acc,value)=>acc+value.totalprice,0))
         setOldTotal(cart.reduce((acc,value)=>acc+value.oldtotalprice,0))
@@ -60,16 +66,17 @@ function Payment() {
 
   const handleOrder = async () => {
     // e.preventDefault();
-    if(cart.length>0 && selectedOption){
+    if(cart.length>0 && selectedOption && address){
         const d=new Date()
         const orderList={ id:Date.now(),item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()}}
         // console.log(address)
         await addToOrder(userId,orderList)
         .then(res=>{
-            alert("Order Placed")
+            setOrderPlacedAlert(true)
             setTimeout(() => {
+                setOrderPlacedAlert(false)
                 navigate('/orders')
-            }, 1000);
+            }, 2000);
         })
         .catch(err=>console.error(err))
     
@@ -77,10 +84,20 @@ function Payment() {
         .then(res=>setCart(res))
         .catch(err=>console.error(err))
     }else if(cart.length<0){
-        alert("Your Cart is empty");
+        setCartEmptyAlert(true)
+        setTimeout(() => {
+            setCartEmptyAlert(false)
+            navigate('/store')
+        }, 3000);
     }
     else if(!selectedOption) {
-        alert("Add a Payment option");
+        setPaymentOptionAlert(true)
+        setTimeout(() => {
+            setPaymentOptionAlert(false)
+        }, 3000);
+    }
+    else if(!address){
+        alert('add address');
     }
 
   };
@@ -88,7 +105,7 @@ function Payment() {
   return (
     <>
         <div>
-            <MyNavbar/>
+            <MyNavbar orderPlacedAlert={orderPlacedAlert} cartEmptyAlert={cartEmptyAlert} paymentOptionAlert={paymentOptionAlert}/>
             <div className='mt-[150px] flex flex-wrap xl:justify-start justify-center ms-10 xl:ms-[150px] space-x-0 xl:space-x-0 space-y-5 mb-10'>
             <div className='border w-[60%] shadow-lg'>
                 <div className='flex justify-center items-center me-5 h-[100px]'>
@@ -96,7 +113,8 @@ function Payment() {
                 </div>
                 <hr className=''/>
                 <div className=' ps-2'>
-                            <div className='space-x-3 flex justify-between p-5'>
+                    {address?(
+                        <div className='space-x-3 flex justify-between p-5'>
                                 <div className='max-w-300px '>
                                     <span className='text-2xl font-semibold'>Deliver to : {user.name} </span>
                                     <span className='text-2xl max-w-[300px]'>{address.housename}, </span>
@@ -108,6 +126,13 @@ function Payment() {
                                 </div>
                                 <button className='bg-orange-400 rounded w-[100px] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Change</button>
                             </div>
+                    ):(
+                        <div className='h-[100px] flex justify-center items-center space-x-2'>
+                                <span className='text-xl'>Deliver to : no address added</span>
+                                <button className='bg-orange-400 rounded w-[20%] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Add Address</button>
+                        </div>
+                    )}
+                            
                         </div>
             </div>
                 <div className='border w-[60%] mb-5 shadow-lg'>
@@ -120,7 +145,7 @@ function Payment() {
                         cart.map(item=>(
                             <div key={item.id} className='flex flex-wrap mt-3 mb-1'>
                             <div className='w-[150px] flex flex-col justify-center items-center mt-3 mb-3'>
-                                <img className='w-[100px] h-[100px]' src={item.image} alt="product image" />
+                                <img className='w-[100px] h-[100px]  hover:transform hover:scale-105  transition-all duration-500 ease-in-out' src={item.image} alt="product image" />
                                 <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-8 w rounded'>
                                     <button  onClick={()=>handleSubCount(item)}  className='text-2xl rounded w-10 h-10'>-</button>
                                     <span className='text-2xl'>{item.count}</span>
@@ -305,7 +330,7 @@ function Payment() {
                     </div>
                 </div>
             </div>
-            <MyFooter/>
+            {/* <MyFooter/> */}
         </div>
     </>
   )

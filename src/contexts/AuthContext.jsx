@@ -33,16 +33,34 @@ export const AuthProvider = ({children})=>{
         // setUser(null);
         localStorage.removeItem('userId');
     };
-    // getUserById(userId)
-    //   .then(res=>setUser(res.data))
-    //   .catch(err=>console.error(err))
-        useEffect(()=>{
-            getCartById(userId)
-                .then(res=>{
-                    setCart(res)
-                })
-                .catch(err=>console.error(err))
-        })
+    
+        // useEffect(()=>{
+            // if(userId){
+            //     getUserById(userId)
+            //     .then(res=>{
+            //         setUser(res.data)
+            //         console.log(user,"user")
+            //         }
+            //         )
+            //     .catch(err=>console.error(err))
+            // }
+            // if(cart){
+                // getCartById(userId)
+                // .then(res=>{
+                //     setCart(res)
+                //     console.log(cart,"cart")
+                // })
+                // .catch(err=>console.error(err))
+            // }
+            
+        // })
+
+        //  getCartById(userId)
+        //     .then(res=>{
+        //         setCart(res)
+        //         // console.log(cart,"cart")
+        //     })
+        //     .catch(err=>console.error(err))
 return(
     <AuthContext.Provider value={{user,login,logout,cart}}>
         {children}

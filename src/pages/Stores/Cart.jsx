@@ -16,6 +16,7 @@ function Cart() {
     const [total,setTotal]=useState(0);
     const [oldTotal,setOldTotal]=useState(0);
     const [address,setAddress]=useState([]);
+    const [cartRemoveAlert,setCartRemoveAlert]=useState(false);
     useEffect(()=>{
         setTotal(cart.reduce((acc,value)=>acc+value.totalprice,0))
         setOldTotal(cart.reduce((acc,value)=>acc+value.oldtotalprice,0))
@@ -34,7 +35,13 @@ function Cart() {
     
     const removeFromCart=(productId)=>{
         deleteCartById(userId,productId)
-        .then(res=>setCart(res))
+        .then(res=>{
+            setCart(res)
+            setCartRemoveAlert(true)
+            setTimeout(() => {
+                setCartRemoveAlert(false)
+            },3000);
+        })
         .catch(err=>console.error(err))
     }
     
@@ -60,23 +67,32 @@ function Cart() {
   return (
     <>
         <div>
-            <MyNavbar/>
+            <MyNavbar cartRemoveAlert={cartRemoveAlert}/>
             <div className='mt-[150px] flex flex-wrap justify-center space-x-0 xl:space-x-5 space-y-5 xl:space-y-0 mb-10'>
                 <div className='border w-[60%] p-2 shadow-lg'>
                     <div className='border shadow-lg '>
                         <div className=' ps-2'>
+                        {address?(
                             <div className='space-x-3 sm:flex-row flex flex-col justify-between p-5'>
-                                <div className='max-w-300px '>
-                                    <span className='text-2xl font-semibold'>Deliver to : {user.name} </span>
-                                    <span className='text-2xl max-w-[300px]'>{address.housename}, </span>
-                                    <span className='text-2xl max-w-[300px]'>{address.city}, </span>
-                                    <span className='text-2xl max-w-[300px]'>{address.landmark}, </span>
-                                    <span className='text-2xl max-w-[300px]'>{address.district}, </span>
-                                    <span className='text-2xl max-w-[300px]'>{address.state}, </span>
-                                    <span className='text-2xl max-w-[300px]'>-{address.pincode}</span>
-                                </div>
-                                <button className='bg-orange-400 rounded w-[100px] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Change</button>
+                            <div className='max-w-300px '>
+                                
+                                <span className='text-2xl font-semibold'>Deliver to : {user.name} </span>
+                                <span className='text-2xl max-w-[300px]'>{address.housename}, </span>
+                                <span className='text-2xl max-w-[300px]'>{address.city}, </span>
+                                <span className='text-2xl max-w-[300px]'>{address.landmark}, </span>
+                                <span className='text-2xl max-w-[300px]'>{address.district}, </span>
+                                <span className='text-2xl max-w-[300px]'>{address.state}, </span>
+                                <span className='text-2xl max-w-[300px]'>-{address.pincode}</span>
                             </div>
+                            <button className='bg-orange-400 rounded w-[100px] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Change</button>
+                        </div>
+                        ):(
+                            <div className='h-[100px] flex justify-center items-center space-x-2'>
+                                <span className='text-xl'>Deliver to : no address added</span>
+                                <button className='bg-orange-400 rounded w-[20%] p-2 h-[50px] text-white' onClick={()=>navigate('/profile')}>Add Address</button>
+                            </div>
+                        )}
+                            
                         </div>
                     </div>
                     <div className=' h-[430px] overflow-auto custom-scrollbar'>
@@ -85,7 +101,12 @@ function Cart() {
                             <>
                             <div key={item.id} className='flex flex-wrap mt-3 ms-2 mb-1'>
                             <div className='w-[200px] flex flex-col justify-center items-center mt-3 mb-3'>
-                                <img className='w-[150px] h-[150px]' src={item.image} alt="product image" />
+                                <img 
+                                    className='w-[150px] h-[150px] hover:cursor-pointer hover:transform hover:scale-105  transition-all duration-500 ease-in-out' 
+                                    src={item.image} 
+                                    alt="product image" 
+                                    onClick={()=>navigate(`/store/product/${item.id}`)}
+                                />
                                 <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-10 rounded'>
                                     <button  onClick={()=>handleSubCount(item)}  className='text-2xl rounded w-10 h-10'>-</button>
                                     <span className='text-2xl'>{item.count}</span>

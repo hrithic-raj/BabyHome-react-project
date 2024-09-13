@@ -49,13 +49,13 @@ function Orders() {
                 }
                 
             </div>
-            <div className='w-[800px] h-[600px] overflow-auto custom-scrollbar flex flex-col shadow-md p-4 border space-y-4'>
+            <div className='w-[800px] h-[600px] overflow-auto custom-scrollbar flex flex-col-reverse shadow-md p-4 border space-y-4'>
                 {orders.map(orderlist=>(
                         <div key={orderlist.id} className=' border shadow-lg flex flex-col space-y-3 p-2'> 
                         {orderlist.item.map(order=>(
                             <div key={order.id} className='border flex rounded-lg'>
                             <div className='flex flex-col items-center justify-center h-[150px] w-[150px]'>
-                                <img className='ms-2 w-28 mt-2 rounded' src={order.image} alt="" />
+                                <img className='ms-2 w-28 mt-2 rounded hover:transform hover:scale-105  transition-all duration-500 ease-in-out' src={order.image} alt="" />
                                 <span>Quantity : {order.count}</span>
                             </div>
                             <div className='sm-flex-row flex  ms-2 w-[800px] justify-between me-4'>

@@ -3,6 +3,7 @@ import React from 'react';
 import MyNavbar from '../../components/MyNavbar';
 import babypic from '../../Assets/Main/about.jpg';
 import MyFooter from '../../components/MyFooter';
+import { NavLink } from 'react-router-dom';
 const About = () => {
   return (
     <div>
