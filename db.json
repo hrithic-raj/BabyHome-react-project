@@ -103,54 +103,7 @@
       "username": "abhay",
       "email": "abhay@gmail.com",
       "password": "123456",
-      "cart": [
-        {
-          "id": "1002",
-          "name": "Organic Baby Shampoo",
-          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-          "category": "bathing",
-          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-          "images": [
-            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
-          ],
-          "price": 250,
-          "oldprice": 300,
-          "bestseller": true,
-          "newlyadded": false,
-          "stock": 0,
-          "rating": 4.6,
-          "count": 1,
-          "totalprice": 250,
-          "oldtotalprice": 300
-        },
-        {
-          "id": "1011",
-          "name": "Baby Crib",
-          "description": "A sturdy and comfortable baby crib designed for peaceful sleeping.",
-          "category": "toys",
-          "image": "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
-          "images": [
-            "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/519FFCFpsML.jpg",
-            "https://f.media-amazon.com/images/I/51sCGOCEhmL.jpg",
-            "https://f.media-amazon.com/images/I/61eC+K4bNdL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/41VeD7J5nUL.jpg",
-            "https://f.media-amazon.com/images/I/51MSYaPjaUL.jpg"
-          ],
-          "price": 3200,
-          "oldprice": 3500,
-          "bestseller": true,
-          "newlyadded": false,
-          "stock": 5,
-          "rating": 4.9,
-          "count": 1,
-          "totalprice": 3200,
-          "oldtotalprice": 3500
-        }
-      ],
+      "cart": [],
       "orders": [
         {
           "id": 1726206724339,
@@ -240,14 +193,181 @@
             "time": "1:03:16 PM",
             "day": "Fri Sep 13 2024"
           }
+        },
+        {
+          "id": 1726217923011,
+          "item": [
+            {
+              "id": "1002",
+              "name": "Organic Baby Shampoo",
+              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+              "category": "bathing",
+              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
+              ],
+              "price": 250,
+              "oldprice": 300,
+              "bestseller": true,
+              "newlyadded": false,
+              "stock": 0,
+              "rating": 4.6,
+              "count": 1,
+              "totalprice": 250,
+              "oldtotalprice": 300
+            },
+            {
+              "id": "1011",
+              "name": "Baby Crib",
+              "description": "A sturdy and comfortable baby crib designed for peaceful sleeping.",
+              "category": "toys",
+              "image": "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/519FFCFpsML.jpg",
+                "https://f.media-amazon.com/images/I/51sCGOCEhmL.jpg",
+                "https://f.media-amazon.com/images/I/61eC+K4bNdL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/41VeD7J5nUL.jpg",
+                "https://f.media-amazon.com/images/I/51MSYaPjaUL.jpg"
+              ],
+              "price": 3200,
+              "oldprice": 3500,
+              "bestseller": true,
+              "newlyadded": false,
+              "stock": 5,
+              "rating": 4.9,
+              "count": 1,
+              "totalprice": 3200,
+              "oldtotalprice": 3500
+            }
+          ],
+          "paymentMethod": "Paytm",
+          "date": {
+            "time": "2:28:43 PM",
+            "day": "Fri Sep 13 2024"
+          }
+        },
+        {
+          "id": 1726505169943,
+          "item": [
+            {
+              "id": "1006",
+              "name": "Hooded Baby Towel",
+              "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
+              "category": "bathing",
+              "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
+              ],
+              "price": 350,
+              "oldprice": 400,
+              "bestseller": false,
+              "newlyadded": true,
+              "stock": 20,
+              "rating": 4.9,
+              "count": 10,
+              "totalprice": 3500,
+              "oldtotalprice": 4000
+            }
+          ],
+          "paymentMethod": "Paytm",
+          "date": {
+            "time": "10:16:09 PM",
+            "day": "Mon Sep 16 2024"
+          }
         }
       ],
       "wishlist": [],
       "address": {
         "pincode": "673638",
-        "housename": "ramattukara veed",
-        "city": "ramanattukara",
-        "landmark": "bus stand",
+        "housename": "mundakamala",
+        "city": "Nediyiruppu",
+        "landmark": "palace auditorium",
+        "district": "malappuram",
+        "state": "kerala"
+      }
+    },
+    {
+      "id": "7afb",
+      "name": "hrithic raj",
+      "username": "hrithic",
+      "email": "hrithic@gmail.com",
+      "password": "hrithic",
+      "cart": [
+        {
+          "id": "1007",
+          "name": "Baby Walker",
+          "description": "Adjustable baby walker with multi-directional wheels, helping your little one take their first steps confidently.",
+          "category": "toys",
+          "image": "https://f.media-amazon.com/images/I/61tQ7vCZM+L._SX569_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/61tQ7vCZM+L._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/719Z9aUJo4L._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/716RMAPSOVL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71lf8l4i5AL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71KrlpIUxnL._SX569_.jpg"
+          ],
+          "price": 1200,
+          "oldprice": 1300,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 10,
+          "rating": 4.8,
+          "count": 1,
+          "totalprice": 1200,
+          "oldtotalprice": 1300
+        }
+      ],
+      "orders": [
+        {
+          "id": 1726220443273,
+          "item": [
+            {
+              "id": "1006",
+              "name": "Hooded Baby Towel",
+              "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
+              "category": "bathing",
+              "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
+              ],
+              "price": 350,
+              "oldprice": 400,
+              "bestseller": false,
+              "newlyadded": true,
+              "stock": 20,
+              "rating": 4.9,
+              "count": 5,
+              "totalprice": 1750,
+              "oldtotalprice": 2000
+            }
+          ],
+          "paymentMethod": "NetBanking",
+          "date": {
+            "time": "3:10:43 PM",
+            "day": "Fri Sep 13 2024"
+          }
+        }
+      ],
+      "wishlist": [],
+      "address": {
+        "pincode": "673638",
+        "housename": "mundakamala",
+        "city": "Malappuram",
+        "landmark": "palace auditorium",
         "district": "malappuram",
         "state": "kerala"
       }

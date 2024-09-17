@@ -60,6 +60,7 @@ function MyNavbar(props) {
         })
       }
     },[userId,cartAddAlert,cartRemoveAlert])
+    
     const handleProductClick=(id)=>{
       setShowModal(false);
       navigate(`/store/product/${id}`)
