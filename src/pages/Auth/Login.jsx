@@ -15,6 +15,7 @@ function Login() {
     const [errorMsg,setErrorMsg]=useState('')
     const {login}=useContext(AuthContext);
     const userId=localStorage.getItem('userId')
+    const admin=localStorage.getItem('admin')
     const formik=useFormik({
         initialValues: {
             username: '',
@@ -22,20 +23,20 @@ function Login() {
         },
         validationSchema,
         onSubmit: async (values)=>{
-            const loggedInUser =await login(values.username,values.password);
-            if(loggedInUser){
-                navigate('/home')
+            const errors = await login(values.username,values.password);
+            if(errors){
+                setErrorMsg(errors)
             }
-            else(
-                setErrorMsg("Invalid username or password")
-            )
         }
     })
     useEffect(()=>{
         if(userId){
           navigate('/home')
         }
-      },[userId])
+        else if(admin){
+            navigate('/admin')
+        }
+      },[userId,admin])
   return (
     <div className='login-main'>
         <AuthNav/>

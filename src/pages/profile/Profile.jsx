@@ -32,7 +32,6 @@ function Profile() {
 
     const handleLogout=()=>{
         logout()
-        navigate('/home')
     }
     const handleChange=(e)=>{
         setNewAddress({...NewAddress, [e.target.name] : e.target.value});

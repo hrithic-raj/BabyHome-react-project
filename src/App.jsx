@@ -18,6 +18,8 @@ import Donation from './pages/other/Donation';
 import PrivacyPolicy from './pages/other/PrivacyPolicy';
 import ShippingAndReturns from './pages/other/ShippingReturn';
 import TermsAndConditions from './pages/other/TermsConditions';
+import Dashboard from './pages/Admin/Dashboard';
+import AdminProduct from './pages/Admin/AdminProduct';
   
 function App() {
   return (
@@ -33,16 +35,20 @@ function App() {
           <Route path='/store' element={<Store/>}/>
           <Route path='/store/product/:productId' element={<Product/>}/>
         </Route>
-          <Route path='/profile' element={<Profile/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/orders' element={<Orders/>}/>
-          <Route path='/donation' element={<Donation/>}/>
-          <Route path='/pp' element={<PrivacyPolicy/>}/>
-          <Route path='/sr' element={<ShippingAndReturns/>}/>
-          <Route path='/tc' element={<TermsAndConditions/>}/>
-          <Route path='/wishlist' element={<Wishlist/>}/>
-          <Route path='/payment' element={<Payment/>}/>
-          <Route path='/store/:category' element={<Store/>}/>
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/cart' element={<Cart/>}/>
+        <Route path='/orders' element={<Orders/>}/>
+        <Route path='/donation' element={<Donation/>}/>
+        <Route path='/pp' element={<PrivacyPolicy/>}/>
+        <Route path='/sr' element={<ShippingAndReturns/>}/>
+        <Route path='/tc' element={<TermsAndConditions/>}/>
+        <Route path='/wishlist' element={<Wishlist/>}/>
+        <Route path='/payment' element={<Payment/>}/>
+        <Route path='/store/:category' element={<Store/>}/>
+        <Route path='/admin'>
+          <Route path='/admin' element={<Dashboard/>}/>
+          <Route path='/admin/product/' element={<AdminProduct/>}/>
+        </Route>
       </Routes>
     </div>
   );

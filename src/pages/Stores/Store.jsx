@@ -7,6 +7,8 @@ function Store() {
   const navigate= useNavigate()
   const [products,setProducts]=useState([])
   const {category}=useParams()
+  const userId =localStorage.getItem('userId')
+  const admin =localStorage.getItem('admin')
   useEffect(() => {
       if(category){
         getByCategory(category)
@@ -28,7 +30,7 @@ function Store() {
 
   
   const handleProduct=(productId)=>{
-    navigate(`/store/product/${productId}`)
+      navigate(`/store/product/${productId}`)
   }
   return (
     <div>
