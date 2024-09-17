@@ -103,7 +103,30 @@
       "username": "abhay",
       "email": "abhay@gmail.com",
       "password": "123456",
-      "cart": [],
+      "cart": [
+        {
+          "id": "1002",
+          "name": "Organic Baby Shampoo",
+          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
+          ],
+          "price": 250,
+          "oldprice": 300,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 0,
+          "rating": 4.6,
+          "count": 1,
+          "totalprice": 250,
+          "oldtotalprice": 300
+        }
+      ],
       "orders": [
         {
           "id": 1726206724339,

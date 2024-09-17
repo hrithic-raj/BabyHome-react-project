@@ -16,6 +16,7 @@ function AdminNavbar(props) {
     const navigate=useNavigate()
     const {logout}=useContext(AuthContext);
     const userId=localStorage.getItem('userId')
+    const admin=localStorage.getItem('admin')
     const cartAddAlert=props.cartAddAlert
     const cartRemoveAlert=props.cartRemoveAlert
     const cartCount=props.cartCount
@@ -66,6 +67,11 @@ function AdminNavbar(props) {
       navigate(`/store/product/${id}`)
     }
 
+    useEffect(()=>{
+      if(!admin){
+        navigate('/home')
+      }
+    })
   return (
    <>
   <div className='fixed top-0 w-full z-30 p-4 border-b border-gray-300' style={{backgroundColor :'#FFFFFF' ,height : "100px", width :"100%" ,marginBottom :"300px"}}>

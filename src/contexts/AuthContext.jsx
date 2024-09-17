@@ -53,7 +53,7 @@ export const AuthProvider = ({children})=>{
         if(admin){
             localStorage.removeItem('admin');
             setTimeout(()=>{
-                navigate('/login')
+                navigate('/home')
             },1000)
         }
         else if(userId){
