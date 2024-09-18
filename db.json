@@ -394,6 +394,57 @@
         "district": "malappuram",
         "state": "kerala"
       }
+    },
+    {
+      "id": "cb85",
+      "name": "adil odakkal",
+      "username": "lolanadil",
+      "email": "adilodakkal@gmail.com",
+      "password": "lolanadil",
+      "cart": [],
+      "orders": [
+        {
+          "id": 1726662802523,
+          "item": [
+            {
+              "id": "1002",
+              "name": "Organic Baby Shampoo",
+              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+              "category": "bathing",
+              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
+              ],
+              "price": 250,
+              "oldprice": 300,
+              "bestseller": true,
+              "newlyadded": false,
+              "stock": 0,
+              "rating": 4.6,
+              "count": 1,
+              "totalprice": 250,
+              "oldtotalprice": 300
+            }
+          ],
+          "paymentMethod": "Card",
+          "date": {
+            "time": "6:03:22 PM",
+            "day": "Wed Sep 18 2024"
+          }
+        }
+      ],
+      "wishlist": [],
+      "address": {
+        "pincode": "673638",
+        "housename": "odakal house",
+        "city": "kondotty",
+        "landmark": "airport",
+        "district": "malappuram",
+        "state": "kerala"
+      }
     }
   ],
   "products": [

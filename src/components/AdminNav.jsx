@@ -77,29 +77,6 @@ function AdminNavbar(props) {
   <div className='fixed top-0 w-full z-30 p-4 border-b border-gray-300' style={{backgroundColor :'#FFFFFF' ,height : "100px", width :"100%" ,marginBottom :"300px"}}>
     <nav className='ms-16'>
       <div className="container flex items-center justify-between">
-        {/* Left */}
-        {/* <div className="flex items-center space-x-4"> */}
-          {/* Hamburger*/}
-          {/* <button 
-            className="md:hidden text-black hover:text-gray-400" 
-            onClick={toggleMenu}
-          >
-            {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-          </button> */}
-
-          {/* Logo */}
-          {/* <div >
-              <img onClick={()=>navigate('/home')} style={{width :"270px", height : "120px"}} src={logo} alt="Logo" />
-          </div>
-        </div> */}
-        {/* Links */}
-        {/* <ul className="hidden md:flex space-x-6 text-white">
-          <li><NavLink to={'/admin'} className="text-gray-700 hover:text-gray-400">Home</NavLink></li>
-          <li><NavLink to={'/admin/store'} className="text-gray-700 hover:text-gray-400">Store</NavLink></li>
-          <li><NavLink to={'/about'} className="text-gray-700  hover:text-gray-400">About Us</NavLink></li>
-          <li><NavLink to={'/contactus'} className="text-gray-700  hover:text-gray-400">Contact Us</NavLink></li>
-        </ul> */}
-
         {/* Search Box */}
         <div className="hidden lg:flex flex-1 justify-start items-center">
           <div className="relative w-2/3">
@@ -141,14 +118,7 @@ function AdminNavbar(props) {
             LOGOUT
             <span></span>
           </button>
-          {/* {userId?(
-            <span className='text-lg text-black'>{user.username}</span>
-          ):(
-            <></>
-          )} */}
-
-        {/* modal for alert */}
-
+          
         {cartAddAlert?(
           <div className="absolute text-center right-2 top-20 w-[200px] h-[45px] p-2 mt-2 bg-white border rounded-lg shadow-lg z-40 transition-all duration-500 ease-in-out">
                 <span className='text-lg'>Item added to Cart ✅</span>

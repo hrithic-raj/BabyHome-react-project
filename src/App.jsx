@@ -20,6 +20,9 @@ import ShippingAndReturns from './pages/other/ShippingReturn';
 import TermsAndConditions from './pages/other/TermsConditions';
 import Dashboard from './pages/Admin/Dashboard';
 import AdminProduct from './pages/Admin/AdminProduct';
+import AdminUser from './pages/Admin/AdminUser';
+import Adduser from './pages/Admin/AddUser';
+import AddProduct from './pages/Admin/AddProduct';
   
 function App() {
   return (
@@ -47,7 +50,10 @@ function App() {
         <Route path='/store/:category' element={<Store/>}/>
         <Route path='/admin'>
           <Route path='/admin' element={<Dashboard/>}/>
-          <Route path='/admin/product/' element={<AdminProduct/>}/>
+          <Route path='/admin/products' element={<AdminProduct/>}/>
+          <Route path='/admin/users' element={<AdminUser/>}/>
+          <Route path='/admin/users/adduser' element={<Adduser/>}/>
+          <Route path='/admin/products/addproduct' element={<AddProduct/>}/>
         </Route>
       </Routes>
     </div>
