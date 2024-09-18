@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../../components/AdminNav'
 import Sidebar from './SideBar'
 import { useNavigate } from 'react-router-dom'
+import { deleteUserById, getAllUsers } from '../../Api/Admin-api';
 
 function AdminUser() {
-    const navigate =useNavigate();
+  const navigate =useNavigate();
+  const [users,setUsers]=useState([]);
+  const admin=localStorage.getItem('admin');
+
+  useEffect(()=>{
+    getAllUsers()
+    .then((res)=>{
+      setUsers(res.data)
+    })
+  },[users])
+  const handleDel=(id)=>{
+    deleteUserById(id)
+  }
   return (
     <div className='relative bg-gray-100'>
         <AdminNavbar/>
@@ -41,15 +54,17 @@ function AdminUser() {
                         <span className='text-lg font-semibold'>BLOCK</span>
                         <span className='text-lg font-semibold'>DELETE</span>
                     </div>
-                    <div className='grid grid-cols-7 justify-items-center w-[700px] md:w-full'>
-                        <span>hrithic raj p</span>
-                        <span>hrjadmin</span>
-                        <span>hrj@gmail.com</span>
-                        <span>kondotty</span>
-                        <span>23</span>
+                    {users.map((user)=>(
+                      <div key={user.id} className=' mb-3 grid grid-cols-7 justify-items-center w-[700px] md:w-full'>
+                        <span>{user.name}</span>
+                        <span>{user.username}</span>
+                        <span>{user.email}</span>
+                        {user.address ?<span>{user.address.city}</span>: 'NOT SET'}
+                        <span>{user.orders.length}</span>
                         <button className='bg-pink-300 p-1 rounded-md'>BLOCK</button>
-                        <button className='bg-red-400 p-1 rounded-md'>DELETE</button>
-                    </div>
+                        <button className='bg-red-400 p-1 rounded-md' onClick={()=>handleDel(user.id)}>DELETE</button>
+                      </div>
+                    ))}
                 </div>
               </div>
               

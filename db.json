@@ -103,30 +103,7 @@
       "username": "abhay",
       "email": "abhay@gmail.com",
       "password": "123456",
-      "cart": [
-        {
-          "id": "1002",
-          "name": "Organic Baby Shampoo",
-          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-          "category": "bathing",
-          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-          "images": [
-            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
-          ],
-          "price": 250,
-          "oldprice": 300,
-          "bestseller": true,
-          "newlyadded": false,
-          "stock": 0,
-          "rating": 4.6,
-          "count": 1,
-          "totalprice": 250,
-          "oldtotalprice": 300
-        }
-      ],
+      "cart": [],
       "orders": [
         {
           "id": 1726206724339,
@@ -306,6 +283,62 @@
             "time": "10:16:09 PM",
             "day": "Mon Sep 16 2024"
           }
+        },
+        {
+          "id": 1726691819323,
+          "item": [
+            {
+              "id": "1002",
+              "name": "Organic Baby Shampoo",
+              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+              "category": "bathing",
+              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
+              ],
+              "price": 250,
+              "oldprice": 300,
+              "bestseller": true,
+              "newlyadded": false,
+              "stock": 0,
+              "rating": 4.6,
+              "count": 1,
+              "totalprice": 250,
+              "oldtotalprice": 300
+            },
+            {
+              "id": "1009",
+              "name": "Baby Food Feeder",
+              "description": "Convenient baby food feeder designed for easy and mess-free feeding of purees, cereals, and liquids.",
+              "category": "foods",
+              "image": "https://f.media-amazon.com/images/I/51m1gRkNhVL._SX569_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/51m1gRkNhVL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/51dQuTH7iHL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/61dztL3LQpL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/614WCqqgd-L._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/51uwrtOa1EL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/51IzsEG0PUL._SX569_.jpg"
+              ],
+              "price": 150,
+              "oldprice": 180,
+              "bestseller": true,
+              "newlyadded": false,
+              "stock": 35,
+              "rating": 4.3,
+              "count": 2,
+              "totalprice": 300,
+              "oldtotalprice": 360
+            }
+          ],
+          "paymentMethod": "NetBanking",
+          "date": {
+            "time": "2:06:59 AM",
+            "day": "Thu Sep 19 2024"
+          }
         }
       ],
       "wishlist": [],
@@ -433,6 +466,40 @@
           "date": {
             "time": "6:03:22 PM",
             "day": "Wed Sep 18 2024"
+          }
+        },
+        {
+          "id": 1726691346007,
+          "item": [
+            {
+              "id": "1012",
+              "name": "Baby Hairbrush Set",
+              "description": "Soft bristles perfect for brushing a baby's sensitive scalp and hair.",
+              "category": "bathing",
+              "image": "https://f.media-amazon.com/images/I/71Q-x5zYeuL._SX569_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/71Q-x5zYeuL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/812NBnXyjKL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71GIcuh28CL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/81LXkdk2NxL._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/712qU8C8D4L._SX569_.jpg",
+                "https://f.media-amazon.com/images/I/71z9QQGD9XL._SX569_.jpg"
+              ],
+              "price": 120,
+              "oldprice": 150,
+              "bestseller": false,
+              "newlyadded": true,
+              "stock": 0,
+              "rating": 4.2,
+              "count": 1,
+              "totalprice": 120,
+              "oldtotalprice": 150
+            }
+          ],
+          "paymentMethod": "Card",
+          "date": {
+            "time": "1:59:06 AM",
+            "day": "Thu Sep 19 2024"
           }
         }
       ],

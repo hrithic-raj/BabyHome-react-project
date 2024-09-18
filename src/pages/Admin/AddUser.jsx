@@ -33,7 +33,7 @@ function Adduser() {
         if(!isUsername){
           addUser(values)
           alert('User Added')
-          navigate('/admin/user')
+          navigate('/admin/users')
         //   pass a modal
         }
         else{
