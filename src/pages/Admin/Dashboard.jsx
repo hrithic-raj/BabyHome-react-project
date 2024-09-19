@@ -91,7 +91,7 @@ function Dashboard() {
                     user.orders.map(order=>(
                       order.item.map(item=>(
                         <div key={item.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
-                          <img className='w-[70px]' src={item.image} alt="" />
+                          <img className='w-[70px]' src={item.images[0]} alt="" />
                           <span>{order.id}</span>
                           <span>{order.date.day}</span>
                           <span>{user.name}</span>
@@ -114,7 +114,7 @@ function Dashboard() {
                   <div className='h-[400px] overflow-auto custom-scrollbar'>
                     {products.map(product=>(
                       <div key={product.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
-                        <img className='w-[70px]' src={product.image} alt="" />
+                        <img className='w-[70px]' src={product.images[0]} alt="" />
                         <span>{product.name}</span>
                         <span>{product.price}</span>
                         <span>{product.stock}</span>
@@ -135,7 +135,7 @@ function Dashboard() {
                   <div className='h-[400px] overflow-auto custom-scrollbar'>
                     {bestSellers.map((product)=>
                         <div key={product.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
-                          <img className='w-[70px]' src={product.image} alt="" />
+                          <img className='w-[70px]' src={product.images[0]} alt="" />
                           <span>{product.name}</span>
                           <span>{product.price}</span>
                           <span>{product.stock}</span>

@@ -103,7 +103,7 @@ function Cart() {
                             <div className='w-[200px] flex flex-col justify-center items-center mt-3 mb-3'>
                                 <img 
                                     className='w-[150px] h-[150px] hover:cursor-pointer hover:transform hover:scale-105  transition-all duration-500 ease-in-out' 
-                                    src={item.image} 
+                                    src={item.images[0]} 
                                     alt="product image" 
                                     onClick={()=>navigate(`/store/product/${item.id}`)}
                                 />

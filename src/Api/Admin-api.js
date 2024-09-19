@@ -36,3 +36,7 @@ export const getTotalSales=async()=>{
     const res=await axios.get(SALESURL)
     return res.data;
 }
+export const addtoProduct=async(newProduct)=>{
+    const res = await axios.post(PRODUCTURL,newProduct)
+    return res.data
+}

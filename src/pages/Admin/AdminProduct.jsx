@@ -81,7 +81,7 @@ function AdminProduct() {
                     <div className=''>
                       {products.map(product=>(
                         <div key={product.id} className='grid grid-cols-8 justify-items-center items-center w-[700px] md:w-full'>
-                          <img className='w-[70px]' src={product.image} alt="" />
+                          <img className='w-[70px]' src={product.images[0]} alt="" />
                           <span>{product.name}</span>
                           <span className='max-w-[100px] max-h-[50px] overflow-hidden'>{product.description}</span>
                           {product.bestseller?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/2851/2851399.png" alt="" />:<img className='w-10' src="" alt="" />}

@@ -151,7 +151,7 @@ function Payment() {
                         cart.map(item=>(
                             <div key={item.id} className='flex flex-wrap mt-3 mb-1'>
                             <div className='w-[150px] flex flex-col justify-center items-center mt-3 mb-3'>
-                                <img className='w-[100px] h-[100px]  hover:transform hover:scale-105  transition-all duration-500 ease-in-out' src={item.image} alt="product image" />
+                                <img className='w-[100px] h-[100px]  hover:transform hover:scale-105  transition-all duration-500 ease-in-out' src={item.images[0]} alt="product image" />
                                 <div className='mt-5 border border-gray-500 flex justify-center space-x-4 items-center h-8 w rounded'>
                                     <button  onClick={()=>handleSubCount(item)}  className='text-2xl rounded w-10 h-10'>-</button>
                                     <span className='text-2xl'>{item.count}</span>

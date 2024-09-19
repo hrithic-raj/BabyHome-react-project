@@ -131,7 +131,7 @@ function Home() {
                 onClick={()=>navigate(`/store/product/${product.id}`)}
               >
                 <img
-                  src={product.image}
+                  src={product.images[0]}
                   alt={product.name}
                   className="w-full h-[250px] object-cover mb-2 rounded-md  hover:transform hover:scale-105  transition-all duration-500 ease-in-out"
                 />
@@ -163,7 +163,7 @@ function Home() {
                 onClick={()=>handleProduct(product.id)}
               >
                 <img
-                  src={product.image}
+                  src={product.images[0]}
                   alt={product.name}
                   className="w-full h-[250px] object-cover mb-2 rounded-md hover:transform hover:scale-105  transition-all duration-500 ease-in-out"
                 />

@@ -82,7 +82,31 @@
       "email": "hrj@gmail.com",
       "password": "hrjpunda",
       "block": false,
-      "cart": [],
+      "cart": [
+        {
+          "id": "1003",
+          "name": "Baby Milk Formula",
+          "description": "Nutritious and easily digestible baby formula for newborns. Provides all the essential vitamins and nutrients for healthy growth.",
+          "category": "foods",
+          "image": "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/91I60vtKUOL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/813OHp65eaL._SY879_.jpg",
+            "https://f.media-amazon.com/images/I/81erqBm97rL._SY879_.jpg",
+            "https://f.media-amazon.com/images/I/81Es7q252HL._SX679_.jpg"
+          ],
+          "price": 450,
+          "oldprice": 500,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 40,
+          "rating": 4.9,
+          "count": 1,
+          "totalprice": 450,
+          "oldtotalprice": 500
+        }
+      ],
       "orders": [],
       "wishlist": []
     }
@@ -414,22 +438,43 @@
       "rating": 4.9
     },
     {
-      "id": "d3c6",
-      "name": "Cotton Rompers Sleepsuits",
-      "description": "100% Cotton Rompers Sleepsuits Jumpsuit Night Suits for Infants Newborn Baby Boys & Girls Pack of 3",
-      "category": "cloths",
-      "price": "599",
-      "oldprice": "1499",
-      "stock": "22",
+      "id": "a04b",
+      "name": "HRJ Custom PC",
+      "description": "Eth Shoooparada",
+      "category": "toys",
+      "price": 1000000,
+      "oldprice": 2000000,
+      "stock": 1,
+      "bestseller": true,
+      "newlyadded": true,
+      "addedDate": "2024-09-19T22:18:39.013Z",
       "images": [
-        "https://m.media-amazon.com/images/I/61k-7wDEdtL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61B61+Lw+KL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61tuwvy2n+L._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/61Vb9EVGLXL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/51jbgKx2O8L._SX679_.jpg"
-      ],
-      "image": "https://m.media-amazon.com/images/I/61k-7wDEdtL._SX679_.jpg",
-      "additionalImageInput": ""
+        "https://m.media-amazon.com/images/I/71mv4-KuiML._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71H+LSQY3oL._SX569_.jpg",
+        "https://m.media-amazon.com/images/I/71GJDUnR16L._SX569_.jpg",
+        "https://m.media-amazon.com/images/I/81JpoEvrLlL._SY879_.jpg",
+        "https://m.media-amazon.com/images/I/71yNSBTtjFL._SX569_.jpg"
+      ]
+    },
+    {
+      "id": "3066",
+      "name": "HRJ LAPTOP",
+      "description": "Ethum Shoooparada",
+      "category": "toys",
+      "price": 50000,
+      "oldprice": 48000,
+      "stock": 1,
+      "bestseller": true,
+      "newlyadded": true,
+      "addedDate": "2024-09-19T22:18:39.013Z",
+      "images": [
+        "https://m.media-amazon.com/images/I/41rafnfnlqL._SX300_SY300_QL70_FMwebp_.jpg",
+        "https://m.media-amazon.com/images/I/71o0qZweD2L._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71RmM9Ar9bL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71j7bMU1AbL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71bVMtDKytL._SX679_.jpg",
+        "https://m.media-amazon.com/images/I/71m6umYCi2L._SX679_.jpg"
+      ]
     }
   ],
   "totalorders": [

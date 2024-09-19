@@ -56,7 +56,7 @@ function Orders() {
                             {orderlist.item.map(order=>(
                                 <div key={order.id} className='border flex rounded-lg'>
                                 <div className='flex flex-col items-center justify-center h-[150px] w-[150px]'>
-                                    <img className='ms-2 w-28 mt-2 rounded hover:transform hover:scale-105  transition-all duration-500 ease-in-out' src={order.image} alt="" />
+                                    <img className='ms-2 w-28 mt-2 rounded hover:transform hover:scale-105  transition-all duration-500 ease-in-out' src={order.images[0]} alt="" />
                                     <span>Quantity : {order.count}</span>
                                 </div>
                                 <div className='sm-flex-row flex  ms-2 w-[800px] justify-between me-4'>

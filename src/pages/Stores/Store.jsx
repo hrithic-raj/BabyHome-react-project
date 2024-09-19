@@ -51,7 +51,7 @@ function Store() {
           <div className='flex justify-center flex-wrap mx-20 mt-10 gap-10'>
               {products.map(product=>(
                 <div key={product.id} className='w-[300px] h-[350px] flex flex-col items-center shadow-md border space-y-3 hover:cursor-pointer  hover:transform hover:scale-105  transition-all duration-500 ease-in-out' onClick={()=>handleProduct(product.id)}>
-                <img className='w-[270px] h-[250px] mt-3' src={product.image} alt="Product Image" />
+                <img className='w-[270px] h-[250px] mt-3' src={product.images[0]} alt="Product Image" />
                 <div className='flex flex-col'>
                 <span className='max-w-[270px]'>{product.name}</span>
                 <div className='flex justify-center space-x-2'>

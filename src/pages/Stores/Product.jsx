@@ -17,7 +17,7 @@ function Product() {
     getProductById(productId)
       .then(res => {
         setProduct(res.data);
-        setSelectedImage(res.data.image);
+        setSelectedImage(res.data.images[0]);
         setSelectedImages(res.data.images)
       })
       .catch(err=> console.error('Error fetching product data', err));
