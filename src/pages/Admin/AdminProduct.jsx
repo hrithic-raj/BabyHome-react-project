@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../../components/AdminNav'
 import Sidebar from './SideBar'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getAllProducts } from '../../Api/Admin-api';
+import { deleteProductById, getAllProducts } from '../../Api/Admin-api';
 import { getByCategory } from '../../Api/Product-api';
 
 function AdminProduct() {
@@ -11,6 +11,11 @@ function AdminProduct() {
   const [products,setProducts]=useState([]);
   const {category} =useParams('category')
   
+  const handleDel=(id)=>{
+    deleteProductById(id)
+    .then((res)=>console.log(res.data))
+  }
+
   useEffect(()=>{
     if(category){
       getByCategory(category)
@@ -24,7 +29,7 @@ function AdminProduct() {
         setProducts(res.data)
       })
     }
-  },[category])
+  },[category,handleDel])
 
   const handleEdit=()=>{
     setIsEdit(!isEdit)
@@ -83,7 +88,7 @@ function AdminProduct() {
                           {product.newlyadded?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/891/891509.png" alt="" />:<img className='w-10' src="" alt="" />}
                           <span>{product.category}</span>
                           <button className='text-white bg-blue-300 p-2 rounded-md ' onClick={()=>handleEdit()}>EDIT</button>
-                          <button className='text-white bg-red-400 p-2 rounded-md'>DELETE</button>
+                          <button className='text-white bg-red-400 p-2 rounded-md' onClick={()=>handleDel(product.id)}>DELETE</button>
                         </div>
                       ))}
                     </div>
