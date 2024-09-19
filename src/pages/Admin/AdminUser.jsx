@@ -2,22 +2,28 @@ import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../../components/AdminNav'
 import Sidebar from './SideBar'
 import { useNavigate } from 'react-router-dom'
-import { deleteUserById, getAllUsers } from '../../Api/Admin-api';
+import { blockUserById, deleteUserById, getAllUsers } from '../../Api/Admin-api';
 
 function AdminUser() {
   const navigate =useNavigate();
   const [users,setUsers]=useState([]);
   const admin=localStorage.getItem('admin');
-
+  const handleDel=(id)=>{
+    deleteUserById(id)
+  }
+  
   useEffect(()=>{
     getAllUsers()
     .then((res)=>{
       setUsers(res.data)
     })
-  },[users])
-  const handleDel=(id)=>{
-    deleteUserById(id)
+  },[handleDel])
+  
+
+  const handleBlock=async(id,status)=>{
+    await blockUserById(id,!status)
   }
+
   return (
     <div className='relative bg-gray-100'>
         <AdminNavbar/>
@@ -61,7 +67,7 @@ function AdminUser() {
                         <span>{user.email}</span>
                         {user.address ?<span>{user.address.city}</span>: 'NOT SET'}
                         <span>{user.orders.length}</span>
-                        <button className='bg-pink-300 p-1 rounded-md'>BLOCK</button>
+                        <button className='bg-pink-300 p-1 rounded-md' onClick={()=>handleBlock(user.id,user.block)}>{user.block?"UNBLOCK":"BLOCK"}</button>
                         <button className='bg-red-400 p-1 rounded-md' onClick={()=>handleDel(user.id)}>DELETE</button>
                       </div>
                     ))}
@@ -71,7 +77,7 @@ function AdminUser() {
               <div className=' w-[330px] h-[200px] p-6 bg-white rounded-lg shadow-lg md:col-span-2 lg:row-span-2 flex justify-between order-2 lg-order-3'>
               <div>
                   <div className="text-green-600 font-bold">Total Users</div>
-                  <div className="text-3xl font-semibold">2034</div>
+                  <div className="text-3xl font-semibold">{users.length}</div>
                 </div>
                 <div>
                   <img src="https://cdn-icons-png.flaticon.com/512/1165/1165725.png" className='w-[130px] mt-3' alt="" />

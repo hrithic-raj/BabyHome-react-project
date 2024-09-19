@@ -23,6 +23,7 @@ function Adduser() {
                     username: '',
                     email: '',
                     password: '',
+                    block:false,
                     cart:[],
                     orders:[],
                     wishlist:[],
@@ -41,11 +42,11 @@ function Adduser() {
         }
       }
     })
-    useEffect(()=>{
-      if(userId){
-        navigate('/home')
-      }
-    },[userId])
+    // useEffect(()=>{
+    //   if(userId){
+    //     navigate('/home')
+    //   }
+    // },[userId])
 
   return (
     <div className='relative bg-gray-100'>

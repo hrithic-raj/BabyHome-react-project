@@ -1,11 +1,31 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../../components/AdminNav'
 import Sidebar from './SideBar'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { getAllProducts } from '../../Api/Admin-api';
+import { getByCategory } from '../../Api/Product-api';
 
 function AdminProduct() {
   const navigate=useNavigate();
-  const [isEdit,setIsEdit]=useState(false)
+  const [isEdit,setIsEdit]=useState(false);
+  const [products,setProducts]=useState([]);
+  const {category} =useParams('category')
+  
+  useEffect(()=>{
+    if(category){
+      getByCategory(category)
+      .then(res=>{
+        setProducts(res.data)
+      })
+    }
+    else{
+      getAllProducts()
+      .then((res)=>{
+        setProducts(res.data)
+      })
+    }
+  },[category])
+
   const handleEdit=()=>{
     setIsEdit(!isEdit)
   }
@@ -27,26 +47,48 @@ function AdminProduct() {
               
               <div className='max-h-[550px] min-h-[400px] w-[330px] md:w-full p-2 bg-white rounded-lg shadow-lg md:col-span-4 md:row-span-4 lg:col-span-6 lg:row-span-3 order-3 lg:order-2'>
                 
-                <div className='flex flex-col items-center h-[100px] border-b-2'>
+                <div className='flex flex-col items-center border-b-2'>
                     <span className='text-3xl bg-white text-center'>Product List</span>
                     <input 
                         type="text" 
                         placeholder="Search..." 
-                        className="pl-10 pr-4 py-2 border-2 w-[300px] rounded-md focus:outline-none focus:ring-1 focus:ring-pink-100"
+                        className="pl-10 pr-4 py-2 border-2 w-[300px] rounded-md focus:outline-none focus:ring-1 focus:ring-pink-100 mb-2"
                     />
-                </div>
-                <div className='mt-5 h-[410px] flex flex-col md:w-full w-[300px] overflow-auto'>
-                    <div className='mb-6 grid grid-cols-8 justify-items-center w-[700px] md:w-full'>
-                        <span className='text-lg font-semibold'>IMAGE</span>
-                        <span className='text-lg font-semibold'>NAME</span>
-                        <span className='text-lg font-semibold'>DESCRIPTION</span>
-                        <span className='text-lg font-semibold'>BEST SELLERS</span>
-                        <span className='text-lg font-semibold'>NEWLY ADDED</span>
-                        <span className='text-lg font-semibold'>CATEGORY</span>
-                        <span className='text-lg font-semibold'>EDIT</span>
-                        <span className='text-lg font-semibold'>DELETE</span>
+                    <div className='md:w-[600px] flex justify-between mb-2 flex-wrap'>
+                      <button className='text-white bg-green-300 p-2 rounded-md w-[100px]' onClick={()=>navigate(`/admin/products/bathing`)}>Bathing</button>
+                      <button className='text-white bg-blue-300 p-2 rounded-md  w-[100px]' onClick={()=>navigate(`/admin/products/toys`)}>Toys</button>
+                      <button className='text-white bg-red-300 p-2 rounded-md  w-[100px]' onClick={()=>navigate(`/admin/products/cloths`)}>Cloths</button>
+                      <button className='text-white bg-orange-300 p-2 rounded-md  w-[100px]' onClick={()=>navigate(`/admin/products/foods`)}>Foods</button>
+                      <button className='text-white bg-pink-300 p-2 rounded-md  w-[100px]' onClick={()=>navigate(`/admin/products/diapers`)}>Diapers</button>
                     </div>
-                    <div className='grid grid-cols-8 justify-items-center items-center w-[700px] md:w-full'>
+                </div>
+                <div className='mt-5  flex flex-col md:w-full w-[300px] h-[370px] overflow-auto custom-scrollbar'>
+                    <div className='mb-6 grid grid-cols-8 justify-items-center w-[700px] md:w-full'>
+                        <span className='md:text-lg text-md font-semibold'>IMAGE</span>
+                        <span className='md:text-lg text-md font-semibold'>NAME</span>
+                        <span className='md:text-lg text-md font-semibold'>DESCRIPTION</span>
+                        <span className='md:text-lg text-md font-semibold'>BEST SELLERS</span>
+                        <span className='md:text-lg text-md font-semibold'>NEWLY ADDED</span>
+                        <span className='md:text-lg text-md font-semibold'>CATEGORY</span>
+                        <span className='md:text-lg text-md font-semibold'>EDIT</span>
+                        <span className='md:text-lg text-md font-semibold'>DELETE</span>
+                    </div>
+                    <div className=''>
+                      {products.map(product=>(
+                        <div key={product.id} className='grid grid-cols-8 justify-items-center items-center w-[700px] md:w-full'>
+                          <img className='w-[70px]' src={product.image} alt="" />
+                          <span>{product.name}</span>
+                          <span className='max-w-[100px] max-h-[50px] overflow-hidden'>{product.description}</span>
+                          {product.bestseller?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/2851/2851399.png" alt="" />:<img className='w-10' src="" alt="" />}
+                          {product.newlyadded?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/891/891509.png" alt="" />:<img className='w-10' src="" alt="" />}
+                          <span>{product.category}</span>
+                          <button className='text-white bg-blue-300 p-2 rounded-md ' onClick={()=>handleEdit()}>EDIT</button>
+                          <button className='text-white bg-red-400 p-2 rounded-md'>DELETE</button>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    {/* <div className='grid grid-cols-8 justify-items-center items-center w-[700px] md:w-full'>
                         <img className='w-[70px]' src="https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg" alt="" />
                         <span>Shamboo</span>
                         <span>number one in the world</span>
@@ -55,7 +97,7 @@ function AdminProduct() {
                         <span>Toys</span>
                         <button className='text-white bg-blue-300 p-2 rounded-md ' onClick={()=>handleEdit()}>EDIT</button>
                         <button className='text-white bg-red-400 p-2 rounded-md'>DELETE</button>
-                    </div>
+                    </div> */}
                 </div>
               </div>
               

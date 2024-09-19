@@ -6,87 +6,54 @@
       "username": "muhsin",
       "email": "muhsin@gmail.com",
       "password": "muhsin",
+      "block": false,
       "cart": [
         {
-          "id": "1003",
-          "name": "Baby Milk Formula",
-          "description": "Nutritious and easily digestible baby formula for newborns. Provides all the essential vitamins and nutrients for healthy growth.",
-          "category": "foods",
-          "image": "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
+          "id": "1005",
+          "name": "Baby Rattle Toy Set",
+          "description": "Colorful and engaging rattle toys to stimulate your baby's sensory development. Made with non-toxic materials.",
+          "category": "toys",
+          "image": "https://f.media-amazon.com/images/I/612UKI2oQlL._SY450_.jpg",
           "images": [
-            "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/91I60vtKUOL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/813OHp65eaL._SY879_.jpg",
-            "https://f.media-amazon.com/images/I/81erqBm97rL._SY879_.jpg",
-            "https://f.media-amazon.com/images/I/81Es7q252HL._SX679_.jpg"
+            "https://f.media-amazon.com/images/I/612UKI2oQlL._SY450_.jpg",
+            "https://f.media-amazon.com/images/I/71y22+pLrtL._SY450_.jpg",
+            "https://f.media-amazon.com/images/I/61AEHHYYiZL._SY450_.jpg",
+            "https://f.media-amazon.com/images/I/618qwPMMx0L._SY450_.jpg",
+            "https://f.media-amazon.com/images/I/71pHqMgNHtL._SY450_.jpg"
           ],
-          "price": 450,
-          "oldprice": 500,
+          "price": 200,
+          "oldprice": 250,
           "bestseller": true,
           "newlyadded": false,
-          "stock": 40,
-          "rating": 4.9,
+          "stock": 25,
+          "rating": 4.5,
           "count": 1,
-          "totalprice": 450,
-          "oldtotalprice": 500
+          "totalprice": 200,
+          "oldtotalprice": 250
         },
         {
-          "id": "1002",
-          "name": "Organic Baby Shampoo",
-          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-          "category": "bathing",
-          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+          "id": "1001",
+          "name": "Floral Yellow Turban Cap",
+          "description": "From the legends, to the pop sensations of the world, caps are not only the best sun covers, but also a distinct fashion statement! This added accessory will make your STAR shine the brightest while protecting their head and keeping it warm. Perfect to wear on occasions.",
+          "category": "cloths",
+          "image": "https://babymoo.in/cdn/shop/products/20056-YELLOWimg1.jpg?v=1628595386&width=800",
           "images": [
-            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
+            "https://babymoo.in/cdn/shop/products/20056-YELLOWimg1.jpg?v=1628595386&width=800",
+            "https://babymoo.in/cdn/shop/products/20056-YELLOWimg2.jpg?v=1628595386&width=800",
+            "https://babymoo.in/cdn/shop/products/20056-YELLOWimg4.jpg?v=1628595386&width=800"
           ],
-          "price": 250,
-          "oldprice": 300,
-          "bestseller": true,
-          "newlyadded": false,
-          "stock": 0,
-          "rating": 4.6,
+          "price": 300,
+          "oldprice": 350,
+          "bestseller": false,
+          "newlyadded": true,
+          "stock": 15,
+          "rating": 4.8,
           "count": 1,
-          "totalprice": 250,
-          "oldtotalprice": 300
+          "totalprice": 300,
+          "oldtotalprice": 350
         }
       ],
-      "orders": [
-        {
-          "id": 1726198087396,
-          "item": [
-            {
-              "id": "1002",
-              "name": "Organic Baby Shampoo",
-              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
-              ],
-              "price": 250,
-              "oldprice": 300,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 0,
-              "rating": 4.6,
-              "count": 1,
-              "totalprice": 250,
-              "oldtotalprice": 300
-            }
-          ],
-          "paymentMethod": "Card",
-          "date": {
-            "time": "8:58:07 AM",
-            "day": "Fri Sep 13 2024"
-          }
-        }
-      ],
+      "orders": [],
       "wishlist": [],
       "address": {
         "pincode": "673638",
@@ -98,420 +65,26 @@
       }
     },
     {
-      "id": "804a",
-      "name": "abhay pc",
+      "id": "7df0",
+      "name": "abhay",
       "username": "abhay",
-      "email": "abhay@gmail.com",
-      "password": "123456",
+      "email": "hrjpunda@gmail.com",
+      "password": "zcpunda",
+      "block": false,
       "cart": [],
-      "orders": [
-        {
-          "id": 1726206724339,
-          "item": [
-            {
-              "id": "1002",
-              "name": "Organic Baby Shampoo",
-              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
-              ],
-              "price": 250,
-              "oldprice": 300,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 0,
-              "rating": 4.6,
-              "count": 3,
-              "totalprice": 750,
-              "oldtotalprice": 900
-            },
-            {
-              "id": "1003",
-              "name": "Baby Milk Formula",
-              "description": "Nutritious and easily digestible baby formula for newborns. Provides all the essential vitamins and nutrients for healthy growth.",
-              "category": "foods",
-              "image": "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/91I60vtKUOL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/813OHp65eaL._SY879_.jpg",
-                "https://f.media-amazon.com/images/I/81erqBm97rL._SY879_.jpg",
-                "https://f.media-amazon.com/images/I/81Es7q252HL._SX679_.jpg"
-              ],
-              "price": 450,
-              "oldprice": 500,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 40,
-              "rating": 4.9,
-              "count": 1,
-              "totalprice": 450,
-              "oldtotalprice": 500
-            }
-          ],
-          "paymentMethod": "Card",
-          "date": {
-            "time": "11:22:04 AM",
-            "day": "Fri Sep 13 2024"
-          }
-        },
-        {
-          "id": 1726212796191,
-          "item": [
-            {
-              "id": "1006",
-              "name": "Hooded Baby Towel",
-              "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
-              ],
-              "price": 350,
-              "oldprice": 400,
-              "bestseller": false,
-              "newlyadded": true,
-              "stock": 20,
-              "rating": 4.9,
-              "count": 1,
-              "totalprice": 350,
-              "oldtotalprice": 400
-            }
-          ],
-          "paymentMethod": "Card",
-          "date": {
-            "time": "1:03:16 PM",
-            "day": "Fri Sep 13 2024"
-          }
-        },
-        {
-          "id": 1726217923011,
-          "item": [
-            {
-              "id": "1002",
-              "name": "Organic Baby Shampoo",
-              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
-              ],
-              "price": 250,
-              "oldprice": 300,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 0,
-              "rating": 4.6,
-              "count": 1,
-              "totalprice": 250,
-              "oldtotalprice": 300
-            },
-            {
-              "id": "1011",
-              "name": "Baby Crib",
-              "description": "A sturdy and comfortable baby crib designed for peaceful sleeping.",
-              "category": "toys",
-              "image": "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/81KZkNtYq5L._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/519FFCFpsML.jpg",
-                "https://f.media-amazon.com/images/I/51sCGOCEhmL.jpg",
-                "https://f.media-amazon.com/images/I/61eC+K4bNdL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/41VeD7J5nUL.jpg",
-                "https://f.media-amazon.com/images/I/51MSYaPjaUL.jpg"
-              ],
-              "price": 3200,
-              "oldprice": 3500,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 5,
-              "rating": 4.9,
-              "count": 1,
-              "totalprice": 3200,
-              "oldtotalprice": 3500
-            }
-          ],
-          "paymentMethod": "Paytm",
-          "date": {
-            "time": "2:28:43 PM",
-            "day": "Fri Sep 13 2024"
-          }
-        },
-        {
-          "id": 1726505169943,
-          "item": [
-            {
-              "id": "1006",
-              "name": "Hooded Baby Towel",
-              "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
-              ],
-              "price": 350,
-              "oldprice": 400,
-              "bestseller": false,
-              "newlyadded": true,
-              "stock": 20,
-              "rating": 4.9,
-              "count": 10,
-              "totalprice": 3500,
-              "oldtotalprice": 4000
-            }
-          ],
-          "paymentMethod": "Paytm",
-          "date": {
-            "time": "10:16:09 PM",
-            "day": "Mon Sep 16 2024"
-          }
-        },
-        {
-          "id": 1726691819323,
-          "item": [
-            {
-              "id": "1002",
-              "name": "Organic Baby Shampoo",
-              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
-              ],
-              "price": 250,
-              "oldprice": 300,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 0,
-              "rating": 4.6,
-              "count": 1,
-              "totalprice": 250,
-              "oldtotalprice": 300
-            },
-            {
-              "id": "1009",
-              "name": "Baby Food Feeder",
-              "description": "Convenient baby food feeder designed for easy and mess-free feeding of purees, cereals, and liquids.",
-              "category": "foods",
-              "image": "https://f.media-amazon.com/images/I/51m1gRkNhVL._SX569_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/51m1gRkNhVL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/51dQuTH7iHL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/61dztL3LQpL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/614WCqqgd-L._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/51uwrtOa1EL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/51IzsEG0PUL._SX569_.jpg"
-              ],
-              "price": 150,
-              "oldprice": 180,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 35,
-              "rating": 4.3,
-              "count": 2,
-              "totalprice": 300,
-              "oldtotalprice": 360
-            }
-          ],
-          "paymentMethod": "NetBanking",
-          "date": {
-            "time": "2:06:59 AM",
-            "day": "Thu Sep 19 2024"
-          }
-        }
-      ],
-      "wishlist": [],
-      "address": {
-        "pincode": "673638",
-        "housename": "mundakamala",
-        "city": "Nediyiruppu",
-        "landmark": "palace auditorium",
-        "district": "malappuram",
-        "state": "kerala"
-      }
+      "orders": [],
+      "wishlist": []
     },
     {
-      "id": "7afb",
-      "name": "hrithic raj",
-      "username": "hrithic",
-      "email": "hrithic@gmail.com",
-      "password": "hrithic",
-      "cart": [
-        {
-          "id": "1007",
-          "name": "Baby Walker",
-          "description": "Adjustable baby walker with multi-directional wheels, helping your little one take their first steps confidently.",
-          "category": "toys",
-          "image": "https://f.media-amazon.com/images/I/61tQ7vCZM+L._SX569_.jpg",
-          "images": [
-            "https://f.media-amazon.com/images/I/61tQ7vCZM+L._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/719Z9aUJo4L._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/716RMAPSOVL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/71lf8l4i5AL._SX569_.jpg",
-            "https://f.media-amazon.com/images/I/71KrlpIUxnL._SX569_.jpg"
-          ],
-          "price": 1200,
-          "oldprice": 1300,
-          "bestseller": true,
-          "newlyadded": false,
-          "stock": 10,
-          "rating": 4.8,
-          "count": 1,
-          "totalprice": 1200,
-          "oldtotalprice": 1300
-        }
-      ],
-      "orders": [
-        {
-          "id": 1726220443273,
-          "item": [
-            {
-              "id": "1006",
-              "name": "Hooded Baby Towel",
-              "description": "Soft and absorbent hooded towel made from 100% organic cotton, perfect for post-bath cuddles.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/61xqUYWsvNL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/712POiPR+OL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71AiBOQdITL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71mXqWvZ6vL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/515hrFQAIoL._SX569_.jpg"
-              ],
-              "price": 350,
-              "oldprice": 400,
-              "bestseller": false,
-              "newlyadded": true,
-              "stock": 20,
-              "rating": 4.9,
-              "count": 5,
-              "totalprice": 1750,
-              "oldtotalprice": 2000
-            }
-          ],
-          "paymentMethod": "NetBanking",
-          "date": {
-            "time": "3:10:43 PM",
-            "day": "Fri Sep 13 2024"
-          }
-        }
-      ],
-      "wishlist": [],
-      "address": {
-        "pincode": "673638",
-        "housename": "mundakamala",
-        "city": "Malappuram",
-        "landmark": "palace auditorium",
-        "district": "malappuram",
-        "state": "kerala"
-      }
-    },
-    {
-      "id": "cb85",
-      "name": "adil odakkal",
-      "username": "lolanadil",
-      "email": "adilodakkal@gmail.com",
-      "password": "lolanadil",
+      "id": "d029",
+      "name": "Hrithic raj p",
+      "username": "hrj",
+      "email": "hrj@gmail.com",
+      "password": "hrjpunda",
+      "block": false,
       "cart": [],
-      "orders": [
-        {
-          "id": 1726662802523,
-          "item": [
-            {
-              "id": "1002",
-              "name": "Organic Baby Shampoo",
-              "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
-                "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
-              ],
-              "price": 250,
-              "oldprice": 300,
-              "bestseller": true,
-              "newlyadded": false,
-              "stock": 0,
-              "rating": 4.6,
-              "count": 1,
-              "totalprice": 250,
-              "oldtotalprice": 300
-            }
-          ],
-          "paymentMethod": "Card",
-          "date": {
-            "time": "6:03:22 PM",
-            "day": "Wed Sep 18 2024"
-          }
-        },
-        {
-          "id": 1726691346007,
-          "item": [
-            {
-              "id": "1012",
-              "name": "Baby Hairbrush Set",
-              "description": "Soft bristles perfect for brushing a baby's sensitive scalp and hair.",
-              "category": "bathing",
-              "image": "https://f.media-amazon.com/images/I/71Q-x5zYeuL._SX569_.jpg",
-              "images": [
-                "https://f.media-amazon.com/images/I/71Q-x5zYeuL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/812NBnXyjKL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71GIcuh28CL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/81LXkdk2NxL._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/712qU8C8D4L._SX569_.jpg",
-                "https://f.media-amazon.com/images/I/71z9QQGD9XL._SX569_.jpg"
-              ],
-              "price": 120,
-              "oldprice": 150,
-              "bestseller": false,
-              "newlyadded": true,
-              "stock": 0,
-              "rating": 4.2,
-              "count": 1,
-              "totalprice": 120,
-              "oldtotalprice": 150
-            }
-          ],
-          "paymentMethod": "Card",
-          "date": {
-            "time": "1:59:06 AM",
-            "day": "Thu Sep 19 2024"
-          }
-        }
-      ],
-      "wishlist": [],
-      "address": {
-        "pincode": "673638",
-        "housename": "odakal house",
-        "city": "kondotty",
-        "landmark": "airport",
-        "district": "malappuram",
-        "state": "kerala"
-      }
+      "orders": [],
+      "wishlist": []
     }
   ],
   "products": [
@@ -839,6 +412,43 @@
       "newlyadded": false,
       "stock": 12,
       "rating": 4.9
+    }
+  ],
+  "totalorders": [
+    {
+      "id": "1726736756798",
+      "user": "abhay pc",
+      "item": [
+        {
+          "id": "1012",
+          "name": "Baby Hairbrush Set",
+          "description": "Soft bristles perfect for brushing a baby's sensitive scalp and hair.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/71Q-x5zYeuL._SX569_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/71Q-x5zYeuL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/812NBnXyjKL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71GIcuh28CL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/81LXkdk2NxL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/712qU8C8D4L._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71z9QQGD9XL._SX569_.jpg"
+          ],
+          "price": 120,
+          "oldprice": 150,
+          "bestseller": false,
+          "newlyadded": true,
+          "stock": 0,
+          "rating": 4.2,
+          "count": 1,
+          "totalprice": 120,
+          "oldtotalprice": 150
+        }
+      ],
+      "paymentMethod": "Paytm",
+      "date": {
+        "time": "2:35:56 PM",
+        "day": "Thu Sep 19 2024"
+      }
     }
   ],
   "newsletter": [

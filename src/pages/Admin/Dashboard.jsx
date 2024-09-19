@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import AdminNavbar from '../../components/AdminNav'
 import Sidebar from './SideBar'
 import { useNavigate } from 'react-router-dom';
-import { getAllProducts, getAllUsers } from '../../Api/Admin-api';
+import { getAllProducts, getAllUsers, getTotalOrders } from '../../Api/Admin-api';
+import { getBestSeller } from '../../Api/Product-api';
 
 function Dashboard() {
   const navigate =useNavigate();
   const [users,setUsers]=useState([]);
   const [products,setProducts]=useState([]);
+  const [totalOrders,setTotalOrders]=useState([]);
   const [bestSellers,setBestSellers]=useState([]);
   const admin=localStorage.getItem('admin');
 
@@ -19,9 +21,16 @@ function Dashboard() {
     getAllProducts()
     .then((res)=>{
       setProducts(res.data)
-      setBestSellers(products.filter(product=>product.bestseller===true))
     })
-  },[users,products])
+    getTotalOrders()
+    .then((res)=>{
+      setTotalOrders(res)
+    })
+    getBestSeller()
+    .then(res=>{
+      setBestSellers(res.data)
+    })
+  },[])
   
   return (
     <div className='relative bg-gray-100'>
@@ -29,7 +38,7 @@ function Dashboard() {
         <div className='mt-[100px]'>
         <Sidebar/>
         <div className='lg:ms-20 md:ms-10 flex flex-col items-center'>
-          <div className='grid grid-cols-1 mt-4 md:grid-cols-4 lg:grid-cols-8 gap-6 justify-items-center'>
+          <div className='grid grid-cols-1 mt-4 md:grid-cols-4 lg:grid-cols-8 gap-6 '>
               <div className=' w-[330px] h-[200px] p-6 bg-white rounded-lg shadow-lg col-span-2 flex justify-between'>
                 <div>
                   <div className="text-green-600 font-bold">Total Sales</div>
@@ -42,7 +51,7 @@ function Dashboard() {
               <div className=' w-[330px] h-[200px] p-6 bg-white rounded-lg shadow-lg col-span-2 flex justify-between'>
                 <div>
                   <div className="text-green-600 font-bold">Total Orders</div>
-                  <div className="text-3xl font-semibold">300</div>
+                  <div className="text-3xl font-semibold">{totalOrders.length}</div>
                 </div>
                 <div>
                   <img src="https://cdn-icons-png.flaticon.com/512/1559/1559859.png" className='w-[150px]' alt="" />
@@ -104,12 +113,12 @@ function Dashboard() {
                   </div>
                   <div className='h-[400px] overflow-auto custom-scrollbar'>
                     {products.map(product=>(
-                          <div key={product.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
-                            <img className='w-[70px]' src={product.image} alt="" />
-                            <span>{product.name}</span>
-                            <span>{product.price}</span>
-                            <span>{product.stock}</span>
-                          </div>
+                      <div key={product.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
+                        <img className='w-[70px]' src={product.image} alt="" />
+                        <span>{product.name}</span>
+                        <span>{product.price}</span>
+                        <span>{product.stock}</span>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -125,12 +134,12 @@ function Dashboard() {
                   </div>
                   <div className='h-[400px] overflow-auto custom-scrollbar'>
                     {bestSellers.map((product)=>
-                          <div key={product.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
-                            <img className='w-[70px]' src={product.image} alt="" />
-                            <span>{product.name}</span>
-                            <span>{product.price}</span>
-                            <span>{product.stock}</span>
-                          </div>
+                        <div key={product.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
+                          <img className='w-[70px]' src={product.image} alt="" />
+                          <span>{product.name}</span>
+                          <span>{product.price}</span>
+                          <span>{product.stock}</span>
+                        </div>
                     )}
                   </div>
                 </div>

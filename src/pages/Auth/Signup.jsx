@@ -22,6 +22,7 @@ function Signup() {
                     username: '',
                     email: '',
                     password: '',
+                    block:false,
                     cart:[],
                     orders:[],
                     wishlist:[],

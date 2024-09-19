@@ -26,8 +26,14 @@ function Payment() {
 
 
     useEffect(()=>{
-        setTotal(cart.reduce((acc,value)=>acc+value.totalprice,0))
-        setOldTotal(cart.reduce((acc,value)=>acc+value.oldtotalprice,0))
+        if((cart.reduce((acc,value)=>acc+value.totalprice,0))>499){
+            setTotal(cart.reduce((acc,value)=>acc+value.totalprice,20))
+            setOldTotal(cart.reduce((acc,value)=>acc+value.oldtotalprice,0))
+        }
+        else{
+            setTotal(cart.reduce((acc,value)=>acc+value.totalprice,60))
+            setOldTotal(cart.reduce((acc,value)=>acc+value.oldtotalprice,0))
+        }
     })
     useEffect(()=>{
         getCartById(userId)
@@ -63,14 +69,14 @@ function Payment() {
   const handleOptionChange = (e) => {
     setSelectedOption(e.target.value);
   };
-
   const handleOrder = async () => {
     // e.preventDefault();
     if(cart.length>0 && selectedOption && address){
         const d=new Date()
         const orderList={ id:Date.now(),item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()}}
+        const totalOrderList={ id:Date.now(),user:user.name,item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()}}
         // console.log(address)
-        await addToOrder(userId,orderList)
+        await addToOrder(userId,orderList,totalOrderList,total)
         .then(res=>{
             setOrderPlacedAlert(true)
             setTimeout(() => {
@@ -90,7 +96,7 @@ function Payment() {
             navigate('/store')
         }, 3000);
     }
-    else if(!selectedOption) {
+    else if(!selectedOption){
         setPaymentOptionAlert(true)
         setTimeout(() => {
             setPaymentOptionAlert(false)
@@ -305,14 +311,16 @@ function Payment() {
                         )}
                             {total?(
                                 total>499?(
+                                    
                                     <div className='flex justify-between'>
                                         <span className='text-2xl font-bold'>Total Amount</span>
-                                        <span className='text-2xl font-bold'>₹{total+20}</span>
+                                        <span className='text-2xl font-bold'>₹{total}</span>
                                     </div>
                                 ):(
                                     <div className='flex justify-between'>
+                                        
                                         <span className='text-2xl font-bold'>Total Amount</span>
-                                        <span className='text-2xl font-bold'>₹{total+60}</span>
+                                        <span className='text-2xl font-bold'>₹{total}</span>
                                     </div>
                                 )
                             ):(

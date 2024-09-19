@@ -2,6 +2,7 @@ import axios from "axios"
 
 const URL="http://localhost:5000/products";
 const userURL="http://localhost:5000/users"
+const ORDERSURL="http://localhost:5000/totalorders"
 
 
 export const getProducts=()=>{
@@ -97,19 +98,27 @@ export const ClearCart= async (userId)=>{
     return res.data.cart;
 }
 
-export const addToOrder = async(userId,ordersList)=>{
+export const getTotalOrders=async()=>{
+    const res=await axios.get(ORDERSURL)
+    return res.data;
+}
+
+export const addToOrder = async(userId,ordersList,totalOrderList,total)=>{
     const currentOrder=await getOrderById(userId)
+    // const currenttotalOrder=await getTotalOrders()
     let updatedOrder;
+    // let updatedTotalOrder;
     // console.log(currentOrder)
     if(!currentOrder){
         updatedOrder=[ordersList]
+        // updatedTotalOrder=[totalOrderList]
     }
     else{
-        
-        
         updatedOrder=[...currentOrder,ordersList]
     }
     const res = await axios.patch(`${userURL}/${userId}`,{orders : updatedOrder})
+    const totalres=await axios.post(ORDERSURL,totalOrderList)
+    console.log(totalres);
     return res.data.orders;
 } 
 

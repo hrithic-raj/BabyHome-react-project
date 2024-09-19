@@ -1,7 +1,7 @@
 import React,{createContext, useEffect, useState} from "react";
 import axios from "axios";
-import { getCartById } from "../Api/Product-api";
-import { getUserById } from "../Api/Login-api";
+// import { getCartById } from "../Api/Product-api";
+import { checkUser, getUserById } from "../Api/Login-api";
 import { useNavigate } from "react-router-dom";
 
 
@@ -17,6 +17,7 @@ export const AuthProvider = ({children})=>{
     
     const login= async(username,password)=>{
         let isAdmin=false
+        
         try{
             if(username==="admin" && password==="123456"){
                 isAdmin=true;
@@ -25,13 +26,22 @@ export const AuthProvider = ({children})=>{
             else{
                 const res = await axios.get(`${URL}?username=${username}&password=${password}`)
                 // console.log([username,password])
+                
                 if(res.data.length>0){
                     const [loggedInUser] = res.data;
-                    localStorage.setItem('userId',loggedInUser.id);
-                    setTimeout(()=>{
-                        navigate('/home')
-                    },1000)
+                    if(loggedInUser.block===false){
+                        localStorage.setItem('userId',loggedInUser.id);
+                        setTimeout(()=>{
+                            navigate('/home')
+                        },1000)
+                    }
+                    else{
+                        console.log(res.data)
+                        let errors='User Blocked, Contact Admin';
+                        return errors
+                    }
                 }else{
+                    console.log(res.data)
                     let errors='invalid email or password';
                     return errors
                 }
