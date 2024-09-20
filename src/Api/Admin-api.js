@@ -40,3 +40,6 @@ export const addtoProduct=async(newProduct)=>{
     const res = await axios.post(PRODUCTURL,newProduct)
     return res.data
 }
+export const editProduct=(id,updatedProduct)=>{
+    return axios.patch(`${PRODUCTURL}/${id}`,updatedProduct)
+}

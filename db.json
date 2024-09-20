@@ -125,8 +125,8 @@
       ],
       "price": 300,
       "oldprice": 350,
-      "bestseller": false,
-      "newlyadded": true,
+      "bestseller": true,
+      "newlyadded": false,
       "stock": 15,
       "rating": 4.8
     },
@@ -145,7 +145,7 @@
       "price": 250,
       "oldprice": 300,
       "bestseller": true,
-      "newlyadded": false,
+      "newlyadded": true,
       "stock": 0,
       "rating": 4.6
     },
@@ -440,9 +440,9 @@
     {
       "id": "a04b",
       "name": "HRJ Custom PC",
-      "description": "Eth Shoooparada",
+      "description": "vishayam anu mowne",
       "category": "toys",
-      "price": 1000000,
+      "price": 1300000,
       "oldprice": 2000000,
       "stock": 1,
       "bestseller": true,
@@ -452,7 +452,6 @@
         "https://m.media-amazon.com/images/I/71mv4-KuiML._SX679_.jpg",
         "https://m.media-amazon.com/images/I/71H+LSQY3oL._SX569_.jpg",
         "https://m.media-amazon.com/images/I/71GJDUnR16L._SX569_.jpg",
-        "https://m.media-amazon.com/images/I/81JpoEvrLlL._SY879_.jpg",
         "https://m.media-amazon.com/images/I/71yNSBTtjFL._SX569_.jpg"
       ]
     },
@@ -472,14 +471,14 @@
         "https://m.media-amazon.com/images/I/71o0qZweD2L._SX679_.jpg",
         "https://m.media-amazon.com/images/I/71RmM9Ar9bL._SX679_.jpg",
         "https://m.media-amazon.com/images/I/71j7bMU1AbL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71bVMtDKytL._SX679_.jpg",
         "https://m.media-amazon.com/images/I/71m6umYCi2L._SX679_.jpg"
       ]
     }
   ],
   "totalorders": [
     {
-      "totalprice": 0
+      "totalprice": 0,
+      "id": "e1e2"
     }
   ],
   "newsletter": [

@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AdminNavbar from '../../components/AdminNav'
 import Sidebar from './SideBar'
 import { useNavigate, useParams } from 'react-router-dom'
 import { deleteProductById, getAllProducts } from '../../Api/Admin-api';
 import { getByCategory } from '../../Api/Product-api';
+import EditProduct from './EditProduct';
+import { AuthContext } from '../../contexts/AuthContext';
 
 function AdminProduct() {
   const navigate=useNavigate();
-  const [isEdit,setIsEdit]=useState(false);
+  // const [isEdit,setIsEdit]=useState(false);
   const [products,setProducts]=useState([]);
   const {category} =useParams('category')
+  const {isEdit,setIsEdit}=useContext(AuthContext)
   
   const handleDel=(id)=>{
     deleteProductById(id)
@@ -31,11 +34,12 @@ function AdminProduct() {
     }
   },[category,handleDel])
 
-  const handleEdit=()=>{
+  const handleEdit=(id)=>{
     setIsEdit(!isEdit)
+    navigate(`/admin/products/editproduct/${id}`)
   }
   return (
-    <div className='relative bg-gray-100'>
+    <div className='relative bg-gray-100 h-full'>
         <AdminNavbar/>
         <div className='mt-[100px]'>
           <Sidebar/>
@@ -67,8 +71,8 @@ function AdminProduct() {
                       <button className='text-white bg-pink-300 p-2 rounded-md  w-[100px]' onClick={()=>navigate(`/admin/products/diapers`)}>Diapers</button>
                     </div>
                 </div>
-                <div className='mt-5  flex flex-col md:w-full w-[300px] h-[370px] overflow-auto custom-scrollbar'>
-                    <div className='mb-6 grid grid-cols-8 justify-items-center w-[700px] md:w-full'>
+                <div className='mt-3  flex flex-col md:w-full w-[300px] h-[300px] md:h-[380px] overflow-auto custom-scrollbar'>
+                    <div className='mb-6 grid grid-cols-8 justify-items-center space-x-3 w-[700px] md:w-full'>
                         <span className='md:text-lg text-md font-semibold'>IMAGE</span>
                         <span className='md:text-lg text-md font-semibold'>NAME</span>
                         <span className='md:text-lg text-md font-semibold'>DESCRIPTION</span>
@@ -78,31 +82,20 @@ function AdminProduct() {
                         <span className='md:text-lg text-md font-semibold'>EDIT</span>
                         <span className='md:text-lg text-md font-semibold'>DELETE</span>
                     </div>
-                    <div className=''>
+                    <div className='h-[270px] md:h-[600px]'>
                       {products.map(product=>(
-                        <div key={product.id} className='grid grid-cols-8 justify-items-center items-center w-[700px] md:w-full'>
+                        <div key={product.id} className='grid grid-cols-8 space-x-3 justify-items-center items-center w-[700px] md:w-full'>
                           <img className='w-[70px]' src={product.images[0]} alt="" />
                           <span>{product.name}</span>
                           <span className='max-w-[100px] max-h-[50px] overflow-hidden'>{product.description}</span>
                           {product.bestseller?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/2851/2851399.png" alt="" />:<img className='w-10' src="" alt="" />}
                           {product.newlyadded?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/891/891509.png" alt="" />:<img className='w-10' src="" alt="" />}
                           <span>{product.category}</span>
-                          <button className='text-white bg-blue-300 p-2 rounded-md ' onClick={()=>handleEdit()}>EDIT</button>
+                          <button className='text-white bg-blue-300 p-2 rounded-md ' onClick={()=>handleEdit(product.id)}>EDIT</button>
                           <button className='text-white bg-red-400 p-2 rounded-md' onClick={()=>handleDel(product.id)}>DELETE</button>
                         </div>
                       ))}
                     </div>
-                    
-                    {/* <div className='grid grid-cols-8 justify-items-center items-center w-[700px] md:w-full'>
-                        <img className='w-[70px]' src="https://f.media-amazon.com/images/I/71iEXzJBCOL._SX569_.jpg" alt="" />
-                        <span>Shamboo</span>
-                        <span>number one in the world</span>
-                        <img className='w-10' src="https://cdn-icons-png.flaticon.com/512/2851/2851399.png" alt="" />
-                        <img className='w-10' src="https://cdn-icons-png.flaticon.com/512/891/891509.png" alt="" />
-                        <span>Toys</span>
-                        <button className='text-white bg-blue-300 p-2 rounded-md ' onClick={()=>handleEdit()}>EDIT</button>
-                        <button className='text-white bg-red-400 p-2 rounded-md'>DELETE</button>
-                    </div> */}
                 </div>
               </div>
               
@@ -119,13 +112,7 @@ function AdminProduct() {
           </div>
         </div>
         {/* Edit modal */}
-        {isEdit?(
-          <div className='absolute top-20 left-12 md:left-1/3 lg:left-1/3 w-[300px] min-h-[300px] md:w-[400px] md:min-h-[400px] border bg-blue-100'>
-              <button className='text-white bg-red-400 p-2 rounded-md' onClick={()=>setIsEdit(!isEdit)}>cencel</button>
-          </div>
-        ):(
-          null
-        )}
+        <EditProduct/>
         
     </div>
   )

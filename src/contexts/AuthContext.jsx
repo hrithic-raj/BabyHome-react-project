@@ -73,36 +73,11 @@ export const AuthProvider = ({children})=>{
             },1000)
         }
     };
-    
-        // useEffect(()=>{
-            // if(userId){
-            //     getUserById(userId)
-            //     .then(res=>{
-            //         setUser(res.data)
-            //         console.log(user,"user")
-            //         }
-            //         )
-            //     .catch(err=>console.error(err))
-            // }
-            // if(cart){
-                // getCartById(userId)
-                // .then(res=>{
-                //     setCart(res)
-                //     console.log(cart,"cart")
-                // })
-                // .catch(err=>console.error(err))
-            // }
-            
-        // })
 
-        //  getCartById(userId)
-        //     .then(res=>{
-        //         setCart(res)
-        //         // console.log(cart,"cart")
-        //     })
-        //     .catch(err=>console.error(err))
+    const [isEdit,setIsEdit]=useState(false);
+
 return(
-    <AuthContext.Provider value={{user,login,logout,cart}}>
+    <AuthContext.Provider value={{user,login,logout,cart,isEdit,setIsEdit}}>
         {children}
     </AuthContext.Provider>
 );
