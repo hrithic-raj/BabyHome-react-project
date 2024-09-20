@@ -18,7 +18,7 @@ function MyNavbar(props) {
     const userId=localStorage.getItem('userId')
     const cartAddAlert=props.cartAddAlert
     const cartRemoveAlert=props.cartRemoveAlert
-    const cartCount=props.cartCount
+    // const cartCount=props.cartCount
     const paymentOptionAlert=props.paymentOptionAlert
     const cartEmptyAlert=props.cartEmptyAlert
     const orderPlacedAlert=props.orderPlacedAlert

@@ -6,11 +6,13 @@ import { AuthContext } from '../contexts/AuthContext';
 import { getUserById } from '../Api/Login-api';
 // import axios from 'axios';
 import { getCartById, getProducts } from '../Api/Product-api';
+import { getAllUsers } from '../Api/Admin-api';
 
 function AdminNavbar(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [products, setProducts] = useState([]);
+    const [users, setUsers] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [cart, setCart] = useState(false);
     const navigate=useNavigate()
@@ -26,32 +28,45 @@ function AdminNavbar(props) {
     const toggleMenu = () => {
     setIsOpen(!isOpen);
     };
-    useEffect(()=>{
-      const fetchProducts = async () => {
-        if(searchTerm.trim()===''){
-          setProducts([])
-          setShowModal(false)
+    useEffect(() => {
+      const fetchResults = async () => {
+        if (searchTerm.trim() === '') {
+          setProducts([]);
+          setUsers([]);
+          setShowModal(false);
           return;
         }
-        try{
-          const res= await getProducts();
-          const searchProducts=res.data.filter(product=>
+        try {
+          // Fetch products and users simultaneously
+          const [productRes, userRes] = await Promise.all([getProducts(), getAllUsers()]);
+          
+          // Filter products based on searchTerm
+          const searchProducts = productRes.data.filter(product =>
             product.name.toLowerCase().includes(searchTerm.toLowerCase())
           );
+          
+          // Filter users based on searchTerm
+          const searchUsers = userRes.data.filter(user =>
+            user.name.toLowerCase().includes(searchTerm.toLowerCase())
+          );
+          
+          // Set the results
           setProducts(searchProducts);
+          setUsers(searchUsers);
           setShowModal(true);
+        } catch (error) {
+          console.error("Error fetching results: ", error);
         }
-        catch(error){
-          console.error("Error searching result :", error);
-        }
-      }
-
+      };
+  
+      // Add a debounce to prevent excessive API calls
       const delaySearch = setTimeout(() => {
-        fetchProducts();
+        fetchResults();
       }, 300);
-      
+  
       return () => clearTimeout(delaySearch);
-    },[searchTerm])
+    }, [searchTerm]);
+
 
     useEffect(()=>{
       if(userId){
@@ -62,10 +77,14 @@ function AdminNavbar(props) {
       }
     },[userId,cartAddAlert,cartRemoveAlert])
     
-    const handleProductClick=(id)=>{
+    const handleProductClick=(productId)=>{
       setShowModal(false);
-      navigate(`/store/product/${id}`)
+      navigate(`/admin/products/product/${productId}`)
     }
+    const handleUserClick = (userId) => {
+      setShowModal(false);
+      navigate(`/admin/users/${userId}`)
+    };
 
     useEffect(()=>{
       if(!admin){
@@ -81,29 +100,47 @@ function AdminNavbar(props) {
         <div className="hidden lg:flex flex-1 justify-start items-center">
           <div className="relative w-2/3">
             <FaSearch className="absolute left-3 top-3 text-gray-400" />
-            <input 
-              type="text" 
-              placeholder="Search..." 
+            <input
+              type="text"
+              placeholder="Search..."
               className="pl-10 pr-4 py-2 border-2 w-full rounded-md focus:outline-none focus:ring-1 focus:ring-pink-100"
-              onChange={(e)=>setSearchTerm(e.target.value)}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
 
             {/* Search Box Modal */}
-        {showModal && products.length > 0 && (
-        <div className="absolute left-0 mt-2 w-full bg-white border rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
-              <ul className="divide-y divide-gray-300">
-                {products.map((product) => (
-                  <li
-                    key={product.id}
-                    onClick={() => handleProductClick(product.id)}
-                    className="cursor-pointer p-2 hover:bg-gray-100"
-                  >
-                    {product.name} 
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+            {showModal && (products.length > 0 || users.length > 0) && (
+              <div className="absolute left-0 mt-2 w-full bg-white border rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
+                <ul className="divide-y divide-gray-300">
+                  {/* Display users */}
+                  {users.length > 0 && (
+                    <li className="p-2 font-bold text-gray-600">Users</li>
+                  )}
+                  {users.map((user) => (
+                    <li
+                      key={user.id}
+                      onClick={() => handleUserClick(user.id)}
+                      className="cursor-pointer p-2 hover:bg-gray-100"
+                    >
+                      {user.name} (User)
+                    </li>
+                  ))}
+
+                  {/* Display products */}
+                  {products.length > 0 && (
+                    <li className="p-2 font-bold text-gray-600">Products</li>
+                  )}
+                  {products.map((product) => (
+                    <li
+                      key={product.id}
+                      onClick={() => handleProductClick(product.id)}
+                      className="cursor-pointer p-2 hover:bg-gray-100"
+                    >
+                      {product.name} (Product)
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 

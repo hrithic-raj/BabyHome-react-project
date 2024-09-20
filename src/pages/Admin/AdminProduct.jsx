@@ -3,22 +3,21 @@ import AdminNavbar from '../../components/AdminNav'
 import Sidebar from './SideBar'
 import { useNavigate, useParams } from 'react-router-dom'
 import { deleteProductById, getAllProducts } from '../../Api/Admin-api';
-import { getByCategory } from '../../Api/Product-api';
+import { getByCategory, getProducts } from '../../Api/Product-api';
 import EditProduct from './EditProduct';
 import { AuthContext } from '../../contexts/AuthContext';
+import Product from '../Stores/Product';
 
 function AdminProduct() {
   const navigate=useNavigate();
   // const [isEdit,setIsEdit]=useState(false);
   const [products,setProducts]=useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [searchTerm,setSearchTerm]=useState('');
   const {category} =useParams('category')
   const {isEdit,setIsEdit}=useContext(AuthContext)
   
-  const handleDel=(id)=>{
-    deleteProductById(id)
-    .then((res)=>console.log(res.data))
-  }
-
+  
   useEffect(()=>{
     if(category){
       getByCategory(category)
@@ -32,12 +31,50 @@ function AdminProduct() {
         setProducts(res.data)
       })
     }
-  },[category,handleDel])
+  },[category])
+  
+  const handleDel=(id)=>{
+    deleteProductById(id)
+    .then((res)=>{
+      console.log('Product Deleted')
+      if (category) {
+        getByCategory(category)
+          .then((res) => {
+            setProducts(res.data); 
+          })
+          .catch((error) => console.error('Error fetching category:', error));
+      } else {
+        getAllProducts()
+          .then((res) => {
+            setProducts(res.data); 
+          })
+          .catch((error) => console.error('Error fetching products:', error));
+      }
+    })
+    .catch((error) => console.error('Error deleting product:', error));
+  }
+
+  useEffect(()=>{
+      if(searchTerm.trim()===''){
+        setFilteredProducts(products)
+        return;
+      }else{
+        const searchProducts=products.filter(product=>
+          product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredProducts(searchProducts);
+      }
+  },[searchTerm,products])
 
   const handleEdit=(id)=>{
     setIsEdit(!isEdit)
     navigate(`/admin/products/editproduct/${id}`)
   }
+
+  const handleProductClick=(productId)=>{
+    navigate(`/admin/products/product/${productId}`)
+  }
+
   return (
     <div className='relative bg-gray-100 h-full'>
         <AdminNavbar/>
@@ -62,6 +99,7 @@ function AdminProduct() {
                         type="text" 
                         placeholder="Search..." 
                         className="pl-10 pr-4 py-2 border-2 w-[300px] rounded-md focus:outline-none focus:ring-1 focus:ring-pink-100 mb-2"
+                        onChange={(e)=>setSearchTerm(e.target.value)}
                     />
                     <div className='md:w-[600px] flex justify-between mb-2 flex-wrap'>
                       <button className='text-white bg-green-300 p-2 rounded-md w-[100px]' onClick={()=>navigate(`/admin/products/bathing`)}>Bathing</button>
@@ -83,10 +121,10 @@ function AdminProduct() {
                         <span className='md:text-lg text-md font-semibold'>DELETE</span>
                     </div>
                     <div className='h-[270px] md:h-[600px]'>
-                      {products.map(product=>(
+                      {filteredProducts.map(product=>(
                         <div key={product.id} className='grid grid-cols-8 space-x-3 justify-items-center items-center w-[700px] md:w-full'>
-                          <img className='w-[70px]' src={product.images[0]} alt="" />
-                          <span>{product.name}</span>
+                          <img className='w-[70px] cursor-pointer' onClick={()=>handleProductClick(product.id)} src={product.images[0]} alt="" />
+                          <span onClick={()=>handleProductClick(product.id)} className='cursor-pointer'>{product.name}</span>
                           <span className='max-w-[100px] max-h-[50px] overflow-hidden'>{product.description}</span>
                           {product.bestseller?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/2851/2851399.png" alt="" />:<img className='w-10' src="" alt="" />}
                           {product.newlyadded?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/891/891509.png" alt="" />:<img className='w-10' src="" alt="" />}

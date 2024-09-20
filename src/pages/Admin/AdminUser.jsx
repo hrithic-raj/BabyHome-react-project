@@ -7,18 +7,40 @@ import { blockUserById, deleteUserById, getAllUsers } from '../../Api/Admin-api'
 function AdminUser() {
   const navigate =useNavigate();
   const [users,setUsers]=useState([]);
+  const [searchTerm,setSearchTerm]=useState('');
+  const [filteredUsers, setFilteredUsers] = useState([]);
   const admin=localStorage.getItem('admin');
-  const handleDel=(id)=>{
-    deleteUserById(id)
-  }
   
   useEffect(()=>{
     getAllUsers()
     .then((res)=>{
       setUsers(res.data)
     })
-  },[handleDel])
+  },[])
   
+  const handleDel=(id)=>{
+    deleteUserById(id)
+    .then(()=>{
+      console.log('user deleted')
+      getAllUsers()
+      .then((res)=>{
+        setUsers(res.data)
+      })
+    })
+    .catch((error) => console.error('Error deleting product:', error));
+  }
+  
+  useEffect(()=>{
+      if(searchTerm.trim()===''){
+        setFilteredUsers(users)
+        return;
+      }else{
+        const searchUser=users.filter(user=>
+          user.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setFilteredUsers(searchUser);
+      }
+  },[searchTerm,users])
 
   const handleBlock=async(id,status)=>{
     await blockUserById(id,!status)
@@ -48,6 +70,7 @@ function AdminUser() {
                         type="text" 
                         placeholder="Search..." 
                         className="pl-10 pr-4 py-2 border-2 w-[300px] rounded-md focus:outline-none focus:ring-1 focus:ring-pink-100"
+                        onChange={(e)=>setSearchTerm(e.target.value)}
                     />
                 </div>
                 <div className='mt-5 h-[410px] flex flex-col md:w-full w-[300px] overflow-auto'>
@@ -60,7 +83,7 @@ function AdminUser() {
                         <span className='text-lg font-semibold'>BLOCK</span>
                         <span className='text-lg font-semibold'>DELETE</span>
                     </div>
-                    {users.map((user)=>(
+                    {filteredUsers.map((user)=>(
                       <div key={user.id} className=' mb-3 grid grid-cols-7 justify-items-center w-[700px] md:w-full'>
                         <span>{user.name}</span>
                         <span>{user.username}</span>
