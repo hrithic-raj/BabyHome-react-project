@@ -32,10 +32,7 @@ export const getTotalOrders=async()=>{
     const res=await axios.get(ORDERSURL)
     return res.data;
 }
-export const getTotalSales=async()=>{
-    const res=await axios.get(SALESURL)
-    return res.data;
-}
+
 export const addtoProduct=async(newProduct)=>{
     const res = await axios.post(PRODUCTURL,newProduct)
     return res.data
@@ -43,3 +40,13 @@ export const addtoProduct=async(newProduct)=>{
 export const editProduct=(id,updatedProduct)=>{
     return axios.patch(`${PRODUCTURL}/${id}`,updatedProduct)
 }
+
+export const getTotalSales= async ()=>{
+    const res = await axios.get(`${ORDERSURL}/500`)
+    return res.data.totalprice;
+}
+
+// export const getTotalOrders= async ()=>{
+//     const res = await axios.get(`${ORDERSURL}/500`)
+//     return res.data.totalprice;
+// }

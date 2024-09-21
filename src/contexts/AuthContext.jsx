@@ -1,9 +1,7 @@
 import React,{createContext, useEffect, useState} from "react";
 import axios from "axios";
-// import { getCartById } from "../Api/Product-api";
-import { checkUser, getUserById } from "../Api/Login-api";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
@@ -33,6 +31,7 @@ export const AuthProvider = ({children})=>{
                         localStorage.setItem('userId',loggedInUser.id);
                         setTimeout(()=>{
                             navigate('/home')
+                            toast.success(`Welcome ${loggedInUser.name}`)
                         },1000)
                     }
                     else{
@@ -49,6 +48,7 @@ export const AuthProvider = ({children})=>{
             if(isAdmin){
                 setTimeout(()=>{
                     navigate('/admin')
+                    toast.success("Welcome Admin")
                 },1000)
             }
             

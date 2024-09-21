@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import AdminNavbar from '../../components/AdminNav'
-import Sidebar from './SideBar'
+import AdminNavbar from '../../../components/AdminNav'
+import Sidebar from '../../../components/SideBar'
 import { useNavigate } from 'react-router-dom'
-import { blockUserById, deleteUserById, getAllUsers } from '../../Api/Admin-api';
+import { blockUserById, deleteUserById, getAllUsers } from '../../../Api/Admin-api';
+import { toast } from 'react-toastify';
 
 function AdminUser() {
   const navigate =useNavigate();
@@ -21,10 +22,11 @@ function AdminUser() {
   const handleDel=(id)=>{
     deleteUserById(id)
     .then(()=>{
-      console.log('user deleted')
+      // console.log('user deleted')
       getAllUsers()
       .then((res)=>{
         setUsers(res.data)
+        toast.success("User Deleted")
       })
     })
     .catch((error) => console.error('Error deleting product:', error));
@@ -48,6 +50,7 @@ function AdminUser() {
       getAllUsers()
       .then((res)=>{
         setUsers(res.data)
+        toast.success(!status?"User Blocked":"User Unblocked")
       })
     })
     }
@@ -57,7 +60,7 @@ function AdminUser() {
   return (
     <div className='relative bg-gray-100'>
         <AdminNavbar/>
-        <div className='mt-[100px]'>
+        <div className='mt-[80px]'>
           <Sidebar/>
           <div className='lg:ms-20 flex flex-col items-center justify-center'>
           <div className='grid grid-cols-1 mt-4 md:grid-cols-4 lg:grid-cols-8 lg:grid-rows-3 md:gap-6 gap-y-3 order-1 justify-items-center'>
@@ -91,7 +94,7 @@ function AdminUser() {
                         <span className='text-lg font-semibold'>BLOCK</span>
                         <span className='text-lg font-semibold'>DELETE</span>
                     </div>
-                    {filteredUsers.map((user)=>(
+                    {filteredUsers.slice(0).reverse().map((user)=>(
                       <div key={user.id} className=' mb-3 grid grid-cols-7 justify-items-center w-[700px] md:w-full'>
                         <span className='cursor-pointer' onClick={()=>handleUserClick(user.id)}>{user.name}</span>
                         <span className='cursor-pointer' onClick={()=>handleUserClick(user.id)}>{user.username}</span>

@@ -1,68 +1,8 @@
-// import React, { useEffect, useState } from 'react';
-// import { useNavigate, NavLink } from 'react-router-dom';
-// import { addUser,checkUsername } from '../../Api/Login-api';
-// import {useFormik} from 'formik';
-// import * as yup from 'yup';
-// import AdminNavbar from '../../components/AdminNav';
-// import Sidebar from './SideBar';
-
-// const validationSchema=yup.object({
-//   name: yup.string().required('Name required'),
-//   username:yup.string().required('Username required'),
-//   email:yup.string().email('Invalid email format').required('Email required'),
-//   password:yup.string().min(6,'Password must be at least 6 characters').required('Password required')
-// })
-
-// function AddProduct() {
-//     const navigate=useNavigate()
-//     const userId=localStorage.getItem('userId')
-
-//     const formik=useFormik({
-//       initialValues: {
-//                     name: '',
-//                     username: '',
-//                     email: '',
-//                     password: '',
-//                     cart:[],
-//                     orders:[],
-//                     wishlist:[],
-//       },
-//       validationSchema,
-//       onSubmit: async (values)=>{
-//         const isUsername= await checkUsername(values.username)
-//         if(!isUsername){
-//           addUser(values)
-//           alert('User Added')
-//           navigate('/admin/user')
-//         //   pass a modal
-//         }
-//         else{
-//           formik.setFieldError('Username already exists');
-//         }
-//       }
-
-//     })
-//     // useEffect(()=>{
-//     //   if(userId){
-//     //     navigate('/home')
-//     //   }
-//     // },[userId])
-
-//   return (
-//     <div className='relative bg-gray-100'>
-//         <AdminNavbar/>
-//         <div className='mt-[100px]'>
-//           <Sidebar/>
-//         <div className='flex items-center justify-center'>
-//             <div className='mt-5 bg-white rounded-lg shadow-lg w-[500px] mb-10 flex flex-col items-center justify-center space-y-2 p-5'>
-//                 <span className='text-3xl font-bold mb-10'>ADD PRODUCT</span>
-//                 <form className='login-form w-[500px] flex flex-col items-center space-y-4' onSubmit={formik.handleSubmit} 
-
-
 import React, { useState } from 'react';
-import Sidebar from './SideBar';
-import AdminNavbar from '../../components/AdminNav';
-import { addtoProduct } from '../../Api/Admin-api';
+import Sidebar from '../../../components/SideBar';
+import AdminNavbar from '../../../components/AdminNav';
+import { addtoProduct } from '../../../Api/Admin-api';
+import { toast } from 'react-toastify';
 
 const AddProductForm = () => {
 const [newProduct,setNewProduct]=useState({
@@ -143,9 +83,10 @@ const handleSubmit=async(e)=>{
         images:['']
       })
       setErrors('')
+      toast.success("New Product Added")
     })
     .catch(err=>console.error('Error adding product:', err))
-    console.log('Product added',newProduct)
+    // console.log('Product added',newProduct)
   }
   else{
     console.log('Validation error',errors)
@@ -155,7 +96,7 @@ const handleSubmit=async(e)=>{
   return (
     <div className='relative bg-gray-100'>
         <AdminNavbar/>
-        <div className='mt-[100px]'>
+        <div className='mt-[80px]'>
           <Sidebar/>
           <div>
             <form onSubmit={handleSubmit} className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg space-y-6">

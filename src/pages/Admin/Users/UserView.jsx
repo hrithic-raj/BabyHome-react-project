@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext} from 'react'
-import dp from '../../Assets/Main/profile.png'
-import MyNavbar from '../../components/MyNavbar'
-import { addAddress, getAddressById, getUserById } from '../../Api/Login-api'
-import { AuthContext } from '../../contexts/AuthContext'
+import dp from '../../../Assets/Main/profile.png'
+import MyNavbar from '../../../components/MyNavbar'
+import { addAddress, getAddressById, getUserById } from '../../../Api/Login-api'
+import { AuthContext } from '../../../contexts/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
-import MyFooter from '../../components/MyFooter'
-import AdminNavbar from '../../components/AdminNav'
-import Sidebar from './SideBar'
-import { getOrderById } from '../../Api/Product-api'
+import MyFooter from '../../../components/MyFooter'
+import AdminNavbar from '../../../components/AdminNav'
+import Sidebar from '../../../components/SideBar'
+import { getOrderById } from '../../../Api/Product-api'
 
 function UserView() {
     const navigate=useNavigate();
@@ -43,7 +43,7 @@ function UserView() {
   return (
     <div className='relative bg-gray-100'>
         <AdminNavbar/>
-        <div className='mt-[100px]'>
+        <div className='mt-[80px]'>
           <Sidebar/>
         <div className='flex flex-wrap justify-center space-x-0 lg:space-x-5 space-y-5 lg:space-y-0 py-5'>
             <div className='flex lg:flex-col space-y-4 border p-4 shadow-lg lg:h-[550px] h-[340px] justify-evenly items-center lg:items-stretch flex-row lg:w-[320px] w-[800px]'>

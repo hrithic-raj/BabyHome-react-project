@@ -73,8 +73,8 @@ function Payment() {
     // e.preventDefault();
     if(cart.length>0 && selectedOption && address){
         const d=new Date()
-        const orderList={ id:Date.now(),item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()}}
-        const totalOrderList={ id:Date.now(),user:user.name,item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()}}
+        const orderList={ id:Date.now(),item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()},orderprice:total}
+        const totalOrderList={ id:Date.now(),user:user.name,item:cart,paymentMethod : selectedOption , date :{ time: d.toLocaleTimeString(), day:d.toDateString()},orderprice:total}
         // console.log(address)
         await addToOrder(userId,orderList,totalOrderList,total)
         .then(res=>{

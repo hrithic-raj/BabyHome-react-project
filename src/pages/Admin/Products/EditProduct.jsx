@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
-import { addtoProduct, editProduct } from '../../Api/Admin-api';
-import { getProductById } from '../../Api/Product-api';
+import { AuthContext } from '../../../contexts/AuthContext'
+import { addtoProduct, editProduct } from '../../../Api/Admin-api';
+import { getProductById } from '../../../Api/Product-api';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function EditProduct() {
     const {isEdit,setIsEdit}=useContext(AuthContext)
@@ -100,6 +101,7 @@ function EditProduct() {
                 await editProduct(productId, newProduct);
                 setTimeout(() => {
                     setIsEdit(!isEdit);
+                    toast.success("Product Updated")
                 }, 1000);
                 console.log('Product edited', newProduct);
             }
@@ -116,6 +118,7 @@ function EditProduct() {
         e.preventDefault();
         setIsEdit(!isEdit)
         navigate('/admin/products')
+        toast.success("Edit Canceled")
       }
       if (loading) return <div>Loading...</div>;
   return (

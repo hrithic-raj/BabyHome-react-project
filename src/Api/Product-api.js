@@ -1,4 +1,5 @@
 import axios from "axios"
+import { useState } from "react";
 
 const URL="http://localhost:5000/products";
 const userURL="http://localhost:5000/users"
@@ -105,6 +106,7 @@ export const getTotalOrders=async()=>{
 
 export const addToOrder = async(userId,ordersList,totalOrderList,total)=>{
     const currentOrder=await getOrderById(userId)
+    // const [currentTotalPrice,setCurrentTotalPrice]=useState([])
     // const currenttotalOrder=await getTotalOrders()
     let updatedOrder;
     // let updatedTotalOrder;
@@ -118,7 +120,10 @@ export const addToOrder = async(userId,ordersList,totalOrderList,total)=>{
     }
     const res = await axios.patch(`${userURL}/${userId}`,{orders : updatedOrder})
     const totalres=await axios.post(ORDERSURL,totalOrderList)
-    console.log(totalres);
+    const currentTotalPrice=await axios.get(`${ORDERSURL}/500`)
+    const totalPrice=currentTotalPrice.data.totalprice+total;
+    const totalSales=await axios.patch(`${ORDERSURL}/500`,{totalprice:totalPrice})
+    // console.log(totalSales.data.totalprice);
     return res.data.orders;
 } 
 

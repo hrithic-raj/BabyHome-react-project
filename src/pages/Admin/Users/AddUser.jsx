@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import { addUser,checkUsername } from '../../Api/Login-api';
+import { addUser,checkUsername } from '../../../Api/Login-api';
 import {useFormik} from 'formik';
 import * as yup from 'yup';
-import AdminNavbar from '../../components/AdminNav';
-import Sidebar from './SideBar';
+import AdminNavbar from '../../../components/AdminNav';
+import Sidebar from '../../../components/SideBar';
+import { toast } from 'react-toastify';
 
 const validationSchema=yup.object({
   name: yup.string().required('Name required'),
@@ -33,25 +34,19 @@ function Adduser() {
         const isUsername= await checkUsername(values.username)
         if(!isUsername){
           addUser(values)
-          alert('User Added')
           navigate('/admin/users')
-        //   pass a modal
+          toast.success("New User Added")
         }
         else{
           formik.setFieldError('Username already exists');
         }
       }
     })
-    // useEffect(()=>{
-    //   if(userId){
-    //     navigate('/home')
-    //   }
-    // },[userId])
 
   return (
     <div className='relative bg-gray-100'>
         <AdminNavbar/>
-        <div className='mt-[100px]'>
+        <div className='mt-[80px]'>
           <Sidebar/>
         <div className='flex items-center justify-center'>
             <div className='mt-5 bg-white rounded-lg shadow-lg w-[500px] mb-10 flex flex-col items-center justify-center space-y-2 p-5'>

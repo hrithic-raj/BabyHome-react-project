@@ -18,14 +18,15 @@ import Donation from './pages/other/Donation';
 import PrivacyPolicy from './pages/other/PrivacyPolicy';
 import ShippingAndReturns from './pages/other/ShippingReturn';
 import TermsAndConditions from './pages/other/TermsConditions';
-import Dashboard from './pages/Admin/Dashboard';
-import AdminProduct from './pages/Admin/AdminProduct';
-import AdminUser from './pages/Admin/AdminUser';
-import Adduser from './pages/Admin/AddUser';
-import AddProduct from './pages/Admin/AddProduct';
-import EditProduct from './pages/Admin/EditProduct';
-import ProductView from './pages/Admin/ProductView';
-import UserView from './pages/Admin/UserView';
+import Dashboard from './pages/Admin/Dashboard/Dashboard';
+import AdminProduct from './pages/Admin/Products/AdminProduct';
+import AdminUser from './pages/Admin/Users/AdminUser';
+import Adduser from './pages/Admin/Users/AddUser';
+import AddProduct from './pages/Admin/Products/AddProduct';
+import EditProduct from './pages/Admin/Products/EditProduct';
+import ProductView from './pages/Admin/Products/ProductView';
+import UserView from './pages/Admin/Users/UserView';
+import AdminOrder from './pages/Admin/Orders/AdminOrder';
   
 function App() {
   return (
@@ -55,6 +56,7 @@ function App() {
           <Route path='/admin' element={<Dashboard/>}/>
           <Route path='/admin/products' element={<AdminProduct/>}/>
           <Route path='/admin/users' element={<AdminUser/>}/>
+          <Route path='/admin/orders' element={<AdminOrder/>}/>
           <Route path='/admin/users/adduser' element={<Adduser/>}/>
           <Route path='/admin/products/addproduct' element={<AddProduct/>}/>
           <Route path='/admin/products/:category' element={<AdminProduct/>}/>

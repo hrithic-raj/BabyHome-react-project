@@ -51,7 +51,7 @@ function Orders() {
             </div>
             <div className='w-[800px] h-[600px] overflow-auto custom-scrollbar flex flex-col shadow-md p-4 border space-y-4'>
                 {userId?(
-                        orders.map(orderlist=>(
+                        orders.slice(0).reverse().map(orderlist=>(
                             <div key={orderlist.id} className=' border shadow-lg flex flex-col space-y-3 p-2'> 
                             {orderlist.item.map(order=>(
                                 <div key={order.id} className='border flex rounded-lg'>
@@ -81,7 +81,7 @@ function Orders() {
                                 </div>
                                 </div>
                             ))}
-                            order id : {orderlist.id}
+                            order id : {orderlist.id} , total order price : ₹ {orderlist.orderprice}
                             </div>
                     
                 ))

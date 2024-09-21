@@ -1,16 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react'
-import AdminNavbar from '../../components/AdminNav'
-import Sidebar from './SideBar'
+import AdminNavbar from '../../../components/AdminNav'
+import Sidebar from '../../../components/SideBar'
 import { useNavigate, useParams } from 'react-router-dom'
-import { deleteProductById, getAllProducts } from '../../Api/Admin-api';
-import { getByCategory, getProducts } from '../../Api/Product-api';
+import { deleteProductById, getAllProducts } from '../../../Api/Admin-api';
+import { getByCategory, getProducts } from '../../../Api/Product-api';
 import EditProduct from './EditProduct';
-import { AuthContext } from '../../contexts/AuthContext';
-import Product from '../Stores/Product';
+import { AuthContext } from '../../../contexts/AuthContext';
+import { toast } from 'react-toastify';
 
 function AdminProduct() {
   const navigate=useNavigate();
-  // const [isEdit,setIsEdit]=useState(false);
   const [products,setProducts]=useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [searchTerm,setSearchTerm]=useState('');
@@ -35,8 +34,9 @@ function AdminProduct() {
   
   const handleDel=(id)=>{
     deleteProductById(id)
-    .then((res)=>{
-      console.log('Product Deleted')
+    .then(()=>{
+      // console.log('Product Deleted')
+      toast.success("Product Deleted")
       if (category) {
         getByCategory(category)
           .then((res) => {
@@ -78,7 +78,7 @@ function AdminProduct() {
   return (
     <div className='relative bg-gray-100 h-full'>
         <AdminNavbar/>
-        <div className='mt-[100px]'>
+        <div className='mt-[80px]'>
           <Sidebar/>
           <div className='lg:ms-20 flex flex-col items-center justify-center'>
           <div className='grid grid-cols-1 mt-4 md:grid-cols-4 lg:grid-cols-8 lg:grid-rows-3 md:gap-6 gap-y-3 order-1 justify-items-center'>
@@ -121,7 +121,7 @@ function AdminProduct() {
                         <span className='md:text-lg text-md font-semibold'>DELETE</span>
                     </div>
                     <div className='h-[270px] md:h-[600px]'>
-                      {filteredProducts.map(product=>(
+                      {filteredProducts.slice(0).reverse().map(product=>(
                         <div key={product.id} className='grid grid-cols-8 space-x-3 justify-items-center items-center w-[700px] md:w-full'>
                           <img className='w-[70px] cursor-pointer' onClick={()=>handleProductClick(product.id)} src={product.images[0]} alt="" />
                           <span onClick={()=>handleProductClick(product.id)} className='cursor-pointer'>{product.name}</span>
@@ -140,7 +140,7 @@ function AdminProduct() {
               <div className=' w-[330px] h-[200px] p-6 bg-white rounded-lg shadow-lg md:col-span-2 lg:row-span-2 flex justify-between order-2 lg-order-3'>
               <div>
                   <div className="text-green-600 font-bold">Total Products</div>
-                  <div className="text-3xl font-semibold">34</div>
+                  <div className="text-3xl font-semibold">{products.length}</div>
                 </div>
                 <div>
                 <img src="https://cdn-icons-png.flaticon.com/512/10112/10112502.png" className='w-[130px] mt-4' alt="" />
