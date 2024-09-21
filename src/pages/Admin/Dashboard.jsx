@@ -38,7 +38,7 @@ function Dashboard() {
         <div className='mt-[100px]'>
         <Sidebar/>
         <div className='lg:ms-20 md:ms-10 flex flex-col items-center'>
-          <div className='grid grid-cols-1 mt-4 md:grid-cols-4 lg:grid-cols-8 gap-6 '>
+          <div className='grid grid-cols-1 mt-4 md:grid-cols-4 justify-items-center lg:grid-cols-8 gap-6 '>
               <div className=' w-[330px] h-[200px] p-6 bg-white rounded-lg shadow-lg col-span-2 flex justify-between'>
                 <div>
                   <div className="text-green-600 font-bold">Total Sales</div>

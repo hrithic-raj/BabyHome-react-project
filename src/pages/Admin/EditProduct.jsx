@@ -119,13 +119,13 @@ function EditProduct() {
       }
       if (loading) return <div>Loading...</div>;
   return (
-    <div>
+        <>
         {isEdit?(
         //   <div className='absolute top-[2%] left-[10%] w-[80%] min-h-[40rem] md:w-[80%] border'>
             <>
-            <form onSubmit={handleSubmit} className="absolute top-[2%] left-[10%] w-[80%] min-h-[40rem] md:w-[80%]  mx-auto p-6 bg-white shadow-md rounded-lg space-y-6 br">
+            <form onSubmit={handleSubmit} className="absolute top-[2%] left-[10%] w-[80%] max-h-[80%] md:w-[80%]  mx-auto p-6 bg-white shadow-md rounded-lg space-y-6 br overflow-auto custom-scrollbar">
               <div className='grid md:grid-cols-2 grid-cols-1 gap-5'>
-              <h2 className="text-2xl font-bold text-gray-700 col-span-1 md:col-span-2 text-center">Add Product</h2>
+              <h2 className="text-2xl font-bold text-gray-700 col-span-1 md:col-span-2 text-center">Edit Product</h2>
               <div>
                 <label className="block text-gray-700">Product Name</label>
                 <input
@@ -293,7 +293,7 @@ function EditProduct() {
         ):(
           null
         )}
-    </div>
+        </>
   )
 }
 

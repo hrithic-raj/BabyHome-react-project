@@ -25,6 +25,7 @@ import Adduser from './pages/Admin/AddUser';
 import AddProduct from './pages/Admin/AddProduct';
 import EditProduct from './pages/Admin/EditProduct';
 import ProductView from './pages/Admin/ProductView';
+import UserView from './pages/Admin/UserView';
   
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
           <Route path='/admin/products/:category' element={<AdminProduct/>}/>
           <Route path='/admin/products/editproduct/:productId' element={<AdminProduct/>}/>
           <Route path='/admin/products/product/:productId' element={<ProductView/>}/>
+          <Route path='/admin/users/user/:userId' element={<UserView/>}/>
         </Route>
       </Routes>
     </div>

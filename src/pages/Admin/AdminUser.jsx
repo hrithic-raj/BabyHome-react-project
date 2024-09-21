@@ -44,8 +44,16 @@ function AdminUser() {
 
   const handleBlock=async(id,status)=>{
     await blockUserById(id,!status)
-  }
-
+    .then(()=>{
+      getAllUsers()
+      .then((res)=>{
+        setUsers(res.data)
+      })
+    })
+    }
+    const handleUserClick=(userId)=>{
+      navigate(`/admin/users/user/${userId}`)
+    }
   return (
     <div className='relative bg-gray-100'>
         <AdminNavbar/>
@@ -85,8 +93,8 @@ function AdminUser() {
                     </div>
                     {filteredUsers.map((user)=>(
                       <div key={user.id} className=' mb-3 grid grid-cols-7 justify-items-center w-[700px] md:w-full'>
-                        <span>{user.name}</span>
-                        <span>{user.username}</span>
+                        <span className='cursor-pointer' onClick={()=>handleUserClick(user.id)}>{user.name}</span>
+                        <span className='cursor-pointer' onClick={()=>handleUserClick(user.id)}>{user.username}</span>
                         <span>{user.email}</span>
                         {user.address ?<span>{user.address.city}</span>: 'NOT SET'}
                         <span>{user.orders.length}</span>
