@@ -5,6 +5,7 @@ import gpay from '../../Assets/Main/gpay.png'
 import paytm from '../../Assets/Main/paytm.png'
 import { getAddressById, getUserById } from '../../Api/Login-api'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 
 function Payment() {
@@ -15,9 +16,9 @@ function Payment() {
     const [user,setUser]=useState([]);
     const [address,setAddress]=useState([]);
     const [oldTotal,setOldTotal]=useState(0);
-    const [orderPlacedAlert,setOrderPlacedAlert]=useState(false)
-    const [cartEmptyAlert,setCartEmptyAlert]=useState(false)
-    const [paymentOptionAlert,setPaymentOptionAlert]=useState(false)
+    // const [orderPlacedAlert,setOrderPlacedAlert]=useState(false)
+    // const [cartEmptyAlert,setCartEmptyAlert]=useState(false)
+    // const [paymentOptionAlert,setPaymentOptionAlert]=useState(false)
 
 
 
@@ -45,7 +46,10 @@ function Payment() {
     
     const removeFromCart=(productId)=>{
         deleteCartById(userId,productId)
-        .then(res=>setCart(res))
+        .then(res=>{
+            setCart(res)
+            toast.success("Product Removed")
+        })
         .catch(err=>console.error(err))
     }
     
@@ -74,9 +78,10 @@ function Payment() {
         // console.log(address)
         await addToOrder(userId,orderList,totalOrderList,total)
         .then(res=>{
-            setOrderPlacedAlert(true)
+            toast.success("Order Placed")
+            // setOrderPlacedAlert(true)
             setTimeout(() => {
-                setOrderPlacedAlert(false)
+                // setOrderPlacedAlert(false)
                 navigate('/orders')
             }, 2000);
         })
@@ -86,28 +91,29 @@ function Payment() {
         .then(res=>setCart(res))
         .catch(err=>console.error(err))
     }else if(cart.length<0){
-        setCartEmptyAlert(true)
+        toast.warning("Your cart is Empty")
+        // setCartEmptyAlert(true)
         setTimeout(() => {
-            setCartEmptyAlert(false)
+            // setCartEmptyAlert(false)
             navigate('/store')
-        }, 3000);
+        }, 1000);
     }
     else if(!selectedOption){
-        setPaymentOptionAlert(true)
+        toast.warning("Add a Payment Option")
+        // setPaymentOptionAlert(true)
         setTimeout(() => {
-            setPaymentOptionAlert(false)
+            // setPaymentOptionAlert(false)
         }, 3000);
     }
     else if(!address){
-        alert('add address');
+        toast.warning("Add a Address to Ship")
     }
-
   };
 
   return (
     <>
         <div>
-            <MyNavbar orderPlacedAlert={orderPlacedAlert} cartEmptyAlert={cartEmptyAlert} paymentOptionAlert={paymentOptionAlert}/>
+            <MyNavbar />
             <div className='mt-[150px] flex flex-wrap xl:justify-start justify-center ms-10 xl:ms-[150px] space-x-0 xl:space-x-0 space-y-5 mb-10'>
             <div className='border w-[60%] shadow-lg'>
                 <div className='flex justify-center items-center me-5 h-[100px]'>

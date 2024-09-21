@@ -3,6 +3,8 @@ import MyNavbar from '../../components/MyNavbar'
 import { addToCart, getProductById } from '../../Api/Product-api';
 import { useNavigate, useParams } from 'react-router-dom';
 import MyFooter from '../../components/MyFooter';
+import { toast } from 'react-toastify';
+
 function Product() {
   const [product, setProduct] = useState([]);
   const [selectedImage, setSelectedImage] = useState("");
@@ -30,6 +32,7 @@ function Product() {
     if(userId){
       addToCart(userId,product,quntity)
       .then(res=>{
+        toast.success("Cart Updated")
         setCartAddAlert(true)
         setTimeout(() => {
           setCartAddAlert(false)

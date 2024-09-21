@@ -14,14 +14,15 @@ function MyNavbar(props) {
     const [showModal, setShowModal] = useState(false);
     const [cart, setCart] = useState(false);
     const navigate=useNavigate()
-    // const {cart}=useContext(AuthContext);
     const userId=localStorage.getItem('userId')
     const cartAddAlert=props.cartAddAlert
     const cartRemoveAlert=props.cartRemoveAlert
+    // const {cart}=useContext(AuthContext);
     // const cartCount=props.cartCount
-    const paymentOptionAlert=props.paymentOptionAlert
-    const cartEmptyAlert=props.cartEmptyAlert
-    const orderPlacedAlert=props.orderPlacedAlert
+    // const paymentOptionAlert=props.paymentOptionAlert
+    // const cartEmptyAlert=props.cartEmptyAlert
+    // const orderPlacedAlert=props.orderPlacedAlert
+
     const toggleMenu = () => {
     setIsOpen(!isOpen);
     };
@@ -152,7 +153,7 @@ function MyNavbar(props) {
 
         {/* modal for alert */}
 
-        {cartAddAlert?(
+        {/* {cartAddAlert?(
           <div className="absolute text-center right-2 top-20 w-[200px] h-[45px] p-2 mt-2 bg-white border rounded-lg shadow-lg z-40 transition-all duration-500 ease-in-out">
                 <span className='text-lg'>Item added to Cart ✅</span>
             </div>
@@ -176,7 +177,7 @@ function MyNavbar(props) {
           <div className="absolute text-center right-2 top-20 w-[260px] h-[45px] p-2 mt-2 bg-white border rounded-lg shadow-lg z-40 transition-all duration-500 ease-in-out ">
                 <span className='text-lg'>Your Order is placed ✅</span>
             </div>
-        ):null}
+        ):null} */}
         </div>
       </div>
 

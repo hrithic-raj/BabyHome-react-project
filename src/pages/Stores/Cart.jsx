@@ -6,6 +6,8 @@ import { BuyContext } from '../../contexts/BuyContext'
 import { useNavigate } from 'react-router-dom'
 import { getAddressById, getUserById } from '../../Api/Login-api'
 import MyFooter from '../../components/MyFooter'
+import { toast } from 'react-toastify'
+
 
 function Cart() {
     const userId=localStorage.getItem('userId')
@@ -36,8 +38,9 @@ function Cart() {
     const removeFromCart=(productId)=>{
         deleteCartById(userId,productId)
         .then(res=>{
-            setCart(res)
-            setCartRemoveAlert(true)
+            setCart(res);
+            toast.success("Product Removed From Cart");
+            setCartRemoveAlert(true);
             setTimeout(() => {
                 setCartRemoveAlert(false)
             },3000);
@@ -62,7 +65,6 @@ function Cart() {
         }else{
             alert("Your Cart is empty")
         }
-        
     }
   return (
     <>
