@@ -1,14 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MyNavbar from '../../components/MyNavbar'
-import { AuthContext } from '../../contexts/AuthContext'
 import { getCartById, deleteCartById, increaseCount, decreaseCount, ClearCart, addToOrder} from '../../Api/Product-api'
-import { BuyContext } from '../../contexts/BuyContext'
-import axios from 'axios'
 import gpay from '../../Assets/Main/gpay.png'
 import paytm from '../../Assets/Main/paytm.png'
 import { getAddressById, getUserById } from '../../Api/Login-api'
 import { useNavigate } from 'react-router-dom'
-import MyFooter from '../../components/MyFooter'
 
 
 function Payment() {

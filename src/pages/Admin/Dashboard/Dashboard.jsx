@@ -79,7 +79,7 @@ function Dashboard() {
                   <img src="https://cdn-icons-png.flaticon.com/512/10112/10112502.png" className='w-[130px] mt-4' alt="" />
                 </div>
               </div>
-              <div className='h-[400px] lg:min-w-[500px] bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
+              <div className='h-[400px] w-[95%] bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
                 <div className='flex flex-col h-[400px]'>
                   <span className='text-2xl text-center font-semibold border-b-2'>RECENT ORDERS</span>
                   <div className='grid grid-cols-4 justify-items-center items-center'>
@@ -104,7 +104,7 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className='h-[400px] bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
+              <div className='h-[400px] bg-white w-[95%] rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
               <div className='flex flex-col h-[400px]'>
                   <span className='text-2xl text-center font-semibold border-b-2'>PRODUCT OVERVIEW</span>
                   <div className='grid grid-cols-4 justify-items-center items-center'>
@@ -125,7 +125,7 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className='h-[400px] bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-2'>
+              <div className='h-[400px] w-[95%]  bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-2'>
               <div className='flex flex-col h-[400px]'>
                   <span className='text-2xl text-center font-semibold border-b-2'>BEST SELLERS</span>
                   <div className='grid grid-cols-4 justify-items-center items-center'>

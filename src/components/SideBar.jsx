@@ -41,7 +41,7 @@ const Sidebar = () => {
                 onMouseEnter={toggleSidebar}
                 onMouseLeave={toggleSidebar}
             >
-                {/* Icons + Button Names */}
+                {/* Icons + Names */}
                 <div className="flex flex-col items-center h-min-[50rem] mt-6 space-y-4">
                     <div className='h-200px flex space-x-4 items-center lg:mb-32 mb:10 cursor-pointer'>
                         {/* {isOpen ? <img className='w-64' src={logoB} alt="" />:<img className='max-w-[60px] text-left mb-5' src={logoS} alt="" />} */}

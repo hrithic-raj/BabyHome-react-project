@@ -27,6 +27,7 @@ import EditProduct from './pages/Admin/Products/EditProduct';
 import ProductView from './pages/Admin/Products/ProductView';
 import UserView from './pages/Admin/Users/UserView';
 import AdminOrder from './pages/Admin/Orders/AdminOrder';
+import PageNotFound from './pages/other/PageNotFound';
   
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
           <Route path='/admin/products/product/:productId' element={<ProductView/>}/>
           <Route path='/admin/users/user/:userId' element={<UserView/>}/>
         </Route>
+        <Route path='*' element={<PageNotFound/>}/>
       </Routes>
     </div>
   );
