@@ -41,33 +41,28 @@ function AdminOrder() {
                 </div>
                 <div className='flex flex-col md:w-full w-[300px] h-[300px] md:h-[460px] overflow-auto custom-scrollbar'>
                     <div className='mb-6 grid grid-cols-5 justify-items-center space-x-3 w-[700px] md:w-full'>
-                        <span className='md:text-lg text-md font-semibold'>IMAGE</span>
-                        <span className='md:text-lg text-md font-semibold'>NAME</span>
+                        <span className='md:text-lg text-md font-semibold'>USER</span>
                         <span className='md:text-lg text-md font-semibold'>ORDERID</span>
                         <span className='md:text-lg text-md font-semibold'>DATE</span>
-                        <span className='md:text-lg text-md font-semibold'>USER</span>
+                        <span className='md:text-lg text-md font-semibold'>NAME</span>
+                        <span className='md:text-lg text-md font-semibold'>IMAGE</span>
                     </div>
-                    <div className='h-[270px] md:h-[600px]'>
+                    <div className='h-[270px] md:h-[600px] space-y-5'>
                       {orders.slice(1).reverse().map(order=>(
-                         order.item.map(item=>(
-                            <div key={item.id} className='grid grid-cols-5 space-x-3 justify-items-center items-center w-[700px] md:w-full'>
-                              <img className='w-[70px]' src={item.images[0]} alt="" />
-                              <span>{item.name}</span>
+                         
+                        <div key={order.id} className='grid grid-cols-5 space-x-3 justify-items-center w-[700px] md:w-full'>
+                              <span>{order.user}</span>
                               <span>{order.id}</span>
                               <span>{order.date.day}</span>
-                              <span>{order.user}</span>
+                              <div className='grid grid-cols-2 col-span-2 space-y-5 justify-items-center'>
+                              {order.item.map(item=>(
+                                <>
+                                <span>{item.name}</span>
+                                <img className='w-[70px]' src={item.images[0]} alt="" />
+                                </>
+                              ))}
+                              </div>
                             </div>
-                            ))
-                        // <div key={product.id} className='grid grid-cols-8 space-x-3 justify-items-center items-center w-[700px] md:w-full'>
-                        //   <img className='w-[70px] cursor-pointer' src={product.images[0]} alt="" />
-                        //   <span className='cursor-pointer'>{product.name}</span>
-                        //   <span className='max-w-[100px] max-h-[50px] overflow-hidden'>{product.description}</span>
-                        //   {product.bestseller?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/2851/2851399.png" alt="" />:<img className='w-10' src="" alt="" />}
-                        //   {product.newlyadded?<img className='w-10' src="https://cdn-icons-png.flaticon.com/512/891/891509.png" alt="" />:<img className='w-10' src="" alt="" />}
-                        //   <span>{product.category}</span>
-                        //   <button className='text-white bg-blue-300 p-2 rounded-md '>EDIT</button>
-                        //   <button className='text-white bg-red-400 p-2 rounded-md'>DELETE</button>
-                        // </div>
                       ))}
                     </div>
                 </div>

@@ -82,24 +82,26 @@ function Dashboard() {
               <div className='h-[400px] w-[95%] bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
                 <div className='flex flex-col h-[400px]'>
                   <span className='text-2xl text-center font-semibold border-b-2'>RECENT ORDERS</span>
-                  <div className='grid grid-cols-4 justify-items-center items-center'>
-                        <span className='text-lg font-semibold'>IMAGE</span>
+                  <div className='grid grid-cols-4 justify-items-center items-center mb-5'>
+                        <span className='text-lg font-semibold'>USER</span>
                         <span className='text-lg font-semibold'>ORDER ID</span>
                         <span className='text-lg font-semibold'>DATE</span>
-                        <span className='text-lg font-semibold'>USER</span>
+                        <span className='text-lg font-semibold'>IMAGE</span>
                         
                         <span className='text-lg font-semibold'></span>
                   </div>
                   <div className='h-[400px] overflow-auto custom-scrollbar'>
                       {totalOrders.slice(1).reverse().map((order)=>(
-                        order.item.map(item=>(
-                        <div key={item.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
-                          <img className='w-[70px]' src={item.images[0]} alt="" />
-                          <span>{order.id}</span>
-                          <span>{order.date.day}</span>
-                          <span>{order.user}</span>
+                        <div key={order.id} className='grid grid-cols-4 justify-items-center mb-3'>
+                        <span>{order.user}</span>
+                        <span>{order.id}</span>
+                        <span>{order.date.day}</span>
+                        <div className='grid grid-cols-1 space-y-5 justify-items-center items-center mb-5'>
+                        {order.item.map(item=>(
+                            <img className='w-[70px]' src={item.images[0]} alt="" />
+                        ))}
                         </div>
-                        ))
+                        </div>
                         ))}
                   </div>
                 </div>

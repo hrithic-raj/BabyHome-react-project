@@ -81,7 +81,7 @@ function AdminNavbar(props) {
     }
     const handleUserClick = (userId) => {
       setShowModal(false);
-      navigate(`/admin/users/${userId}`)
+      navigate(`/admin/users/user/${userId}`)
     };
 
     useEffect(()=>{
