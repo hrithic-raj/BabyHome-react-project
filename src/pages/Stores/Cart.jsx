@@ -39,7 +39,7 @@ function Cart() {
         deleteCartById(userId,productId)
         .then(res=>{
             setCart(res);
-            toast.success("Product Removed From Cart");
+            toast.success("Product Removed From Cart",{position:'bottom-left'});
             setCartRemoveAlert(true);
             setTimeout(() => {
                 setCartRemoveAlert(false)

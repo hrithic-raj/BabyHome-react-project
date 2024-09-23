@@ -43,9 +43,9 @@ function ProductView() {
   return (
     <div className='relative h-full'>
       <AdminNavbar/>
-      <div className='mt-[80px]'>
+      <div className='mt-[100px]'>
         <Sidebar/>
-        <div className='mt-[150px] mb-[100px]'>
+        <div className='lg:ms-[100px] mb-[30px]'>
           <div className='grid grid-cols-1 space-y-10 xl:space-y-0 xl:grid-cols-2 h-max'>
             <div className='flex xl:ms-20 space-x-30 ms-5 w-[700px]'>
             <div className='order-2'>

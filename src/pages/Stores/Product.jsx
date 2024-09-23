@@ -32,7 +32,7 @@ function Product() {
     if(userId){
       addToCart(userId,product,quntity)
       .then(res=>{
-        toast.success("Cart Updated")
+        toast.success("Cart Updated",{position:'bottom-left'})
         setCartAddAlert(true)
         setTimeout(() => {
           setCartAddAlert(false)

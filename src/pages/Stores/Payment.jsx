@@ -48,7 +48,7 @@ function Payment() {
         deleteCartById(userId,productId)
         .then(res=>{
             setCart(res)
-            toast.success("Product Removed")
+            toast.success("Product Removed",{position:'bottom-left'})
         })
         .catch(err=>console.error(err))
     }
@@ -78,7 +78,7 @@ function Payment() {
         // console.log(address)
         await addToOrder(userId,orderList,totalOrderList,total)
         .then(res=>{
-            toast.success("Order Placed")
+            toast.success("Order Placed",{position:'bottom-left'})
             // setOrderPlacedAlert(true)
             setTimeout(() => {
                 // setOrderPlacedAlert(false)
@@ -91,7 +91,7 @@ function Payment() {
         .then(res=>setCart(res))
         .catch(err=>console.error(err))
     }else if(cart.length<0){
-        toast.warning("Your cart is Empty")
+        toast.warning("Your cart is Empty",{position:'bottom-left'})
         // setCartEmptyAlert(true)
         setTimeout(() => {
             // setCartEmptyAlert(false)
@@ -99,14 +99,14 @@ function Payment() {
         }, 1000);
     }
     else if(!selectedOption){
-        toast.warning("Add a Payment Option")
+        toast.warning("Add a Payment Option",{position:'bottom-left'})
         // setPaymentOptionAlert(true)
         setTimeout(() => {
             // setPaymentOptionAlert(false)
         }, 3000);
     }
     else if(!address){
-        toast.warning("Add a Address to Ship")
+        toast.warning("Add a Shipping Address",{position:'bottom-left'})
     }
   };
 

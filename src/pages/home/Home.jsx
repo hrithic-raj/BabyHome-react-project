@@ -7,6 +7,10 @@ import giftimg from '../../Assets/Main/gift.png'
 import loveimg from '../../Assets/Main/love.png'
 import priceimg from '../../Assets/Main/price.png'
 import serviceimg from '../../Assets/Main/service.png'
+import banner1 from '../../Assets/banner/banner1.png'
+import banner2 from '../../Assets/banner/banner2.png'
+import banner3 from '../../Assets/banner/banner3.png'
+import banner4 from '../../Assets/banner/banner4.png'
 import MyFooter from '../../components/MyFooter'
 import { getBestSeller, getNewlyAdded } from '../../Api/Product-api'
 function Home() {
@@ -16,9 +20,16 @@ function Home() {
   const [bestSeller,setBestSeller]=useState([]);
   
   const images=[
+    // banner1,
+    // banner2,
+    // banner3,
+    // banner4,
     "https://babymoo.in/cdn/shop/files/Monsoon-Sale_Web.jpg?v=1718776166&width=2000",
     "https://babymoo.in/cdn/shop/files/GiftSet_Caps_Web.jpg?v=1713866669&width=2000",
-    "https://babymoo.in/cdn/shop/files/FOOTWEAR_WEB_2ad8dca1-799f-4c07-ab65-aa54cc9187bb.jpg?v=1720440498&width=2000"
+    "https://babymoo.in/cdn/shop/files/FOOTWEAR_WEB_2ad8dca1-799f-4c07-ab65-aa54cc9187bb.jpg?v=1720440498&width=2000",
+    "https://babymoo.in/cdn/shop/files/Lot_85_Web_1.jpg?v=1726818897&width=2000",
+    "https://babymoo.in/cdn/shop/files/Toys_Web_2.jpg?v=1723458183&width=2000",
+
   ]
   useEffect(()=>{
     const intervel=setInterval(()=>{

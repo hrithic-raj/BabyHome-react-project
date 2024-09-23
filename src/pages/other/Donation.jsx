@@ -4,6 +4,7 @@ import MyNavbar from '../../components/MyNavbar';
 import MyFooter from '../../components/MyFooter';
 // import missionImage from '../Assets/mission.jpg'; // Add a mission-related image here
 // import educationImage from '../Assets/education.jpg'; // Add a second image for education
+import { toast } from 'react-toastify';
 
 const Donation = () => {
   return (
@@ -39,7 +40,7 @@ const Donation = () => {
             {/* Donation Button */}
             <button
                 className="bg-pink-500 text-white py-3 px-6 rounded-lg text-lg flex items-center justify-center mx-auto hover:bg-pink-600 transition duration-300"
-                onClick={() => alert('Thank you for your kindness')}
+                onClick={() => toast.success("Thank you for your kindness",{position:'bottom-left'})}
             >
                 <FaDonate className="mr-2" size={24} />
                 Donate Now
