@@ -695,10 +695,10 @@
       "description": "Mee Mee Baby Gentle Wet Wipes with Aloe Vera extracts, 72 counts, Pack of 3",
       "category": "bathing",
       "price": 387,
-      "oldprice": 189,
+      "oldprice": 1899,
       "stock": 48,
-      "bestseller": true,
-      "newlyadded": false,
+      "bestseller": false,
+      "newlyadded": true,
       "addedDate": "2024-09-23T04:33:57.946Z",
       "images": [
         "https://m.media-amazon.com/images/I/71fMNnLGNdL._SL1500_.jpg",

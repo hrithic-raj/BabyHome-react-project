@@ -54,12 +54,12 @@ function AdminOrder() {
                               <span>{order.user}</span>
                               <span>{order.id}</span>
                               <span>{order.date.day}</span>
-                              <div className='grid grid-cols-2 col-span-2 space-y-5 justify-items-center'>
+                              <div className=' col-span-2 place-self-end space-y-5'>
                               {order.item.map(item=>(
-                                <>
+                                <div key={item.id} className='grid grid-cols-2 justify-items-end'>
                                 <span>{item.name}</span>
                                 <img className='w-[70px]' src={item.images[0]} alt="" />
-                                </>
+                                </div>
                               ))}
                               </div>
                             </div>

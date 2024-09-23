@@ -30,7 +30,7 @@ function AdminProduct() {
         setProducts(res.data)
       })
     }
-  },[category])
+  },[category,isEdit])
   
   const handleDel=(id)=>{
     deleteProductById(id)

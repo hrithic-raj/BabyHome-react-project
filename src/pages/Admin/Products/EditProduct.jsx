@@ -27,7 +27,8 @@ function EditProduct() {
 
         useEffect(()=>{
             const fetchProduct = async () => {
-                try{
+                if(productId){
+                  try{
                     const res=await getProductById(productId)
                     setNewProduct(res.data)
                     setLoading(false)
@@ -35,6 +36,7 @@ function EditProduct() {
                 catch (err) {
                     setErrors('Error fetching product details');
                     setLoading(false);
+                }
                 }
             }
             fetchProduct();
