@@ -8,10 +8,10 @@ const AddProductForm = () => {
 const [newProduct,setNewProduct]=useState({
   name:'',
   description:'',
-  category:'',
-  price:0,
-  oldprice:0,
-  stock:0,
+  category:'bathing',
+  price:null,
+  oldprice:null,
+  stock:null,
   bestseller:false,
   newlyadded:false,
   addedDate:new Date().toISOString(),
@@ -28,8 +28,9 @@ const [newProduct,setNewProduct]=useState({
     if (newProduct.images.length === 0 || newProduct.images.includes('')) newErrors.images = 'At least one image URL is required';
     
     if (typeof newProduct.price !== 'number' || newProduct.price <= 0) newErrors.price = 'Price must be a positive number';
-    if (typeof newProduct.oldprice !== 'number' || newProduct.oldprice < 0) newErrors.oldprice = 'Old price must be a positive number';
-    if (typeof newProduct.stock !== 'number' || newProduct.stock <0) newErrors.stock = 'Stock must be a non-negative number';
+    if (typeof newProduct.oldprice !== 'number' || newProduct.oldprice <= 0) newErrors.oldprice = 'Old price must be a positive number';
+    if (newProduct.oldprice < newProduct.price) newErrors.oldprice1 = 'Oldprice must be greater than oru equal to price';
+    if (typeof newProduct.stock !== 'number' || newProduct.stock <=0) newErrors.stock = 'Stock must be a non-negative number';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -73,10 +74,10 @@ const handleSubmit=async(e)=>{
       setNewProduct({
         name:'',
         description:'',
-        category:'',
-        price:0,
-        oldprice:0,
-        stock:0,
+        category:'bathing',
+        price:null,
+        oldprice:null,
+        stock:null,
         bestseller:false,
         newlyadded:false,
         addedDate:'',
@@ -164,6 +165,7 @@ const handleSubmit=async(e)=>{
                     className="w-full mt-1 p-2 border border-gray-300 rounded-md"
                   />
                   {errors.oldprice && <span className="text-red-500 text-sm">{errors.oldprice}</span>}
+                  {errors.oldprice1 && <span className="text-red-500 text-sm">{errors.oldprice1}</span>}
                 </div>
               </div>
 
@@ -214,6 +216,7 @@ const handleSubmit=async(e)=>{
                     placeholder="Main Image URL"
                     
                   />
+                  {errors.image && <span className="text-red-500 text-sm">{errors.image}</span>}
                 </div>
 
                 {/* Additional Images */}
@@ -228,6 +231,7 @@ const handleSubmit=async(e)=>{
                         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                         placeholder={`Additional Image URL ${index + 1}`}
                       />
+                      {errors.images && <span className="text-red-500 text-sm">{errors.images}</span>}
                     </div>
                   ))}
                 </div>

@@ -14,8 +14,8 @@ function EditProduct() {
         name:'',
         description:'',
         category:'',
-        price:0,
-        oldprice:0,
+        price:null,
+        oldprice:null,
         stock:0,
         bestseller:false,
         newlyadded:false,
@@ -49,7 +49,8 @@ function EditProduct() {
           if (newProduct.images.length === 0 || newProduct.images.includes('')) newErrors.images = 'At least one image URL is required';
           
           if (typeof newProduct.price !== 'number' || newProduct.price <= 0) newErrors.price = 'Price must be a positive number';
-          if (typeof newProduct.oldprice !== 'number' || newProduct.oldprice < 0) newErrors.oldprice = 'Old price must be a positive number';
+          if (typeof newProduct.oldprice !== 'number' || newProduct.oldprice <= 0) newErrors.oldprice = 'Old price must be a positive number';
+          if (newProduct.oldprice < newProduct.price) newErrors.oldprice = 'Oldprice must be greater than oru equal to price';
           if (typeof newProduct.stock !== 'number' || newProduct.stock <0) newErrors.stock = 'Stock must be a non-negative number';
       
           setErrors(newErrors);
@@ -247,6 +248,7 @@ function EditProduct() {
                         className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                         placeholder="Main Image URL"
                     />
+                    {errors.image && <span className="text-red-500 text-sm">{errors.image}</span>}
                   </div>
                 </div>
 
@@ -267,6 +269,7 @@ function EditProduct() {
                         className="w-[50%] px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
                         placeholder={`Additional Image URL ${index + 1}`}
                       />
+                      {errors.images && <span className="text-red-500 text-sm">{errors.images}</span>}
                       {/* <button>hello</button> */}
                       <button
                         type="button"
