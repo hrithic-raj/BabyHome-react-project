@@ -76,11 +76,11 @@ function Profile() {
             </div>
             <div className='w-[800px] flex flex-col shadow-lg p-4 border'>
                 <label htmlFor="" className='text-2xl'>Name</label>
-                <input className='text-xl p-3' type="text" value={user.name} placeholder='Name' disabled/>
+                <input className='text-xl p-3' type="text" value={user.name||''} placeholder='Name' disabled/>
                 <label htmlFor="" className='text-2xl'>Username</label>   
-                <input className='text-xl p-3' type="text" value={user.username} placeholder='Username' disabled/>
+                <input className='text-xl p-3' type="text" value={user.username||''} placeholder='Username' disabled/>
                 <label htmlFor="" className='text-2xl'>Email</label>   
-                <input className='text-xl p-3' type="text" value={user.email} placeholder='Username' disabled/>
+                <input className='text-xl p-3' type="text" value={user.email||''} placeholder='Username' disabled/>
                 
                 {userId?(
                     (!address)?(
@@ -115,21 +115,21 @@ function Profile() {
                                 <span className='text-2xl text-center p-2'>ADDRESS</span>
                                 <div className='sm:space-x-3 space-x-0 flex flex-wrap mb-3 justify-center items-center'>
                                     <label htmlFor="">Pincode</label>
-                                    <input className='text-xl bg-transparent p-2' name='pincode' value={address.pincode} type="text"  placeholder='Pincode' disabled/>
+                                    <input className='text-xl bg-transparent p-2' name='pincode' value={address.pincode||''} type="text"  placeholder='Pincode' disabled/>
                                     <label htmlFor="">house name</label>
-                                    <input className='text-xl bg-transparent p-2' name='housename' value={address.housename} type="text"  placeholder='House Name' disabled/>
+                                    <input className='text-xl bg-transparent p-2' name='housename' value={address.housename||''} type="text"  placeholder='House Name' disabled/>
                                 </div>
                                 <div className='sm:space-x-3 space-x-0 flex flex-wrap mb-3 justify-center items-center'>
                                     <label htmlFor="">City</label>
-                                    <input className='text-xl bg-transparent p-2' name='city' value={address.city} type="text"  placeholder='city'disabled/>
+                                    <input className='text-xl bg-transparent p-2' name='city' value={address.city||''} type="text"  placeholder='city'disabled/>
                                     <label htmlFor="">Lank mark</label>
-                                    <input className='text-xl bg-transparent p-2' name='landmark' value={address.landmark} type="text"  placeholder='landmark'disabled/>
+                                    <input className='text-xl bg-transparent p-2' name='landmark' value={address.landmark||''} type="text"  placeholder='landmark'disabled/>
                                 </div>
                                 <div className='sm:space-x-3 space-x-0 flex flex-wrap mb-3 justify-center items-center'>
                                     <label htmlFor="">District</label>
-                                    <input className='text-xl bg-transparent p-2' name='district' value={address.district} type="text"  placeholder='district'disabled/>
+                                    <input className='text-xl bg-transparent p-2' name='district' value={address.district||""} type="text"  placeholder='district'disabled/>
                                     <label htmlFor="">State</label>
-                                    <input className='text-xl bg-transparent p-2' name='state' value={address.state} type="text"  placeholder='state'disabled/>
+                                    <input className='text-xl bg-transparent p-2' name='state' value={address.state||''} type="text"  placeholder='state'disabled/>
                                 </div>
                                 <div className='sm:space-x-3 space-x-0 flex flex-wrap justify-center mb-10 mt-2'>
                                     <button className='bg-blue-500 rounded-lg p-2 text-white' onClick={()=>{setAddressFlag(true);setAddress(null)}}>CHANGE</button>

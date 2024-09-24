@@ -141,7 +141,32 @@
       "email": "hrjpunda@gmail.com",
       "password": "zcpunda",
       "block": false,
-      "cart": [],
+      "cart": [
+        {
+          "id": "1012",
+          "name": "Baby Hairbrush Set",
+          "description": "Soft bristles perfect for brushing a baby's sensitive scalp and hair.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/71Q-x5zYeuL._SX569_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/71Q-x5zYeuL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/812NBnXyjKL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71GIcuh28CL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/81LXkdk2NxL._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/712qU8C8D4L._SX569_.jpg",
+            "https://f.media-amazon.com/images/I/71z9QQGD9XL._SX569_.jpg"
+          ],
+          "price": 120,
+          "oldprice": 150,
+          "bestseller": false,
+          "newlyadded": true,
+          "stock": 0,
+          "rating": 4.2,
+          "count": 1,
+          "totalprice": 120,
+          "oldtotalprice": 150
+        }
+      ],
       "orders": [
         {
           "id": 1726906557386,
@@ -236,6 +261,64 @@
             "day": "Sat Sep 21 2024"
           },
           "orderprice": 1820
+        },
+        {
+          "id": 1727161988290,
+          "item": [
+            {
+              "id": "db29",
+              "name": "Jumping Rabbit Bird & Penguin",
+              "description": "Amitasha 3 Pcs Jumping Rabbit Bird & Penguin Wind Up Key Operated Crawling Walking Moving Toys for Toddler Baby & Kids Interactive Walking Educational Toys 6 months- 5Years Old Kids (Multicolored)",
+              "category": "toys",
+              "price": 349,
+              "oldprice": 999,
+              "stock": 28,
+              "bestseller": false,
+              "newlyadded": true,
+              "addedDate": "2024-09-23T04:23:14.747Z",
+              "images": [
+                "https://m.media-amazon.com/images/I/711ebKW3YIL._SL1500_.jpg",
+                "https://m.media-amazon.com/images/I/61NEm8Ge-eL._SL1000_.jpg",
+                "https://m.media-amazon.com/images/I/41GNyfQYnqL._SL1000_.jpg",
+                "https://m.media-amazon.com/images/I/71fdmagvEiL._SL1500_.jpg",
+                "https://m.media-amazon.com/images/I/51JcK5wVgOL._SL1000_.jpg",
+                "https://m.media-amazon.com/images/I/51yBcCa-7rL._SL1500_.jpg",
+                "https://m.media-amazon.com/images/I/51JcK5wVgOL._SL1000_.jpg"
+              ],
+              "count": 1,
+              "totalprice": 349,
+              "oldtotalprice": 999
+            },
+            {
+              "id": "b1eb",
+              "name": "Unicorn Teddy Bear",
+              "description": "Babique Unicorn Teddy Bear Plush Soft Toy Cute Kids Birthday Animal Baby Boys/Girls (25 cm, Pink)",
+              "category": "toys",
+              "price": 169,
+              "oldprice": 699,
+              "stock": 42,
+              "bestseller": false,
+              "newlyadded": true,
+              "addedDate": "2024-09-23T04:28:04.448Z",
+              "images": [
+                "https://m.media-amazon.com/images/I/51C5TrSt-GL._SY450_.jpg",
+                "https://m.media-amazon.com/images/I/51mxxiGwRTL._SY450_.jpg",
+                "https://m.media-amazon.com/images/I/51hIHODTryL._SY450_.jpg",
+                "https://m.media-amazon.com/images/I/51U-GCaYstL._SY450_.jpg",
+                "https://m.media-amazon.com/images/I/51gjDzfadbL._SY450_.jpg",
+                "https://m.media-amazon.com/images/I/418ASKmsCRL._SX450_.jpg"
+              ],
+              "count": 2,
+              "totalprice": 338,
+              "oldtotalprice": 1398
+            }
+          ],
+          "paymentMethod": "EMI",
+          "date": {
+            "time": "12:43:08 PM",
+            "day": "Tue Sep 24 2024"
+          },
+          "orderprice": 707
         }
       ],
       "wishlist": [],
@@ -254,34 +337,76 @@
       "username": "hrj",
       "email": "hrj@gmail.com",
       "password": "hrjpunda",
-      "block": false,
+      "block": true,
       "cart": [
         {
-          "id": "1003",
-          "name": "Baby Milk Formula",
-          "description": "Nutritious and easily digestible baby formula for newborns. Provides all the essential vitamins and nutrients for healthy growth.",
-          "category": "foods",
-          "image": "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
+          "id": "1002",
+          "name": "Organic Baby Shampoo",
+          "description": "A gentle, tear-free shampoo specially formulated for your baby’s delicate skin and hair. Made with organic ingredients and free from harmful chemicals.",
+          "category": "bathing",
+          "image": "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
           "images": [
-            "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/91I60vtKUOL._SX679_.jpg",
-            "https://f.media-amazon.com/images/I/813OHp65eaL._SY879_.jpg",
-            "https://f.media-amazon.com/images/I/81erqBm97rL._SY879_.jpg",
-            "https://f.media-amazon.com/images/I/81Es7q252HL._SX679_.jpg"
+            "https://f.media-amazon.com/images/I/71I5PeongNL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/616TF7kFyEL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71YkIf9bKZL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/71f15wupisL._SX679_.jpg"
           ],
-          "price": 450,
-          "oldprice": 500,
+          "price": 250,
+          "oldprice": 300,
           "bestseller": true,
-          "newlyadded": false,
-          "stock": 40,
-          "rating": 4.9,
-          "count": 1,
-          "totalprice": 450,
-          "oldtotalprice": 500
+          "newlyadded": true,
+          "stock": 0,
+          "rating": 4.6,
+          "count": 2,
+          "totalprice": 500,
+          "oldtotalprice": 600
         }
       ],
-      "orders": [],
-      "wishlist": []
+      "orders": [
+        {
+          "id": 1727071124765,
+          "item": [
+            {
+              "id": "1003",
+              "name": "Baby Milk Formula",
+              "description": "Nutritious and easily digestible baby formula for newborns. Provides all the essential vitamins and nutrients for healthy growth.",
+              "category": "foods",
+              "image": "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
+              "images": [
+                "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/91I60vtKUOL._SX679_.jpg",
+                "https://f.media-amazon.com/images/I/813OHp65eaL._SY879_.jpg",
+                "https://f.media-amazon.com/images/I/81erqBm97rL._SY879_.jpg",
+                "https://f.media-amazon.com/images/I/81Es7q252HL._SX679_.jpg"
+              ],
+              "price": 450,
+              "oldprice": 500,
+              "bestseller": true,
+              "newlyadded": false,
+              "stock": 40,
+              "rating": 4.9,
+              "count": 1,
+              "totalprice": 450,
+              "oldtotalprice": 500
+            }
+          ],
+          "paymentMethod": "NetBanking",
+          "date": {
+            "time": "11:28:44 AM",
+            "day": "Mon Sep 23 2024"
+          },
+          "orderprice": 510
+        }
+      ],
+      "wishlist": [],
+      "address": {
+        "pincode": "673638",
+        "housename": "raj nivas",
+        "city": "kondotty",
+        "landmark": "palace auditorium",
+        "district": "malappuram",
+        "state": "kerala"
+      }
     }
   ],
   "products": [
@@ -611,44 +736,6 @@
       "rating": 4.9
     },
     {
-      "id": "a04b",
-      "name": "HRJ Custom PC",
-      "description": "vishayam anu mowne",
-      "category": "toys",
-      "price": 1300000,
-      "oldprice": 2000000,
-      "stock": 1,
-      "bestseller": true,
-      "newlyadded": true,
-      "addedDate": "2024-09-19T22:18:39.013Z",
-      "images": [
-        "https://m.media-amazon.com/images/I/71mv4-KuiML._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71H+LSQY3oL._SX569_.jpg",
-        "https://m.media-amazon.com/images/I/71GJDUnR16L._SX569_.jpg",
-        "https://m.media-amazon.com/images/I/71yNSBTtjFL._SX569_.jpg"
-      ]
-    },
-    {
-      "id": "3066",
-      "name": "HRJ LAPTOP",
-      "description": "Ethum Shoooparada",
-      "category": "toys",
-      "price": 50000,
-      "oldprice": 48000,
-      "stock": 1,
-      "bestseller": true,
-      "newlyadded": true,
-      "addedDate": "2024-09-19T22:18:39.013Z",
-      "images": [
-        "https://m.media-amazon.com/images/I/41rafnfnlqL._SX300_SY300_QL70_FMwebp_.jpg",
-        "https://m.media-amazon.com/images/I/81x9vxrPFwS._SY450_.jpg",
-        "https://m.media-amazon.com/images/I/71RmM9Ar9bL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71j7bMU1AbL._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71m6umYCi2L._SX679_.jpg",
-        "https://m.media-amazon.com/images/I/71o0qZweD2L._SX679_.jpg"
-      ]
-    },
-    {
       "id": "db29",
       "name": "Jumping Rabbit Bird & Penguin",
       "description": "Amitasha 3 Pcs Jumping Rabbit Bird & Penguin Wind Up Key Operated Crawling Walking Moving Toys for Toddler Baby & Kids Interactive Walking Educational Toys 6 months- 5Years Old Kids (Multicolored)",
@@ -691,9 +778,9 @@
     },
     {
       "id": "f1a0",
-      "name": "Baby Gentle Wet Wipes",
+      "name": "Baby Gentle soap",
       "description": "Mee Mee Baby Gentle Wet Wipes with Aloe Vera extracts, 72 counts, Pack of 3",
-      "category": "bathing",
+      "category": "toys",
       "price": 387,
       "oldprice": 1899,
       "stock": 48,
@@ -712,7 +799,7 @@
   ],
   "totalorders": [
     {
-      "totalprice": 8120,
+      "totalprice": 9337,
       "id": "500"
     },
     {
@@ -926,6 +1013,100 @@
         "day": "Sat Sep 21 2024"
       },
       "orderprice": 1820
+    },
+    {
+      "id": "1727071124785",
+      "user": "Hrithic raj p",
+      "item": [
+        {
+          "id": "1003",
+          "name": "Baby Milk Formula",
+          "description": "Nutritious and easily digestible baby formula for newborns. Provides all the essential vitamins and nutrients for healthy growth.",
+          "category": "foods",
+          "image": "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
+          "images": [
+            "https://f.media-amazon.com/images/I/71fEtlVkElL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/91I60vtKUOL._SX679_.jpg",
+            "https://f.media-amazon.com/images/I/813OHp65eaL._SY879_.jpg",
+            "https://f.media-amazon.com/images/I/81erqBm97rL._SY879_.jpg",
+            "https://f.media-amazon.com/images/I/81Es7q252HL._SX679_.jpg"
+          ],
+          "price": 450,
+          "oldprice": 500,
+          "bestseller": true,
+          "newlyadded": false,
+          "stock": 40,
+          "rating": 4.9,
+          "count": 1,
+          "totalprice": 450,
+          "oldtotalprice": 500
+        }
+      ],
+      "paymentMethod": "NetBanking",
+      "date": {
+        "time": "11:28:44 AM",
+        "day": "Mon Sep 23 2024"
+      },
+      "orderprice": 510
+    },
+    {
+      "id": 1727161988296,
+      "user": "abhay",
+      "item": [
+        {
+          "id": "db29",
+          "name": "Jumping Rabbit Bird & Penguin",
+          "description": "Amitasha 3 Pcs Jumping Rabbit Bird & Penguin Wind Up Key Operated Crawling Walking Moving Toys for Toddler Baby & Kids Interactive Walking Educational Toys 6 months- 5Years Old Kids (Multicolored)",
+          "category": "toys",
+          "price": 349,
+          "oldprice": 999,
+          "stock": 28,
+          "bestseller": false,
+          "newlyadded": true,
+          "addedDate": "2024-09-23T04:23:14.747Z",
+          "images": [
+            "https://m.media-amazon.com/images/I/711ebKW3YIL._SL1500_.jpg",
+            "https://m.media-amazon.com/images/I/61NEm8Ge-eL._SL1000_.jpg",
+            "https://m.media-amazon.com/images/I/41GNyfQYnqL._SL1000_.jpg",
+            "https://m.media-amazon.com/images/I/71fdmagvEiL._SL1500_.jpg",
+            "https://m.media-amazon.com/images/I/51JcK5wVgOL._SL1000_.jpg",
+            "https://m.media-amazon.com/images/I/51yBcCa-7rL._SL1500_.jpg",
+            "https://m.media-amazon.com/images/I/51JcK5wVgOL._SL1000_.jpg"
+          ],
+          "count": 1,
+          "totalprice": 349,
+          "oldtotalprice": 999
+        },
+        {
+          "id": "b1eb",
+          "name": "Unicorn Teddy Bear",
+          "description": "Babique Unicorn Teddy Bear Plush Soft Toy Cute Kids Birthday Animal Baby Boys/Girls (25 cm, Pink)",
+          "category": "toys",
+          "price": 169,
+          "oldprice": 699,
+          "stock": 42,
+          "bestseller": false,
+          "newlyadded": true,
+          "addedDate": "2024-09-23T04:28:04.448Z",
+          "images": [
+            "https://m.media-amazon.com/images/I/51C5TrSt-GL._SY450_.jpg",
+            "https://m.media-amazon.com/images/I/51mxxiGwRTL._SY450_.jpg",
+            "https://m.media-amazon.com/images/I/51hIHODTryL._SY450_.jpg",
+            "https://m.media-amazon.com/images/I/51U-GCaYstL._SY450_.jpg",
+            "https://m.media-amazon.com/images/I/51gjDzfadbL._SY450_.jpg",
+            "https://m.media-amazon.com/images/I/418ASKmsCRL._SX450_.jpg"
+          ],
+          "count": 2,
+          "totalprice": 338,
+          "oldtotalprice": 1398
+        }
+      ],
+      "paymentMethod": "EMI",
+      "date": {
+        "time": "12:43:08 PM",
+        "day": "Tue Sep 24 2024"
+      },
+      "orderprice": 707
     }
   ],
   "newsletter": [

@@ -88,7 +88,7 @@ function AdminNavbar(props) {
       if(!admin){
         navigate('/home')
       }
-    })
+    },[admin])
   return (
    <>
   <div className='fixed top-0 w-full z-30 p-4 border-b border-gray-300' style={{backgroundColor :'#FFFFFF' ,height : "80px", width :"100%"}}>

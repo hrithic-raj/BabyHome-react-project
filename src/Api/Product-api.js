@@ -61,7 +61,6 @@ export const deleteCartById=async(userId,productId)=>{
     const currentCart=await getCartById(userId);
     const updatedCart=currentCart.filter((item)=>item.id!==productId);
     await axios.patch(`${userURL}/${userId}`,{cart: updatedCart});
-    console.log("Product deleted from cart successfully!");
     return await getCartById(userId);
 }
 
@@ -106,14 +105,10 @@ export const getTotalOrders=async()=>{
 
 export const addToOrder = async(userId,ordersList,totalOrderList,total)=>{
     const currentOrder=await getOrderById(userId)
-    // const [currentTotalPrice,setCurrentTotalPrice]=useState([])
-    // const currenttotalOrder=await getTotalOrders()
     let updatedOrder;
-    // let updatedTotalOrder;
     // console.log(currentOrder)
     if(!currentOrder){
         updatedOrder=[ordersList]
-        // updatedTotalOrder=[totalOrderList]
     }
     else{
         updatedOrder=[...currentOrder,ordersList]

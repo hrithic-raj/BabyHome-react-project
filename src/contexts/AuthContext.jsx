@@ -31,7 +31,7 @@ export const AuthProvider = ({children})=>{
                         localStorage.setItem('userId',loggedInUser.id);
                         setTimeout(()=>{
                             navigate('/home')
-                            toast.success(`Welcome ${loggedInUser.name}`)
+                            toast.success(`Welcome ${loggedInUser.name}`,{position:'bottom-left'})
                         },1000)
                     }
                     else{

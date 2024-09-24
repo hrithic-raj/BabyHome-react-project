@@ -3,7 +3,6 @@ import axios from "axios";
 const USERURL="http://localhost:5000/users"
 const PRODUCTURL="http://localhost:5000/products";
 const ORDERSURL="http://localhost:5000/totalorders"
-const SALESURL="http://localhost:5000/totalsales"
 
 
 //users
@@ -28,25 +27,21 @@ export const deleteProductById=(id)=>{
     return axios.delete(`${PRODUCTURL}/${id}`)
 }
 
-export const getTotalOrders=async()=>{
-    const res=await axios.get(ORDERSURL)
-    return res.data;
-}
-
 export const addtoProduct=async(newProduct)=>{
     const res = await axios.post(PRODUCTURL,newProduct)
     return res.data
 }
+
 export const editProduct=(id,updatedProduct)=>{
     return axios.patch(`${PRODUCTURL}/${id}`,updatedProduct)
 }
 
+//Cart
+export const getTotalOrders=async()=>{
+    const res=await axios.get(ORDERSURL)
+    return res.data;
+}
 export const getTotalSales= async ()=>{
     const res = await axios.get(`${ORDERSURL}/500`)
     return res.data.totalprice;
 }
-
-// export const getTotalOrders= async ()=>{
-//     const res = await axios.get(`${ORDERSURL}/500`)
-//     return res.data.totalprice;
-// }

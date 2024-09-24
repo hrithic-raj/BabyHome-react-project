@@ -31,7 +31,7 @@ function Payment() {
             setTotal(cart.reduce((acc,value)=>acc+value.totalprice,60))
             setOldTotal(cart.reduce((acc,value)=>acc+value.oldtotalprice,0))
         }
-    })
+    },[cart])
     useEffect(()=>{
         getCartById(userId)
         .then(res=>setCart(res))
