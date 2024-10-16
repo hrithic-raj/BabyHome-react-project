@@ -37,12 +37,12 @@ function Dashboard() {
   },[])
   
   return (
-    <div className='relative bg-gray-100 lg:h-screen'>
+    <div className='relative bg-gray-100'>
         <AdminNavbar/>
         <div className='mt-[80px]'>
         <Sidebar/>
-        <div className='lg:ms-20 md:ms-10 flex flex-col items-center lg:mb-10 lg:pe-5'>
-          <div className='grid grid-cols-1 mt-4 md:grid-cols-4 justify-items-center lg:grid-cols-8 gap-6 '>
+        <div className='lg:ms-20 md:ms-10 flex flex-col items-center  lg:pe-5'>
+          <div className=' grid lg:mb-10 grid-cols-1 mt-4 md:grid-cols-4 justify-items-center lg:grid-cols-8 gap-6 '>
               <div className=' w-[330px] h-[200px] p-6 bg-white rounded-lg shadow-lg col-span-2 flex justify-between'>
                 <div>
                   <div className="text-green-600 font-bold">Total Sales</div>
@@ -79,8 +79,8 @@ function Dashboard() {
                   <img src="https://cdn-icons-png.flaticon.com/512/10112/10112502.png" className='w-[130px] mt-4' alt="" />
                 </div>
               </div>
-              <div className='h-[400px] w-[95%] bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
-                <div className='flex flex-col h-[400px]'>
+              <div className='min-h-[40vh] w-[95%] bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
+                <div className='flex flex-col h-[500px]'>
                   <span className='text-2xl text-center font-semibold border-b-2'>RECENT ORDERS</span>
                   <div className='grid grid-cols-4 justify-items-center items-center mb-5'>
                         <span className='text-lg font-semibold'>USER</span>
@@ -106,8 +106,8 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className='h-[400px] bg-white w-[95%] rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
-              <div className='flex flex-col h-[400px]'>
+              <div className='min-h-[40vh] bg-white w-[95%] rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-3'>
+              <div className='flex flex-col h-[500px]'>
                   <span className='text-2xl text-center font-semibold border-b-2'>PRODUCT OVERVIEW</span>
                   <div className='grid grid-cols-4 justify-items-center items-center'>
                         <span className='text-lg font-semibold'>IMAGE</span>
@@ -115,7 +115,7 @@ function Dashboard() {
                         <span className='text-lg font-semibold'>PRICE</span>
                         <span className='text-lg font-semibold'>STOCK</span>
                   </div>
-                  <div className='h-[400px] overflow-auto custom-scrollbar'>
+                  <div className='h-[430px] overflow-auto custom-scrollbar'>
                     {products.slice(0).reverse().map(product=>(
                       <div key={product.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
                         <img className='w-[70px]' src={product.images[0]} alt="" />
@@ -127,8 +127,8 @@ function Dashboard() {
                   </div>
                 </div>
               </div>
-              <div className='h-[400px] w-[95%]  bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-2'>
-              <div className='flex flex-col h-[400px]'>
+              <div className='min-h-[40vh] w-[95%]  bg-white rounded-lg shadow-lg col-span-2 md:col-span-4 lg:col-span-2'>
+              <div className='flex flex-col h-[500px]'>
                   <span className='text-2xl text-center font-semibold border-b-2'>BEST SELLERS</span>
                   <div className='grid grid-cols-4 justify-items-center items-center'>
                         <span className='text-lg font-semibold'>IMAGE</span>
@@ -136,7 +136,7 @@ function Dashboard() {
                         <span className='text-lg font-semibold'>PRICE</span>
                         <span className='text-lg font-semibold'>STOCK</span>
                   </div>
-                  <div className='h-[400px] overflow-auto custom-scrollbar'>
+                  <div className='h-[430px] overflow-auto custom-scrollbar'>
                     {bestSellers.map((product)=>
                         <div key={product.id} className='grid grid-cols-4 justify-items-center items-center mb-3'>
                           <img className='w-[70px]' src={product.images[0]} alt="" />

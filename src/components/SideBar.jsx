@@ -138,7 +138,7 @@ const Sidebar = () => {
                             <img className='ms-1 w-9' src={productIcon} alt="" />
                             <span className=' text-sky-600'>Products</span>
                         </div>
-                        <div className="flex items-center space-x-4 w-full p-2 hover:bg-slate-200 cursor-pointer">
+                        <div className="flex items-center space-x-4 w-full p-2 hover:bg-slate-200 cursor-pointer" onClick={()=>navigate('/admin/orders')}>
                             {/* <FaShoppingCart className='ms-3  text-sky-600' size={24} /> */}
                             <img className='ms-2 w-7' src={orderIcon} alt="" />
                             <span className=' text-sky-600'>Orders</span>

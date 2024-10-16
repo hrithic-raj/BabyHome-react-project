@@ -81,7 +81,7 @@ function AdminProduct() {
         <div className='mt-[80px]'>
           <Sidebar/>
           <div className='lg:ms-20 flex flex-col items-center justify-center'>
-          <div className='grid grid-cols-1 mt-4 md:grid-cols-4 lg:grid-cols-8 lg:grid-rows-3 md:gap-6 gap-y-3 order-1 justify-items-center'>
+          <div className='mb-[13vh] grid grid-cols-1 mt-4 md:grid-cols-4 lg:grid-cols-8 lg:grid-rows-3 md:gap-6 gap-y-3 order-1 justify-items-center'>
               <div className=' w-[330px] h-[200px] p-6 bg-white rounded-lg shadow-lg md:col-span-2 flex justify-between cursor-pointer' onClick={()=>navigate('/admin/products/addproduct')}>
                 <div>
                   <div className="text-black text-3xl font-bold mt-2">Add Product</div>

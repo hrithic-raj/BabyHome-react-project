@@ -53,7 +53,7 @@ function App() {
         <Route path='/wishlist' element={<Wishlist/>}/>
         <Route path='/payment' element={<Payment/>}/>
         <Route path='/store/:category' element={<Store/>}/>
-        <Route path='/admin'>
+        <Route path='/admin' >
           <Route path='/admin' element={<Dashboard/>}/>
           <Route path='/admin/products' element={<AdminProduct/>}/>
           <Route path='/admin/users' element={<AdminUser/>}/>
